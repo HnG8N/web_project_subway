@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.javalec.command.Command;
+import com.javalec.command.SignupCommand;
 
 /**
  * Servlet implementation class FrontController
  */
-@WebServlet("/FrontController")
+@WebServlet("*.do")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -59,8 +60,13 @@ public class FrontController extends HttpServlet {
 		System.out.println(com);		//  /list.do라고 뜸(이걸로 페이지를 판단)
 
 		switch (com) {
-		case ("/indexx.do"):
-			viewPage = "indexx.jsp";
+		case ("/signup_view.do"):
+			viewPage = "/jsp/signup/signup.jsp";
+			break;
+		case ("signup.do"):
+			command = new SignupCommand();
+			command.execute(request, response);
+			viewPage = "/jsp/signup/login.jsp";
 			break;
 		default:
 			break;
