@@ -18,7 +18,6 @@ $(document).ready(function() {
             url: "CheckId",
             data: { mid: id },
             success: function(response) {
-				alert(response);
                 if (response > 0) {
                     $("#result").text("이미 사용 중인 아이디입니다.");
                     idValidated = false; // 중복되는 아이디일 경우 확인되지 않은 상태로 설정
