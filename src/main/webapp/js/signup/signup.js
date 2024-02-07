@@ -2,6 +2,35 @@
  *  회원가입 java script
  */
 
+var idValidated = false;
+
+$(document).ready(function() {
+    $("#checkid").click(function() {
+        var id = $("#id").val();
+
+        if (id.trim() === '') {
+            $("#result").text("아이디를 입력하세요.");
+            return; // 빈칸일 경우 함수 종료
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "CheckId",
+            data: { mid: id },
+            success: function(response) {
+				alert(response);
+                if (response > 0) {
+                    $("#result").text("이미 사용 중인 아이디입니다.");
+                    idValidated = false; // 중복되는 아이디일 경우 확인되지 않은 상태로 설정
+                } else {
+                    $("#result").text("사용 가능한 아이디입니다.");
+                    idValidated = true; // 사용 가능한 아이디일 경우 확인된 상태로 설정
+                }
+            }
+        });
+    });
+});
+
 // 다음 주소 api 받아오는 함수
 function execDaumPostcode() {
 	new daum.Postcode({
@@ -53,12 +82,12 @@ function execDaumPostcode() {
 
 // 선택한 달에 따라서 일수바뀌는 함수
 function updateDays() {
-	
+
 	var yearSelect = document.getElementById("yearSelect");
 	var monthSelect = document.getElementById("monthSelect");
 	var daySelect = document.getElementById("daySelect");
-	
-	var selectedYear = parseInt(yearSelect.value,10);
+
+	var selectedYear = parseInt(yearSelect.value, 10);
 	var selectedMonth = parseInt(monthSelect.value, 10);
 	var daysInMonth;
 
@@ -80,10 +109,10 @@ function updateDays() {
 			break;
 		// 윤년 계산
 		case 2:
-			if (selectedYear % 4 == 0){
+			if (selectedYear % 4 == 0) {
 				daysInMonth = 29;
 			}
-			else{
+			else {
 				daysInMonth = 28;
 			}
 			break;
@@ -114,41 +143,48 @@ function validation() {
     var detailAddress = document.getElementById("detailAddress").value;
     var mid = document.getElementById("mid").value;
     var end = document.getElementById("end").value;
+    var result = document.getElementById("result").value;
+
+    // 아이디 중복 확인이 완료되지 않았을 경우
+    if (!idValidated) {
+        alert("아이디 중복 확인을 먼저 실행하세요.");
+        return false; // 폼 제출을 막음
+    }
 
     // ID 유효성 검사: 영어 소문자 및 숫자 허용, 최대 15자
     var idRegex = /^[a-z0-9]{1,15}$/;
     if (!idRegex.test(id)) {
         alert("ID는 영어 소문자와 숫자만 사용 가능하며, 최대 15자까지 입력 가능합니다.");
-        return false;
+        return false; // 폼 제출을 막음
     }
 
     // PW 유효성 검사: 영어, 숫자, 특수문자 허용, 최대 15자
     var pwRegex = /^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\-]{8,15}$/;
     if (!pwRegex.test(pw)) {
         alert("PW는 영어, 숫자, 특수문자만 사용 가능하며, 8자부터 15자까지 입력 가능합니다.");
-        return false;
+        return false; // 폼 제출을 막음
     }
 
     // 이름 유효성 검사: 한글 또는 영어만 허용, 최대 10자
     var nameRegex = /^[가-힣a-zA-Z]{1,10}$/;
     if (!nameRegex.test(name)) {
         alert("이름은 한글 또는 영어만 사용 가능하며, 최대 10자까지 입력 가능합니다.");
-        return false;
+        return false; // 폼 제출을 막음
     }
-    
+
     // 주소 유효성 검사 : 빈칸이면 안됨
-	if (postcode === '' || address === '' || detailAddress === '') {
+    if (postcode === '' || address === '' || detailAddress === '') {
         alert("주소 관련 필드는 모두 입력되어야 합니다.");
-        return false;
+        return false; // 폼 제출을 막음
     }
 
     // Mid, End 유효성 검사: 숫자만 허용, 각각 4자리
     var numberRegex = /^\d{4}$/;
     if (!numberRegex.test(mid) || !numberRegex.test(end)) {
         alert("전화번호는 숫자만 입력 가능하며, 각각 4자리여야 합니다.");
-        return false;
+        return false; // 폼 제출을 막음
     }
-    
+
     // 모든 조건을 통과하면 폼 제출
-    alert("회원가입 성공!");  // 실제로는 폼 제출 코드로 변경해야 합니다.
+    return true; // 폼 제출을 허용
 }

@@ -4,16 +4,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+  	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="../../js/signup/signup.js"></script>
+    <script src="js/signup/signup.js"></script>
+    <title>회원가입</title>
   </head>
   <body>
   	<h1>회원가입</h1>
   	
-  	<form action="signup.do" method="post">
+  	<form action="signup.do" method="post" onsubmit="return validation()">
   	아이디 : <input type="text" id="id" name="id">
-  			<input type="button" onclick="" value="아이디 중복 검사"><br>
+  			<button type="button" id="checkid">아이디 중복 검사</button><br>
+  			<div id="result"></div>
   	
   	비밀번호 : <input type="password" id="pw" name="pw"><br>
   	
@@ -51,8 +53,8 @@
     		<input type="text" id="mid" name="mid" maxlength="4">
     		-
     		<input type="text" id="end" name="end" maxlength="4"><br>
-    <input type="submit" value="회원가입" onclick="validation()">
-    eqwr	
+    <input type="submit" value="회원가입">
     </form>
+    
   </body>
 </html>
