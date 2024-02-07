@@ -63,6 +63,9 @@ public class FrontController extends HttpServlet {
 		System.out.println(com);		//  /list.do라고 뜸(이걸로 페이지를 판단)
 
 		switch (com) {
+		case("/login_view.do"):
+			viewPage = "/jsp/signup/login.jsp";
+			break;
 		case ("/signup_view.do"):
 			viewPage = "/jsp/signup/signup.jsp";
 			break;
