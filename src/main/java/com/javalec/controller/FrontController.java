@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.javalec.command.Command;
+import com.javalec.command.SaladListCommand;
+import com.javalec.command.SandwichListCommand;
 import com.javalec.command.SignupCommand;
+import com.javalec.command.UnitListCommand;
 
 /**
  * Servlet implementation class FrontController
@@ -60,6 +63,9 @@ public class FrontController extends HttpServlet {
 		System.out.println(com);		//  /list.do라고 뜸(이걸로 페이지를 판단)
 
 		switch (com) {
+		case("/login_view.do"):
+			viewPage = "/jsp/signup/login.jsp";
+			break;
 		case ("/signup_view.do"):
 			viewPage = "/jsp/signup/signup.jsp";
 			break;
@@ -67,6 +73,51 @@ public class FrontController extends HttpServlet {
 			command = new SignupCommand();
 			command.execute(request, response);
 			viewPage = "/jsp/signup/login.jsp";
+			break;
+		case ("/mypage.do"):	// 매장찾기
+//			command = new SandwichListCommand();
+//			command.execute(request, response);
+			viewPage = "mypage.jsp";
+			break;
+		case ("/agreement.do"):	// 매장찾기
+//			command = new SandwichListCommand();
+//			command.execute(request, response);
+			viewPage = "agreement.jsp";
+			break;
+		case ("/storeSearch.do"):	// 매장찾기
+//			command = new SandwichListCommand();
+//			command.execute(request, response);
+			viewPage = "storeSearch.jsp";
+			break;
+		case ("/utilizationSubway.do"):	// 서브웨이 이용방법
+//			command = new SandwichListCommand();
+//			command.execute(request, response);
+			viewPage = "utilizationSubway.jsp";
+			break;
+		case ("/freshInfo.do"):	// 신선한 재료 소개
+//			command = new SandwichListCommand();
+//			command.execute(request, response);
+			viewPage = "freshInfo.jsp";
+			break;
+		case ("/store.do"):	// 신선한 재료 소개
+//			command = new SandwichListCommand();
+//			command.execute(request, response);
+			viewPage = "order/view/fast/near/store.jsp";
+			break;
+		case ("/sandwich.do"):	// 샌드위치 메뉴소개
+			command = new SandwichListCommand();
+			command.execute(request, response);
+			viewPage = "menuList/sandwich.jsp";
+			break;
+		case ("/salad.do"):	// 샐러드 메뉴소개
+			command = new SaladListCommand();
+			command.execute(request, response);
+			viewPage = "menuList/salad.jsp";
+			break;
+		case ("/unit.do"):	// 랩, 기타 메뉴소개
+			command = new UnitListCommand();
+			command.execute(request, response);
+			viewPage = "menuList/unit.jsp";
 			break;
 		default:
 			break;
