@@ -60,35 +60,35 @@
 						<li><a class="dp1" href="#none">메뉴소개</a>
 							<div class="dp2">
 								<ul>
-									<li><a href="/menuList/sandwich.do">샌드위치</a></li>
-									<li><a href="/menuList/unit.do">랩ㆍ기타</a></li>
-									<li><a href="/menuList/salad.do">샐러드</a></li>
+									<li><a href="sandwich.do">샌드위치</a></li>
+									<li><a href="unit.do">랩ㆍ기타</a></li>
+									<li><a href="salad.do">샐러드</a></li>
 								</ul>
 							</div></li>
 						<li><a href="#none" class="dp1">이용방법</a>
 							<div class="dp2">
 								<ul>
-									<li><a href="/utilizationSubway">써브웨이 이용방법</a></li>
-									<li><a href="/freshInfo">신선한 재료 소개</a></li>
+									<li><a href="utilizationSubway.do">써브웨이 이용방법</a></li>
+									<li><a href="freshInfo.do">신선한 재료 소개</a></li>
 								</ul>
 							</div></li>
 						<li><a href="#none" class="dp1">새소식</a>
 							<div class="dp2">
 								<ul>
-									<li><a href="/newsList">공지사항</a></li>
-									<li><a href="/board">이용후기</a></li>
+									<li><a href="newsList">공지사항</a></li>
+									<li><a href="board">이용후기</a></li>
 								</ul>
 							</div></li>
 						<li><a href="#none" class="dp1">써브웨이</a>
 							<div class="dp2">
 								<ul>
-									<li><a href="/storeSearch.do">매장찾기</a></li>
+									<li><a href="storeSearch.do">매장찾기</a></li>
 								</ul>
 							</div></li>
 						<li><a class="dp1" href="javascript:void(0);">온라인 주문</a>
 							<div class="dp2">
 								<ul>
-									<li><a href="/order/view/fast/near/store">FAST-SUB</a></li>
+									<li><a href="store.do">FAST-SUB</a></li>
 								</ul>
 							</div></li>
 					</ul>
