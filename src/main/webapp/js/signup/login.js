@@ -14,12 +14,10 @@ $(document).ready(function() {
 				url: "CheckPw", // 비밀번호 확인을 위한 서블릿 또는 URL
 				data: { mid: id },
 				success: function(response) {
-					
 					if (response.replaceAll("\"","") === pw) {
 						// 비밀번호가 일치할 경우 로그인 액션을 실행
 						form.submit();
 					} else {
-						alert(response);
 						alert("비밀번호가 일치하지 않습니다.");
 					}
 				}
