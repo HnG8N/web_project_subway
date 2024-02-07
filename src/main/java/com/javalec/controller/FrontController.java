@@ -69,10 +69,10 @@ public class FrontController extends HttpServlet {
 		case ("/signup_view.do"):
 			viewPage = "/jsp/signup/signup.jsp";
 			break;
-		case ("signup.do"):
+		case ("/signup.do"):
 			command = new SignupCommand();
 			command.execute(request, response);
-			viewPage = "/jsp/signup/login.jsp";
+			viewPage = "login_view.do";
 			break;
 		case ("/mypage.do"):	// 매장찾기
 //			command = new SandwichListCommand();
