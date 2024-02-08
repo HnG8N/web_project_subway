@@ -14,7 +14,7 @@ public class UnitListCommand implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		MenuDao dao = new MenuDao();
-		ArrayList<MenuDto> dtos = dao.getMenuList("랩");
+		ArrayList<MenuDto> dtos = dao.getMenuList("wrap");
 		request.setAttribute("MenuList", dtos);
 	}
 
