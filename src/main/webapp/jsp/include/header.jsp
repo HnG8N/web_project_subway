@@ -54,10 +54,10 @@
 					<ul>
 
 
-						<li class="after_sign"><a href="/logout">로그아웃</a></li>
-						<li class="after_sign"><a href="/mypage">MY-SUB</a></li>
+						<li class="after_sign"><a href="logout.do">로그아웃</a></li>
+						<li class="after_sign"><a href="mypage.do">MY-SUB</a></li>
 						<li class="icon_menu cart on">
-							<!-- 장바구니담았을때 class="on"추가 --> <a href="/cart/fastsub"> <span
+							<!-- 장바구니담았을때 class="on"추가 --> <a href="cart.do"> <span
 								class="blind">장바구니</span> <strong>1</strong>
 						</a>
 						</li>

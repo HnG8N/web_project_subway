@@ -58,7 +58,7 @@
 				<div class="wrap">
 					
 						<a href="/eventView?eventIdx=243">
-							<div class="img"><img alt="SUBPICK" src="./upload/banner/썹픽_PC 메인 배너_20240205093541800.jpg" /></div>
+							<div class="img"><img alt="SUBPICK" src="./jsp/upload/banner/썹픽_PC 메인 배너_20240205093541800.jpg" /></div>
 						</a>
 					
 					
@@ -68,7 +68,7 @@
 				<div class="wrap">
 					
 						<a href="/eventView?eventIdx=241">
-							<div class="img"><img alt="써브웨이 오늘의 수프" src="./upload/banner/오늘의수프_PC 메인 배너_20231204091713189.jpg" /></div>
+							<div class="img"><img alt="써브웨이 오늘의 수프" src="./jsp/upload/banner/오늘의수프_PC 메인 배너_20231204091713189.jpg" /></div>
 						</a>
 					
 					
@@ -78,7 +78,7 @@
 				<div class="wrap">
 					
 						<a href="/eventView?eventIdx=180">
-							<div class="img"><img alt="02.내손안의 작은 써브웨이" src="./upload/banner/main_PC_1920x440_20201006040046969.jpg" /></div>
+							<div class="img"><img alt="02.내손안의 작은 써브웨이" src="./jsp/upload/banner/main_PC_1920x440_20201006040046969.jpg" /></div>
 						</a>
 					
 					
@@ -90,21 +90,12 @@
 		<div class="quick_link">
 			<div class="quick_link_content">
 				<div class="store">
-					<a href="/storeSearch">
+					<a href="storeSearch.do">
 						<strong>매장찾기</strong>
-						<!-- 삭제 20180202
-                        <div class="layer">
-                            <strong>매장찾기</strong>
-                            <p>
-                                세계에서 인정받은<br />
-                                써브웨이만의 경쟁력을 경험해보세요!
-                            </p>
-                        </div>
-                        -->
 					</a>
 				</div>
 				<div class="franchise">
-					<a href="/franchiseInquiry"><strong>가맹신청ㆍ문의</strong></a>
+					<a href="#"><strong>가맹신청ㆍ문의</strong></a>
 				</div>
 			</div>
 		</div>
@@ -334,24 +325,6 @@
 								</div>
 							</a>
 						</li>
-						<!--<li>
-							<a href="/menuView/morning?menuItemIdx=1341">
-								<div class="wrap">
-									<div class="img"><img src="./images/menu/sandwich_bf03.png" alt="베이컨, 에그 & 치즈"></div>
-									<strong class="title">베이컨, 에그 & 치즈</strong>
-									<p>오리지널 아메리칸 스타일 베이컨으로<br />더욱 풍성한 아침 식사</p>
-								</div>
-							</a>
-						</li>-->
-						<!--<li>
-							<a href="/menuView/morning?menuItemIdx=1338">
-								<div class="wrap">
-									<div class="img"><img src="./images/menu/sandwich_bf04.png" alt="스테이크, 에그 & 치즈"></div>
-									<strong class="title">스테이크, 에그 & 치즈</strong>
-									<p>육즙 가득 비프 스테이크로<br />든든한 아침 식사</p>&lt;!&ndash; 20180207 &ndash;&gt;
-								</div>
-							</a>
-						</li>-->
 					</ul>
 				</div>
 			</div>
@@ -367,14 +340,14 @@
 			<!-- 이용방법 -->
 			<div class="utilization">
 				<p>써브웨이를<br />제대로 즐기는 방법!</p>
-				<a class="btn" href="/utilizationSubway.do"><span>이용방법</span></a>
+				<a class="btn" href="utilizationSubway.do"><span>이용방법</span></a>
 			</div>
 			<!--// 이용방법 -->
 
 			<!-- 써브웨이 역사 -->
 			<div class="history">
 				<p>50년 역사를 가진<br />No.1 프랜차이즈의 성장기</p>
-				<a class="btn" href="/history.do"><span>써브웨이 역사</span></a>
+				<a class="btn" href="history.do"><span>써브웨이 역사</span></a>
 				<img src="./images/main/img_subway_history.png" />
 			</div>
 			<!--// 써브웨이 역사 -->
@@ -406,23 +379,16 @@
 			<!-- banner sponsor -->
 			<div class="banner_sponsor">
 				<div class="bxslider">
-					
 						<div>
-							
 								<a href="/newsView?noticeIdx=292">
-									<img alt="써브웨이와 함께하는 JTBC 수목드라마 &#39;이 연애는 불가항력&#39;" src="./upload/banner/270X300 (1)_20230829025721267.jpg" />
+									<img alt="써브웨이와 함께하는 JTBC 수목드라마 &#39;이 연애는 불가항력&#39;" src="./jsp/upload/banner/270X300 (1)_20230829025721267.jpg" />
 								</a>
-							
-							
 						</div>
 					
-					
 						<div>
-							
 								<a href="/newsView?noticeIdx=291">
-									<img alt="써브웨이와 함께하는 SBS 금토드라마 &#39;소방서 옆 경찰서 그리고 국과수&#39;" src="./upload/banner/270X300_20230804045136791.jpg" />
+									<img alt="써브웨이와 함께하는 SBS 금토드라마 &#39;소방서 옆 경찰서 그리고 국과수&#39;" src="./jsp/upload/banner/270X300_20230804045136791.jpg" />
 								</a>
-							
 							
 						</div>
 					
@@ -438,21 +404,21 @@
 	<div class="quick_menu">
 		<ul>
 			<li class="qm01">
-				<a href="franchise.do">
+				<a href="#">
 					<div class="icon"></div>
 					<strong>프랜차이즈</strong>
 					<span>개설절차/투자비용 정보</span>
 				</a>
 			</li>
 			<li class="qm02">
-				<a href="franchiseBranchGuide.do">
+				<a href="#">
 					<div class="icon"></div>
 					<strong>지사안내</strong>
 					<span>수도권/지방 지사정보</span>
 				</a>
 			</li>
 			<li class="qm03">
-				<a href="tvCommercial.do">
+				<a href="#">
 					<div class="icon"></div>
 					<strong>광고영상</strong>
 					<span>TV광고/동영상</span>

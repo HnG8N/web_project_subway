@@ -79,13 +79,16 @@ public class FrontController extends HttpServlet {
 //			command.execute(request, response);
 			viewPage = "/jsp/mypage/mypage.jsp";
 			break;
-		case("/home.do"):
+		case("/home.do"):	// 홈으로~
+			viewPage = "/index.jsp";
+		break;
+		case("/logout.do"):	// 로그아웃.
 			viewPage = "/index.jsp";
 		break;
 		case ("/agreement.do"):	// 이용약관
 //			command = new SandwichListCommand();
 //			command.execute(request, response);
-			viewPage = "/jsp/home/agreement.jsp";
+			viewPage = "/jsp/about/agreement.jsp";
 			break;
 		case ("/storeSearch.do"):	// 매장찾기
 //			command = new SandwichListCommand();
@@ -97,6 +100,11 @@ public class FrontController extends HttpServlet {
 //			command.execute(request, response);
 			viewPage = "/jsp/about/utilizationSubway.jsp";
 			break;
+		case ("/freshNutritionFacts.do"):	// 서브웨이 이용방법
+//			command = new SandwichListCommand();
+//			command.execute(request, response);
+			viewPage = "/jsp/about/freshNutritionFacts.jsp";
+			break;
 		case ("/freshInfo.do"):	// 신선한 재료 소개
 //			command = new SandwichListCommand();
 //			command.execute(request, response);
@@ -107,10 +115,15 @@ public class FrontController extends HttpServlet {
 //			command.execute(request, response);
 			viewPage = "/jsp/about/history.jsp";
 		break;
+		case ("/privacy.do"):	// 서브웨이 역사
+//			command = new UnitListCommand();
+//			command.execute(request, response);
+			viewPage = "/jsp/about/privacy.jsp";
+		break;
 		case ("/store.do"):	// FAST_SUB
 //			command = new SandwichListCommand();
 //			command.execute(request, response);
-			viewPage = "order/view/fast/near/store.jsp";
+			viewPage = "/jsp/order/view/fast/near/store.jsp";
 			break;
 		case ("/sandwich.do"):	// 샌드위치 메뉴소개
 			command = new SandwichListCommand();
@@ -128,26 +141,16 @@ public class FrontController extends HttpServlet {
 			viewPage = "/jsp/productlist/unit.jsp";
 			break;
 			//
-		case ("/franchise.do"):	// 지사안내.
-//			command = new UnitListCommand();
-//			command.execute(request, response);
-			viewPage = "/jsp/franchise/franchise.jsp";
-		break;
-		case ("/franchiseBranchGuide.do"):	// 지사안내.
-//			command = new UnitListCommand();
-//			command.execute(request, response);
-			viewPage = "/jsp/franchise/franchiseBranchGuide.jsp";
-		break;
-		case ("/tvCommercial.do"):	// 광고영상
-//			command = new UnitListCommand();
-//			command.execute(request, response);
-			viewPage = "/jsp/tvCommercial/tvCommercial.jsp";
-		break;
 		case ("/faq.do"):	// FAQ
 //			command = new UnitListCommand();
 //			command.execute(request, response);
 			viewPage = "/jsp/board/faq.jsp";
 			break;
+		case ("/cart.do"):	// FAQ
+//			command = new UnitListCommand();
+//			command.execute(request, response);
+			viewPage = "/jsp/cart/fastsub.jsp";
+		break;
 		default:
 			break;
 		}

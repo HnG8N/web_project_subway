@@ -82,29 +82,93 @@
 </head>
 <body>
 <%@ include file="/jsp/include/header.jsp" %>
-<!-- 상품목록 int mncode, String mnctg, String mnname, String mnengname, String mninfo, String mnimg,
-			int mnprice-->
-<div class="pd_list_wrapper">
-    <ul>
-    	<c:forEach items="${MenuList}" var="dto" varStatus="status">
-        <li data-menusubsort="${status.count}" data-menumainsort="${status.count}" class="ITEM_SANDWICH.PREMIUM">
-            <div class="img"><img onError="this.src='./images/common/noneImage.jpg'"
-                    src="./upload/menu/${dto.mnimg}" alt="${dto.mnname}" />${dto.mnimg}</div>
-            <strong class="tit">${dto.mnname}</strong>
-            <span class="eng">${dto.mnengname}</span>
-            <span class="cal">${dto.mnprice}</span>
-            <div class="summary">
-                <p>
-                ${dto.mninfo}
-                </p>
-            </div>
-            <a href="#" onclick="menuDetail(this); return false;" data-category="sandwich" data-menuitemidx="${dto.mncode}"
-                class="btn_view"></a>
-        </li>
-        </c:forEach>
-    </ul>
-</div>
-<!--// 상품목록 -->
-<%@ include file="/jsp/include/footer.jsp" %>
+	<!-- container s -->
+	<div id="container">
+
+		<div class="sub_header type01">
+			<!-- 메뉴소개일경우 type01클래스 추가 -->
+			<div class="content">
+				<a class="logo" href="/">HOME</a>
+				<!-- sub location -->
+				<div class="sub_loc">
+					<!-- 메뉴소개 -->
+					<ul>
+						<li><a href="sandwich.do">샌드위치</a></li>
+						<li class="active"><a href="unit.do">랩ㆍ기타</a></li>
+						<li><a href="salad.do">샐러드</a></li>
+					</ul>
+					<!-- 이용방법 -->
+
+				</div>
+				<!--// sub location -->
+				<a class="top" href="#none">TOP</a>
+			</div>
+		</div>
+
+		<!-- sub content s -->
+		<div id="content">
+			<!-- 메뉴소개 s -->
+			<div class="menu_list_wrapper">
+				<!-- 상품 visual 스마일썹,랩 클래스명 css명과 동일하게 수정 -->
+				<div id="cssCategory">
+
+					<h2>Wrap</h2>
+
+
+
+
+
+					<p>
+						Subway를 더 맛있고 간편하게 즐기는 방법 <br />최상의 레시피로 만들어진 써브웨이 랩 시리즈, 이젠 고민하지
+						마세요! <br />* 그릴드 랩은 일부 매장에서만 제공 가능합니다. <br />* 그릴드 랩을 제공하는 매장에서는
+						시그니처랩을 제공하지 않습니다.매장찾기의 매장정보를 확인해주세요.
+					</p>
+
+
+
+
+					<div class="img01"></div>
+					<div class="img02"></div>
+					<div class="img03"></div>
+				</div>
+				<!--// 상품 visual -->
+
+				<!-- 상품별 정렬 tab -->
+				<div class="pd_tab">
+					<!-- 샌드위치 -->
+					<ul>
+						<li class="active"><a class="eng" href="all">All</a></li>
+						<li><a href="ITEM_WRAP.SIGNATURE">시그니처 랩</a></li>
+						<li><a href="ITEM_WRAP.MINI">미니 랩</a></li>
+					</ul>
+				</div>
+				<!--// 상품별 정렬 tab -->
+				<div class="pd_list_wrapper">
+					<ul>
+						<c:forEach items="${MenuList}" var="dto" varStatus="status">
+							<li data-menusubsort="${status.count}"
+								data-menumainsort="${status.count}"
+								class="ITEM_SANDWICH.PREMIUM">
+								<div class="img">
+									<img onError="this.src='./images/common/noneImage.jpg'"
+										src="./upload/menu/${dto.mnimg}" alt="${dto.mnname}" /></div>
+								<strong class="tit">${dto.mnname}</strong> <span class="eng">${dto.mnengname}</span>
+								<span class="cal">${dto.mnprice}</span>
+								<div class="summary">
+									<p>${dto.mninfo}</p>
+								</div> <a href="#" onclick="menuDetail(this); return false;"
+								data-category="sandwich" data-menuitemidx="${dto.mncode}"
+								class="btn_view"></a>
+							</li>
+						</c:forEach>
+					</ul>
+				</div>
+				<!--// 상품목록 -->
+			</div>
+			<!--// 메뉴소개 e -->
+		</div>
+		<!--// sub content e -->
+	</div>
+	<%@ include file="/jsp/include/footer.jsp" %>
 </body>
 </html>

@@ -80,27 +80,96 @@
 </head>
 <body>
 <%@ include file="/jsp/include/header.jsp" %>
-<div class="pd_list_wrapper">
-    <ul>
-    	<c:forEach items="${MenuList}" var="dto" varStatus="status">
-        <li data-menusubsort="${status.count}" data-menumainsort="${status.count}" class="ITEM_SANDWICH.PREMIUM">
-            <div class="img"><img onError="this.src='./images/common/noneImage.jpg'"
-                    src="./upload/menu/${dto.mnimg}" alt="${dto.mnname}" />${dto.mnimg}</div>
-            <strong class="tit">${dto.mnname}</strong>
-            <span class="eng">${dto.mnengname}</span>
-            <span class="cal">${dto.mnprice}</span>
-            <div class="summary">
-                <p>
-                ${dto.mninfo}
-                </p>
-            </div>
-            <a href="#" onclick="menuDetail(this); return false;" data-category="sandwich" data-menuitemidx="${dto.mncode}"
-                class="btn_view"></a>
-        </li>
-        </c:forEach>
-    </ul>
-</div>
-<!--// 상품목록 -->
-<%@ include file="/jsp/include/footer.jsp" %>
+	<!-- container s -->
+	<div id="container">
+
+		<div class="sub_header type01">
+			<!-- 메뉴소개일경우 type01클래스 추가 -->
+			<div class="content">
+				<a class="logo" href="/">HOME</a>
+				<!-- sub location -->
+				<div class="sub_loc">
+					<!-- 메뉴소개 -->
+					<ul>
+						<li class="active"><a href="sandwich.do">샌드위치</a></li>
+						<li><a href="unit.do">랩ㆍ기타</a></li>
+						<li><a href="salad.do">샐러드</a></li>
+					</ul>
+					<!-- 이용방법 -->
+
+				</div>
+				<!--// sub location -->
+				<a class="top" href="#none">TOP</a>
+			</div>
+		</div>
+
+		<!-- sub content s -->
+		<div id="content">
+			<!-- 메뉴소개 s -->
+			<div class="menu_list_wrapper">
+				<!-- 상품 visual 스마일썹,랩 클래스명 css명과 동일하게 수정 -->
+				<div id="cssCategory">
+					<h2>Sandwich</h2>
+
+
+
+
+
+					<p>
+						전세계 넘버원 브랜드 Subway! <br />50년 전통의 세계 최고의 샌드위치를 맛보세요!
+					</p>
+
+
+
+
+
+					<div class="img01"></div>
+					<div class="img02"></div>
+					<div class="img03"></div>
+				</div>
+				<!--// 상품 visual -->
+
+				<!-- 상품별 정렬 tab -->
+				<div class="pd_tab">
+					<!-- 샌드위치 -->
+					<ul>
+						<li class="active"><a class="eng" href="all">All</a></li>
+						<li><a href="ITEM_SANDWICH.CLASSIC">클래식</a></li>
+						<li><a href="ITEM_SANDWICH.FLASH">프레쉬&amp;라이트</a></li>
+						<li><a href="ITEM_SANDWICH.PREMIUM">프리미엄</a></li>
+						<li><a href="ITEM_SANDWICH.NEW">신제품</a></li>
+						<li><a href="ITEM_SANDWICH.TOPPING">추가 선택</a></li>
+					</ul>
+				</div>
+				<!--// 상품별 정렬 tab -->
+
+				<!--// 상품목록 s -->
+				<div class="pd_list_wrapper">
+					<ul>
+						<c:forEach items="${MenuList}" var="dto" varStatus="status">
+							<li data-menusubsort="${status.count}"
+								data-menumainsort="${status.count}"
+								class="ITEM_SANDWICH.PREMIUM">
+								<div class="img">
+									<img onError="this.src='./images/common/noneImage.jpg'"
+										src="./upload/menu/${dto.mnimg}" alt="${dto.mnname}" /></div>
+								<strong class="tit">${dto.mnname}</strong> <span class="eng">${dto.mnengname}</span>
+								<span class="cal">${dto.mnprice}</span>
+								<div class="summary">
+									<p>${dto.mninfo}</p>
+								</div> <a href="#" onclick="menuDetail(this); return false;"
+								data-category="sandwich" data-menuitemidx="${dto.mncode}"
+								class="btn_view"></a>
+							</li>
+						</c:forEach>
+					</ul>
+				</div>
+				<!--// 상품목록 e -->
+			</div>
+			<!--// 메뉴소개 e -->
+		</div>
+		<!--// sub content e -->
+	</div>
+	<%@ include file="/jsp/include/footer.jsp" %>
 </body>
 </html>
