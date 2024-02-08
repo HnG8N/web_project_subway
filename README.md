@@ -5,6 +5,8 @@
   <li>ERD 회의 및 SFD 작성<br>
   <li>업무 분배 및 개별 RND<br>
 </ul>
+<h2>ERD</h2>
+<img width="865" alt="스크린샷 2024-02-08 오전 10 37 39" src="https://github.com/HnG8N/web_project_subway/assets/151720731/ff76684f-3ae4-4eb3-9f5b-a6ce1c79a8e4">
 <h2>개별 개발 현황</h2>
 <h3>원도현</h3>
 <ul>
