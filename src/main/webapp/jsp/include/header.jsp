@@ -31,11 +31,13 @@
 								<ul>
 									<li><a href="newsList">공지사항</a></li>
 									<li><a href="board">이용후기</a></li>
+									<li><a href="faq.do">FAQ</a></li>
 								</ul>
 							</div></li>
 						<li><a href="#none" class="dp1">써브웨이</a>
 							<div class="dp2">
 								<ul>
+									<li><a href="history.do">서브웨이 역사</a></li>
 									<li><a href="storeSearch.do">매장찾기</a></li>
 								</ul>
 							</div></li>
