@@ -14,7 +14,7 @@ public class SaladListCommand implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		MenuDao dao = new MenuDao();
-		ArrayList<MenuDto> dtos = dao.getMenuList("salad");
+		ArrayList<MenuDto> dtos = dao.getMenuList("샐러드");
 		request.setAttribute("MenuList", dtos);
 	}
 
