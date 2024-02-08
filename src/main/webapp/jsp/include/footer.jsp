@@ -8,8 +8,8 @@
 			<!-- util menu -->
 			<div class="util_menu">
 				<ul>
-					<li><a href="/agreement">이용약관</a></li>
-					<li><a href="/privacy"><strong>개인정보처리방침</strong></a></li>
+					<li><a href="agreement.do">이용약관</a></li>
+					<li><a href="privacy.do"><strong>개인정보처리방침</strong></a></li>
 					<li><a href="https://store.subway.co.kr/" target="_blank">점주관리자</a></li>
 					<!-- 20180202 추가 -->
 				</ul>

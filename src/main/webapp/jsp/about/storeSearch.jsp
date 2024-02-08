@@ -7,37 +7,37 @@
 <title>매장찾기</title>
     <link href="http://subway.co.kr/" rel="canonical" /><!-- 20180221 -->
     <meta content="신선하고 건강한 글로벌 NO.1 샌드위치 브랜드, 써브웨이" name="description" /><!-- 20181212 -->
-    <link rel="shortcut icon" type="image/x-icon" href="/images/common/subway_favicon.ico?v=2023051202" />
+    <link rel="shortcut icon" type="image/x-icon" href="../images/common/subway_favicon.ico?v=2023051202" />
         <!-- 20180131 -->
-        <link rel="stylesheet" type="text/css" href="/css/ui.common.css?v=2023051202" />
-        <link rel="stylesheet" type="text/css" href="/css/jquery.mCustomScrollbar.min.css?v=2023051202" />
-	<link rel="stylesheet" type="text/css" href="/css/ui.subway.css?v=2023051202" />
+        <link rel="stylesheet" type="text/css" href="./css/ui.common.css?v=2023051202" />
+        <link rel="stylesheet" type="text/css" href="./css/jquery.mCustomScrollbar.min.css?v=2023051202" />
+	<link rel="stylesheet" type="text/css" href="../css/ui.subway.css?v=2023051202" />
         
         
 
-        <script type="text/javascript" src="/js/jquery/jquery-1.12.4.min.js?v=2023051202"></script>
-        <script type="text/javascript" src="/js/jquery/jquery-ui-1.12.0.min.js?v=2023051202"></script>
-        <script type="text/javascript" src="/js/jquery/jquery.easing.1.3.min.js?v=2023051202"></script>
-        <script type="text/javascript" src="/js/jquery/jquery.bxslider.min.js?v=2023051202"></script>
-        <script type="text/javascript" src="/js/jquery/jquery.mCustomScrollbar.concat.min.js?v=2023051202"></script>
+        <script type="text/javascript" src="./js/jquery/jquery-1.12.4.min.js?v=2023051202"></script>
+        <script type="text/javascript" src="./js/jquery/jquery-ui-1.12.0.min.js?v=2023051202"></script>
+        <script type="text/javascript" src="./js/jquery/jquery.easing.1.3.min.js?v=2023051202"></script>
+        <script type="text/javascript" src="./js/jquery/jquery.bxslider.min.js?v=2023051202"></script>
+        <script type="text/javascript" src="./js/jquery/jquery.mCustomScrollbar.concat.min.js?v=2023051202"></script>
         <!-- block ui -->
-        <script type="text/javascript" src="/js/jquery/jquery.blockUI.min.js?v=2023051202"></script>
+        <script type="text/javascript" src="./js/jquery/jquery.blockUI.min.js?v=2023051202"></script>
 
-        <script type="text/javascript" src="/js/jquery/TweenMax.min.js?v=2023051202"></script>
-        <script type="text/javascript" src="/js/jquery/jquery.cookie.js?v=2023051202"></script>
+        <script type="text/javascript" src="./js/jquery/TweenMax.min.js?v=2023051202"></script>
+        <script type="text/javascript" src="./js/jquery/jquery.cookie.js?v=2023051202"></script>
         <!--<script type="text/javascript" th:src="'/js/lottie.js?v=' + ${cacheParam}"></script>-->
-        <script type="text/javascript" src="/js/ui.common.js?v=2023051202"></script>
-        <script type="text/javascript" src="/js/subway.common.js?v=2023051202"></script>
-        <script type="text/javascript" src="/js/util/jsrender.js?v=2023051202"></script>
-        <script type="text/javascript" src="/js/jquery/jquery.tmpl.min.js?v=2023051202"></script>
-        <script type="text/javascript" src="/js/waffle/waffle.utils.js?v=2023051202"></script>
+        <script type="text/javascript" src="./js/ui.common.js?v=2023051202"></script>
+        <script type="text/javascript" src="./js/subway.common.js?v=2023051202"></script>
+        <script type="text/javascript" src="./js/util/jsrender.js?v=2023051202"></script>
+        <script type="text/javascript" src="./js/jquery/jquery.tmpl.min.js?v=2023051202"></script>
+        <script type="text/javascript" src="./js/waffle/waffle.utils.js?v=2023051202"></script>
 
 
-	<script type="text/javascript" src="/js/jquery/jquery.tmpl.min.js?v=2023051202"></script>
+	<script type="text/javascript" src="../js/jquery/jquery.tmpl.min.js?v=2023051202"></script>
 	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wukou9fhmn&amp;submodules=geocoder"></script>
-	<script type="text/javascript" src="/js/subway.map.js?v=2023051202"></script>
-	<script type="text/javascript" src="/js/subway.pagination.js?v=2023051202"></script>
-	<script type="text/javascript" src="/js/subway/storeSearch.js?v=2023051202"></script>
+	<script type="text/javascript" src="../js/subway.map.js?v=2023051202"></script>
+	<script type="text/javascript" src="../js/subway.pagination.js?v=2023051202"></script>
+	<script type="text/javascript" src="../js/subway/storeSearch.js?v=2023051202"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			searchStore_scrollbar();//매장찾기 검색결과 scrollbar
@@ -126,7 +126,7 @@
 	</script>
 </head>
 <body>
-
+<%@ include file="/jsp/include/header.jsp" %>
             <!-- container s -->
             <div id="container">
 			<div class="sub_header">
@@ -135,10 +135,7 @@
 					<!-- sub location -->
 					<div class="sub_loc">
 						<ul>
-	                        <li><a href="/subwayHistory">써브웨이 역사</a></li>
-			                <li><a href="/subwayPromise">써브웨이 약속</a></li>
-			                <!-- <li><a href="#">써브웨이 사회공헌</a></li> -->
-			                <li><a href="/subwaySandwichArtist">샌드위치 아티스트 지원</a></li>
+	                        <li><a href="history.do">써브웨이 역사</a></li>
 	                        <li class="active"><a href="#">매장찾기</a></li>
 						</ul>
 					</div>
@@ -186,32 +183,6 @@
 
 					<!-- 매장지도 s -->
 					<div class="store_map">
-
-						<!-- 20180307 매장지도 상세 레이어 -->
-						<!--
-						<div class="store_map_layer">
-							<div class="head">
-								<strong id="ui_storeInfoLayer_storeName">응암점</strong>
-								<a href="#none" class="btn_close" onclick="storeview_layer_close();">닫기</a>
-							</div>
-							<div class="info">
-								<dl>
-									<dt>주소</dt>
-									<dd id="ui_storeInfoLayer_addr">
-										서울 은평구 은평로 108 메트로럭스주상복합 APT 1층
-									</dd>
-									<dt>연락처</dt>
-									<dd id="ui_storeInfoLayer_tel">02-357-1479</dd>
-									<dt>영업시간</dt>
-									<dd id="ui_storeInfoLayer_open">08:00 - 22:00</dd>
-								</dl>
-							</div>
-							<div class="foot">
-								<a href="#" id="ui_storeInfoLayer_view">자세히보기</a>
-							</div>
-						</div>
-						 -->
-						<!--// 20180307 매장지도 상세 레이어 -->
 
 						<!-- 임시 이미지 적용 -->
 						<div id="uiShopMap" style="background:url(../images/temp/temp_store.jpg) 50% 0 no-repeat; height:700px;"></div>
@@ -279,16 +250,6 @@
 												
 											</select>
 										</div>
-										<!--// select -->
-										<!-- select -->
-										<!-- <div class="form_select" style="width:196px;">
-											<select  name="dong" id="dong">
-												<option value="">동</option>
-												<option th:each="rs, status : ${location3}" th:value="${rs.dong}" th:text="${rs.dong}" th:selected="${rs.dong eq search.dong}"></option>
-											</select>
-										</div> -->
-										<!--// select -->
-									</div>
 								</form>
 
 								<table>
@@ -636,5 +597,6 @@
 			</div>
 			<!--// sub content e -->
 		</div>
+<%@ include file="/jsp/include/footer.jsp" %>
 </body>
 </html>
