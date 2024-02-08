@@ -29,5 +29,4 @@
 	</div>
 	<!--// inc footer e -->
 </footer>
-</body>
-</html>
+

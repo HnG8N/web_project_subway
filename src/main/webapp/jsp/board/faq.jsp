@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../../header.jsp"%>
+<%@ include file="/jsp/include/header.jsp"%>
 <!-- container s -->
 <div id="container">
 	<div class="sub_header">
@@ -62,4 +62,4 @@
 	</div>
 	<!--// container e -->
 </div>
-<%@ include file="../../footer.jsp"%>
+<%@ include file="/jsp/include/footer.jsp"%>
