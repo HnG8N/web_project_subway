@@ -119,6 +119,32 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "menuList/unit.jsp";
 			break;
+			//
+		case ("/history.do"):	// 지사안내.
+//			command = new UnitListCommand();
+//			command.execute(request, response);
+			viewPage = "/jsp/about/history.jsp";
+		break;
+		case ("/franchise.do"):	// 지사안내.
+//			command = new UnitListCommand();
+//			command.execute(request, response);
+			viewPage = "/jsp/franchise/franchise.jsp";
+		break;
+		case ("/franchiseBranchGuide.do"):	// 지사안내.
+//			command = new UnitListCommand();
+//			command.execute(request, response);
+			viewPage = "/jsp/franchise/franchiseBranchGuide.jsp";
+		break;
+		case ("/tvCommercial.do"):	// 광고영상
+//			command = new UnitListCommand();
+//			command.execute(request, response);
+			viewPage = "/jsp/tvCommercial/tvCommercial.jsp";
+		break;
+		case ("/faq.do"):	// FAQ
+//			command = new UnitListCommand();
+//			command.execute(request, response);
+			viewPage = "/jsp/board/faq.jsp";
+			break;
 		default:
 			break;
 		}
