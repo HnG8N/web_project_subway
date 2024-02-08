@@ -6,7 +6,7 @@
 		<div id="header">
 			<div class="content">
 				<h1 class="logo">
-					<a href="/">SUBWAY</a>
+					<a href="home.do">SUBWAY</a>
 				</h1>
 				<!-- gnb -->
 				<nav id="gnb">
