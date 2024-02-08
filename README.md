@@ -1,12 +1,18 @@
 # web_project_subway
-<h2>프로젝트 초기 기획</h2>
+<h1>팀원 : 김수진, 김소리, 원도현, 김태우</h1>
+<h2>프로젝트 기획</h2>
 <ul>
-  <li>클론 사이트 리스트업<br>
-  <li>ERD 회의 및 SFD 작성<br>
-  <li>업무 분배 및 개별 RND<br>
+  <li>클론 사이트 리스트업</li>
+  <li>ERD 회의 및 SFD 작성</li>
+  <li>업무 분배 및 개별 RND</li>
+  <li>24.02.13 DB, server 통합 예정</li>
 </ul>
 <h2>ERD</h2>
 <img width="865" alt="스크린샷 2024-02-08 오전 10 37 39" src="https://github.com/HnG8N/web_project_subway/assets/151720731/ff76684f-3ae4-4eb3-9f5b-a6ce1c79a8e4">
+<h2>개발 일정(ASANA)</h2>
+<img width="909" alt="스크린샷 2024-02-08 오전 10 45 11" src="https://github.com/HnG8N/web_project_subway/assets/151720731/9a8c9463-855e-4511-b3fb-a9a9996b480b">
+<img width="909" alt="스크린샷 2024-02-08 오전 10 45 22" src="https://github.com/HnG8N/web_project_subway/assets/151720731/a5f83cc5-e093-46df-b26c-14af910fbd1a">
+<img width="909" alt="스크린샷 2024-02-08 오전 10 45 30" src="https://github.com/HnG8N/web_project_subway/assets/151720731/6ef039e9-3484-49d3-8b2a-f8cf17d699cb">
 <h2>개별 개발 현황</h2>
 <h3>원도현</h3>
 <ul>
