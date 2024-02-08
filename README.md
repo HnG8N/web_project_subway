@@ -25,10 +25,10 @@
   <li>입력 클릭 시 DB에 등록 및 상품 리스트 페이지로 이동</li>
   <li>수정 클릭 시 상품 수정 페이지로 이동</li>
   <li>이미지가 이미 등록되어 있다면 파일선택에서 이미지를 선택 하지 않아도 DB 수정이 가능하도록 구현</li>
-  <h2>Admin Data Flow Diagram</h2>
+</ul>
+  <h4>Admin Data Flow Diagram</h4>
   <img width="968" alt="스크린샷 2024-02-08 오전 11 05 18" src="https://github.com/HnG8N/web_project_subway/assets/151720731/51b30c2a-c7d7-4ab4-b5bd-572a06967117">
 
-</ul>
 <h3>김소리</h3>
 <ul>
   <li>로그인 화면 : 데이터 베이스에 저장되어 있는 회원 아이디와 비밀번호가 맞는지 ajax를 통해 확인후 로그인 가능하도록 구현</li>
