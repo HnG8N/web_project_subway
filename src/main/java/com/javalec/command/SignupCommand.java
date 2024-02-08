@@ -22,9 +22,10 @@ public class SignupCommand implements Command {
 		String day = request.getParameter("day");
 		String mbirth = year + "-" + (month.length() == 1 ? "0" + month : month) + "-"
 				+ (day.length() == 1 ? "0" + day : day);
+		String memail = request.getParameter("email1") +"@"+ request.getParameter("email2");
 
 		Signup_Dao dao = new Signup_Dao();
-		dao.signUpMember(mid, mpw, mname, maddress, mtel, mbirth);
+		dao.signUpMember(mid, mpw, mname, maddress, mtel, mbirth, memail);
 	}
 
 }

@@ -17,7 +17,10 @@
   			<button type="button" id="checkid">아이디 중복 검사</button><br>
   			<div id="result"></div>
   	
-  	비밀번호 : <input type="password" id="pw" name="pw"><br>
+  	비밀번호 : <input type="password" id="pw" oninput="pwCheck()" name="pw"><br>
+  	비밀번호 확인 : <input type="password" id="pwcheck" oninput="pwCheck()" name="pwcheck"><br>
+  			<div id="result4"></div>
+  	
   	
  	이름 : <input type="text" id="name" name="name"><br>
   	
@@ -53,8 +56,18 @@
     		<input type="text" id="mid" name="mid" maxlength="4">
     		-
     		<input type="text" id="end" name="end" maxlength="4"><br>
+   	이메일 : <input type="text" id="email1" name="email1"> @ <select id="email2" name="email2">
+   												<option>naver.com</option>
+   												<option>gmail.com</option>
+   											</select>
+   			<button type="button" id="sendemail">인증번호 발송</button><br>
+   	<div id="result2"></div>
+   			
+    인증번호 : <input type="text" id="emailcode" maxlength="4">
+    <button type="button" id="codecheck" >인증확인</button><br>
+    <div id="result3"></div>
+    
     <input type="submit" value="회원가입">
     </form>
-    
   </body>
 </html>

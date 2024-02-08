@@ -3,32 +3,104 @@
  */
 
 var idValidated = false;
+var pwValidated = false;
+var emailValidated = false;
 
 $(document).ready(function() {
-    $("#checkid").click(function() {
-        var id = $("#id").val();
+	$("#checkid").click(function() {
+		var id = $("#id").val();
 
-        if (id.trim() === '') {
-            $("#result").text("아이디를 입력하세요.");
-            return; // 빈칸일 경우 함수 종료
-        }
+		if (id.trim() === '') {
+			$("#result").text("아이디를 입력하세요.");
+			return; // 빈칸일 경우 함수 종료
+		}
 
-        $.ajax({
-            type: "POST",
-            url: "CheckId",
-            data: { mid: id },
-            success: function(response) {
-                if (response > 0) {
-                    $("#result").text("이미 사용 중인 아이디입니다.");
-                    idValidated = false; // 중복되는 아이디일 경우 확인되지 않은 상태로 설정
-                } else {
-                    $("#result").text("사용 가능한 아이디입니다.");
-                    idValidated = true; // 사용 가능한 아이디일 경우 확인된 상태로 설정
-                }
-            }
-        });
-    });
+		$.ajax({
+			type: "POST",
+			url: "CheckId",
+			data: { mid: id },
+			success: function(response) {
+				if (response > 0) {
+					$("#result").text("이미 사용 중인 아이디입니다.");
+					idValidated = false; // 중복되는 아이디일 경우 확인되지 않은 상태로 설정
+				} else {
+					$("#result").text("사용 가능한 아이디입니다.");
+					idValidated = true; // 사용 가능한 아이디일 경우 확인된 상태로 설정
+				}
+			}
+		});
+	});
+
+	$("#sendemail").click(function() {
+		var email1 = $("#email1").val();
+		var email2 = $("#email2").val();
+		var email = email1 + "@" + email2;
+
+		// 이메일 입력 여부 확인
+		if (email.trim() === '') {
+			$("#result2").text("이메일을 입력하세요.");
+			return; // 빈칸일 경우 함수 종료
+		}
+
+		// 이메일 중복 확인
+		$.ajax({
+			type: "POST",
+			url: "CheckEmail",
+			data: { email: email },
+			success: function(response) {
+				if (response > 0) {
+					$("#result2").text("이미 사용 중인 이메일 입니다.");
+					return;
+				} else {
+					$("#result2").text("");
+					// 중복되지 않은 경우에만 이메일 전송
+					$.ajax({
+						type: "GET",
+						url: "SendEmail", // SendEmail 서블릿의 URL
+						data: { email: email },
+						success: function(data) {
+							alert("이메일을 성공적으로 전송했습니다.");
+						},
+						error: function(xhr, status, error) {
+							alert("이메일 전송에 실패했습니다.");
+						}
+					});
+				}
+			}
+		});
+	});
+
+
+	$("#codecheck").click(function() {
+		var emailcode = $("#emailcode").val();
+		$.ajax({
+			type: "POST",
+			url: "EmailCheckCode",
+			data: { emailcode: emailcode },
+			success: function(response) {
+				$("#result3").text("1111");
+				if (response.replaceAll("\"", "") == "true") {
+					$("#result3").text("인증 되었습니다.");
+					emailValidated = "true";
+				} else {
+					$("#result3").text("인증번호를 다시 확인해주세요.");
+					emailValidated = "false";
+				}
+			}
+		});
+	});
+
 });
+
+function pwCheck() {
+	if ($('#pw').val() == $('#pwcheck').val()) {
+		$('#result4').text('비밀번호 일치').css('color', 'green')
+		pwValidated = "true";
+	} else {
+		$('#result4').text('비밀번호 불일치').css('color', 'red')
+		pwValidated = "false";
+	}
+}
 
 // 다음 주소 api 받아오는 함수
 function execDaumPostcode() {
@@ -134,56 +206,68 @@ function updateDays() {
 }
 
 function validation() {
-    var id = document.getElementById("id").value;
-    var pw = document.getElementById("pw").value;
-    var name = document.getElementById("name").value;
-    var postcode = document.getElementById("postcode").value;
-    var address = document.getElementById("address").value;
-    var detailAddress = document.getElementById("detailAddress").value;
-    var mid = document.getElementById("mid").value;
-    var end = document.getElementById("end").value;
-    var result = document.getElementById("result").value;
+	var id = document.getElementById("id").value;
+	var pw = document.getElementById("pw").value;
+	var name = document.getElementById("name").value;
+	var postcode = document.getElementById("postcode").value;
+	var address = document.getElementById("address").value;
+	var detailAddress = document.getElementById("detailAddress").value;
+	var mid = document.getElementById("mid").value;
+	var end = document.getElementById("end").value;
+	var email = document.getElementById("email1").value;
 
-    // 아이디 중복 확인이 완료되지 않았을 경우
-    if (!idValidated) {
-        alert("아이디 중복 확인을 먼저 실행하세요.");
-        return false; // 폼 제출을 막음
-    }
+	// 아이디 중복 확인이 완료되지 않았을 경우
+	if (idValidated == "false") {
+		alert("아이디 중복 확인을 먼저 실행하세요.");
+		return false; // 폼 제출을 막음
+	}
+	// 이메일 코드 확인이 완료되지 않았을 경우
+	if (emailValidated == "false") {
+		alert("이메일 인증을 실행하세요.");
+		return false; // 폼 제출을 막음
+	}
 
-    // ID 유효성 검사: 영어 소문자 및 숫자 허용, 최대 15자
-    var idRegex = /^[a-z0-9]{1,15}$/;
-    if (!idRegex.test(id)) {
-        alert("ID는 영어 소문자와 숫자만 사용 가능하며, 최대 15자까지 입력 가능합니다.");
-        return false; // 폼 제출을 막음
-    }
+	// 이메일 코드 확인이 완료되지 않았을 경우
+	if (pwValidated == "false") {
+		alert("입력하신 비밀번호가 다릅니다.");
+		return false; // 폼 제출을 막음
+	}
 
-    // PW 유효성 검사: 영어, 숫자, 특수문자 허용, 최대 15자
-    var pwRegex = /^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\-]{8,15}$/;
-    if (!pwRegex.test(pw)) {
-        alert("PW는 영어, 숫자, 특수문자만 사용 가능하며, 8자부터 15자까지 입력 가능합니다.");
-        return false; // 폼 제출을 막음
-    }
+	// ID 유효성 검사: 영어 소문자 및 숫자 허용, 최대 15자
+	var idRegex = /^[a-z0-9]{1,15}$/;
+	if (!idRegex.test(id)) {
+		alert("ID는 영어 소문자와 숫자만 사용 가능하며, 최대 15자까지 입력 가능합니다.");
+		return false; // 폼 제출을 막음
+	}
 
-    // 이름 유효성 검사: 한글 또는 영어만 허용, 최대 10자
-    var nameRegex = /^[가-힣a-zA-Z]{1,10}$/;
-    if (!nameRegex.test(name)) {
-        alert("이름은 한글 또는 영어만 사용 가능하며, 최대 10자까지 입력 가능합니다.");
-        return false; // 폼 제출을 막음
-    }
+	// PW 유효성 검사: 영어, 숫자, 특수문자 허용, 최대 15자
+	var pwRegex = /^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\-]{8,15}$/;
+	if (!pwRegex.test(pw)) {
+		alert("PW는 영어, 숫자, 특수문자만 사용 가능하며, 8자부터 15자까지 입력 가능합니다.");
+		return false; // 폼 제출을 막음
+	}
 
-    // 주소 유효성 검사 : 빈칸이면 안됨
-    if (postcode === '' || address === '' || detailAddress === '') {
-        alert("주소 관련 필드는 모두 입력되어야 합니다.");
-        return false; // 폼 제출을 막음
-    }
+	// 이름 유효성 검사: 한글 또는 영어만 허용, 최대 10자
+	var nameRegex = /^[가-힣a-zA-Z]{1,10}$/;
+	if (!nameRegex.test(name)) {
+		alert("이름은 한글 또는 영어만 사용 가능하며, 최대 10자까지 입력 가능합니다.");
+		return false; // 폼 제출을 막음
+	}
 
-    // Mid, End 유효성 검사: 숫자만 허용, 각각 4자리
-    var numberRegex = /^\d{4}$/;
-    if (!numberRegex.test(mid) || !numberRegex.test(end)) {
-        alert("전화번호는 숫자만 입력 가능하며, 각각 4자리여야 합니다.");
-        return false; // 폼 제출을 막음
-    }
+	// 주소 유효성 검사 : 빈칸이면 안됨
+	if (postcode === '' || address === '' || detailAddress === '') {
+		alert("주소 관련 필드는 모두 입력되어야 합니다.");
+		return false; // 폼 제출을 막음
+	}
 
-    // 모든 조건을 통과하면 폼 제출
-    return true; // 폼 제출을 허용
+	// Mid, End 유효성 검사: 숫자만 허용, 각각 4자리
+	var numberRegex = /^\d{4}$/;
+	if (!numberRegex.test(mid) || !numberRegex.test(end)) {
+		alert("전화번호는 숫자만 입력 가능하며, 각각 4자리여야 합니다.");
+		return false; // 폼 제출을 막음
+	}
+
+	// 모든 조건을 통과하면 폼 제출
+	return true; // 폼 제출을 허용
 }
+
