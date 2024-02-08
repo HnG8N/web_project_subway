@@ -107,17 +107,17 @@ public class FrontController extends HttpServlet {
 		case ("/sandwich.do"):	// 샌드위치 메뉴소개
 			command = new SandwichListCommand();
 			command.execute(request, response);
-			viewPage = "menuList/sandwich.jsp";
+			viewPage = "/jsp/productlist/sandwich.jsp";
 			break;
 		case ("/salad.do"):	// 샐러드 메뉴소개
 			command = new SaladListCommand();
 			command.execute(request, response);
-			viewPage = "menuList/salad.jsp";
+			viewPage = "/jsp/productlist/salad.jsp";
 			break;
 		case ("/unit.do"):	// 랩, 기타 메뉴소개
 			command = new UnitListCommand();
 			command.execute(request, response);
-			viewPage = "menuList/unit.jsp";
+			viewPage = "/jsp/productlist/unit.jsp";
 			break;
 			//
 		case ("/history.do"):	// 지사안내.
