@@ -1,8 +1,10 @@
 # web_project_subway
 <h2>프로젝트 초기 기획</h2>
-클론 사이트 리스트업<br>
-ERD 회의 및 SFD 작성<br>
-업무 분배 및 개별 RND<br>
+<ul>
+  <li>클론 사이트 리스트업<br>
+  <li>ERD 회의 및 SFD 작성<br>
+  <li>업무 분배 및 개별 RND<br>
+</ul>
 <h2>개별 개발 현황</h2>
 <h3>원도현</h3>
 <ul>
