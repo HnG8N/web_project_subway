@@ -86,7 +86,7 @@
 		<div class="sub_header type01">
 			<!-- 메뉴소개일경우 type01클래스 추가 -->
 			<div class="content">
-				<a class="logo" href="/">HOME</a>
+				<a class="logo" href="home.do">HOME</a>
 				<!-- sub location -->
 				<div class="sub_loc">
 					<!-- 메뉴소개 -->

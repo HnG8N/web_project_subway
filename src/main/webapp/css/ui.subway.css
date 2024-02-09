@@ -1,0 +1,268 @@
+@charset "utf-8";
+
+/* 써브웨이 ::: 매장찾기 레이어 */
+.store_search_wrapper{padding-top:60px;}
+.store_search_wrapper .store_map{height:700px; position:relative;}
+.store_search_wrapper .store_search_layer{position:absolute; left:20px; top:80px; z-index:3; width:340px; height:658px; padding:0 29px; background-color:#fff; border:1px solid #dddddd;}
+.store_search_wrapper .store_search_layer h2{color:#292929; font-size:28px; font-weight:bold; text-align:center; padding:34px 0 17px 0}
+.store_search_wrapper .store_search_layer .store_search{border:2px solid #dddddd; display:block; height:41px; position:relative}
+.store_search_wrapper .store_search_layer .store_search input{border:0; height:41px; width:223px; text-indent:14px; color:#bbbbbb; font-size:16px;}
+.store_search_wrapper .store_search_layer .store_search input::placeholder{color:#bbbbbb; font-size:16px;font-family:font_ns, sans-serif;}
+.store_search_wrapper .store_search_layer .store_search .btn_search{background:url(../images/common/icon_search.png) 50% 50% no-repeat; width:41px; height:41px; position:absolute; right:0; top:0}
+.store_search_wrapper .store_search_layer .store_search .btn_search:after{content:''; position:absolute; left:-2px; top:13px; width:2px; height:16px; background-color:#e5e5e5;}
+.store_search_wrapper .store_search_layer .search_result_cont .search_total{color:#999999; font-size:16px; margin-top:13px; letter-spacing:-0.01em}
+.store_search_wrapper .store_search_layer .search_result_cont .search_total strong{color:#009132; font-weight:bold;}
+.store_search_wrapper .store_search_layer .search_result_cont .store_list_scroll{margin-top:18px; height:421px; border-top:1px solid #dddddd; overflow:hidden;}
+.store_search_wrapper .store_search_layer .search_result_cont .store_list_scroll .mCSB_inside>.mCSB_container{margin-right:0}
+.store_search_wrapper .store_search_layer .search_result_cont .store_list_scroll .mCSB_scrollTools{width:4px !important; top:10px !important; bottom:10px !important; opacity:1 !important;}
+.store_search_wrapper .store_search_layer .search_result_cont .store_list_scroll .mCSB_scrollTools .mCSB_draggerRail{opacity:0 !important}
+.store_search_wrapper .store_search_layer .search_result_cont .store_list_scroll .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{opacity:1 !important; background-color:#dddddd; width:4px;}
+.store_search_wrapper .store_search_layer .search_result_cont ul li{position:relative; padding:26px 0 17px 40px; border-bottom:1px solid #dddddd; cursor:pointer}
+.store_search_wrapper .store_search_layer .search_result_cont ul li a{display:block;}
+.store_search_wrapper .store_search_layer .search_result_cont ul li .num{display:block; width:30px; height:30px; text-align:center; line-height:26px; background-color:#009223; border-radius:100px; font-family:font_sw; font-weight:bold; color:#fff; position:absolute; left:0; top:23px;}
+.store_search_wrapper .store_search_layer .search_result_cont ul li strong{color:#292929; font-size:18px; font-weight:bold; padding-bottom:14px;display:block;}
+.store_search_wrapper .store_search_layer .search_result_cont ul li .info{color:#999999; font-size:13px; line-height:23px; margin-bottom:15px;}
+.store_search_wrapper .store_search_layer .search_result_cont ul li .info span{display:block; letter-spacing:-0.045em}
+.store_search_wrapper .store_search_layer .search_result_cont ul li .service{margin-left:-2px;}
+.store_search_wrapper .store_search_layer .search_result_cont ul li .service span{display:inline-block; font-size:13px; color:#666; border:1px solid #666; border-radius:30px; height:23px; line-height:23px; padding:0 8px; margin:0 0 8px 2px;}
+.store_search_wrapper .store_search_layer .search_result_cont .pagination .arr.prev{margin-right:27px;}
+.store_search_wrapper .store_search_layer .search_result_cont .pagination .arr.next{margin-left:27px;}
+.store_search_wrapper .store_search_layer .search_result_cont .pagination{position:absolute; left:0; width:100%; bottom:25px}
+.store_search_wrapper .store_search_layer ul.search_noti{margin:15px 0;}
+.store_search_wrapper .store_search_layer ul.search_noti>li{padding:0 0 0 10px;font-size:14px;line-height:1.6;letter-spacing:-.5px;text-indent:-10px;}
+
+.store_search_wrapper .store_map .store_map_layer{width:298px; height:243px; border:1px solid #000000; background-color:#fff; position:absolute; left:50%; top:50%; margin:-234px 0 0 -150px; z-index:0}
+.store_search_wrapper .store_map .store_map_layer:after{content:''; position:absolute; left:50%; bottom:-8px; width:12px; height:8px; margin-left:-6px; background:url(../images/subway/icon_arr_d.png) 0 0 no-repeat;}
+.store_search_wrapper .store_map .store_map_layer .head{background-color:#ffce32; position:relative; height:54px;}
+.store_search_wrapper .store_map .store_map_layer .head strong{color:#292929; font-size:18px; font-weight:300; display:block; padding:17px 0 0 23px; letter-spacing:-0.03em}
+.store_search_wrapper .store_map .store_map_layer .head .btn_close{background:url(../images/common/icon_close01.png) 50% 50% no-repeat; width:54px; height:54px; position:absolute; right:0; top:0; overflow:hidden; text-indent:-9999px; font-size:0; line-height:0}
+.store_search_wrapper .store_map .store_map_layer .info{margin:0 24px; border-bottom:1px solid #dddddd; height:133px}
+.store_search_wrapper .store_map .store_map_layer .info dl{overflow:hidden; padding-top:23px;}
+.store_search_wrapper .store_map .store_map_layer .info dt{color:#292929; font-size:13px; float:left; height:21px; padding-left:2px; position:relative; margin-bottom:4px; letter-spacing:-0.04em}
+.store_search_wrapper .store_map .store_map_layer .info dt:before{content:''; width:2px; height:2px; display:inline-block; vertical-align:middle; background-color:#696969; margin-right:5px; position:relative; top:-1px}
+.store_search_wrapper .store_map .store_map_layer .info dd{color:#999999; font-size:13px; line-height:21px; margin:0 0 4px 76px; position:relative; top:-3px; letter-spacing:-0.03em; min-height:21px;}
+.store_search_wrapper .store_map .store_map_layer .foot{text-align: center; padding-top:17px;}
+.store_search_wrapper .store_map .store_map_layer .foot a{display:inline-block; color:#292929; font-size:16px; font-weight:300; letter-spacing:-0.045em;}
+.store_search_wrapper .store_map .store_map_layer .foot a:after{content:''; width:25px; height:25px; background:url(../images/common/icon_more.png) 0 0 no-repeat; display:inline-block; vertical-align:middle; margin-left:10px; position:relative; top:-2px;}
+
+
+/* 써브웨이 ::: 매장찾기 - 신규매장안내 */
+.new_store_content{background-color:#f6f6f6; padding:96px 0 100px; margin-bottom:95px;}
+.new_store_content .new_store_slider_wrapper{position:relative;}
+.new_store_content .new_store_slider_wrapper .store_list{overflow:hidden; margin:-30px 0 0 -30px;}
+.new_store_content .new_store_slider_wrapper .store_list li{width:270px; height:172px; background-color:#fff; float:left; position:relative; margin:30px 0 0 30px;}
+.new_store_content .new_store_slider_wrapper .store_list li .region{text-align:center; color:#292929; font-size:18px; padding-top:32px;}
+.new_store_content .new_store_slider_wrapper .store_list li .region strong{font-weight:bold; color:#292929; font-size:22px; text-align:center; display:block; margin-top:12px;}
+.new_store_content .new_store_slider_wrapper .store_list li .state{height:50px; position:absolute; left:0; width:100%; bottom:0; text-align:center; line-height:50px; font-weight:bold; font-size:18px;  font-family:font_sw;}
+.new_store_content .new_store_slider_wrapper .store_list li .state:after{content:''; width:12px; height:7px; background:url(../images/subway/icon_store_arr.png) 0 0 no-repeat; position:absolute; left:50%; top:0; margin-left:-6px;}
+.new_store_content .new_store_slider_wrapper .store_list li .state.coming{background-color:#ffce32; color:#009223;}
+.new_store_content .new_store_slider_wrapper .store_list li .state.open{background-color:#009223; color:#ffce32;}
+.new_store_content .new_store_slider_wrapper .store_list li .state.open strong{color:#fff;}
+
+.new_store_content .new_store_slider_wrapper .bx-wrapper .bx-controls-direction a{width:50px; height:50px; background:url(../images/news/icon_event_slider_arr.png) no-repeat; position:absolute; top:50%; margin-top:-25px; overflow:hidden; font-size:0; line-height:0px; text-indent:-9999px;}
+.new_store_content .new_store_slider_wrapper .bx-wrapper .bx-controls-direction .bx-prev{background-position:0 0; left:-105px;}
+.new_store_content .new_store_slider_wrapper .bx-wrapper .bx-controls-direction .bx-prev:hover{background-position:0 100%}
+.new_store_content .new_store_slider_wrapper .bx-wrapper .bx-controls-direction .bx-next{background-position:100% 0; right:-105px}
+.new_store_content .new_store_slider_wrapper .bx-wrapper .bx-controls-direction .bx-next:hover{background-position:100% 100%}
+
+.new_store_content .new_store_slider_wrapper .bx-pager{position:absolute; right:-5px; top:-45px;}
+.new_store_content .new_store_slider_wrapper .bx-pager .bx-pager-item{display:inline-block; margin:0 5px;}
+.new_store_content .new_store_slider_wrapper .bx-pager a{display:block; width:10px; height:10px; background-color:#dddddd; font-size:0; line-height:0; text-indent:-9999px; overflow:hidden; border-radius:30px; transition-duration:0.3s}
+.new_store_content .new_store_slider_wrapper .bx-pager a.active{background-color:#ffc300; width:30px;}
+
+/* 매장찾기 > 전체매장 */
+.all_store_content {padding-top:100px;}
+
+/* 써브웨이 ::: 매장안내 */
+.store_detail_wrapper{padding-top:60px;}
+.store_detail_wrapper .store_detail_layer{position:absolute; left:20px; top:80px; background-color:#fff; width:400px; border:1px solid #dddddd; padding:0 29px 20px; box-sizing:border-box; z-index:9}
+.store_detail_wrapper .store_detail_layer h2{text-align:center; font-size:28px; color:#292929; font-weight:bold; letter-spacing:-0.035em; padding:34px 0 0 0}
+.store_detail_wrapper .store_detail_layer .store_slider{height:229px; position:relative; margin:27px 0 25px 0;}
+.store_detail_wrapper .store_detail_layer .store_slider li{text-align:center; overflow:hidden; background-color:#fff;}
+.store_detail_wrapper .store_detail_layer .store_slider img{width:auto; height:200px}
+.store_detail_wrapper .store_detail_layer .store_slider .bx-controls-direction{display:none;}
+.store_detail_wrapper .store_detail_layer .store_slider .bx-pager{position:absolute; left:0; width:100%; bottom:0px; text-align:center }
+.store_detail_wrapper .store_detail_layer .store_slider .bx-pager .bx-pager-item{display:inline-block; margin:0 5px;}
+.store_detail_wrapper .store_detail_layer .store_slider .bx-pager a{display:block; width:10px; height:10px; background-color:#dddddd; font-size:0; line-height:0; text-indent:-9999px; overflow:hidden; border-radius:30px; transition-duration:0.3s}
+.store_detail_wrapper .store_detail_layer .store_slider .bx-pager a.active{background-color:#ffc300; width:30px;}
+.store_detail_wrapper .store_detail_layer dl{overflow:hidden;}
+.store_detail_wrapper .store_detail_layer dt{color:#292929; font-size:16px; float:left; letter-spacing:-0.035em; margin-bottom:16px; height:18px; margin-left:-4px;}
+.store_detail_wrapper .store_detail_layer dt:before{content:'ㆍ'; display:inline-block;}
+.store_detail_wrapper .store_detail_layer dd{margin-left:104px; color:#999999; font-size:16px; letter-spacing:-0.04em; margin-bottom:16px;}
+.store_detail_wrapper .store_detail_layer dd .service{margin-left:-2px; position:relative; top:2px;}
+.store_detail_wrapper .store_detail_layer dd .service span{display:inline-block; font-size:13px; color:#666; border:1px solid #666; border-radius:30px; height:23px; line-height:23px; padding:0 8px; margin:0 0 8px 2px; letter-spacing:0}
+.store_detail_wrapper .store_map{height:780px;}
+
+
+/* 써브웨이 ::: 써브웨이 역사 */
+.subway_history_wrapper{position:relative; overflow:hidden;}
+.subway_history_wrapper .section_content{position:relative;}
+.subway_history_wrapper .section_content .tit{color:#fff; position:absolute; left:0; width:100%; text-align:center; font-family:font_sw; font-weight:bold; font-size:46px; letter-spacing:0.02em}
+.subway_history_wrapper .section_content .line{position:absolute; left:0; width:100%; z-index:1}
+
+.subway_history_wrapper .section_content ul{position:relative; width:1070px; margin:0 auto; z-index:3;}
+.subway_history_wrapper .section_content ul li{position:absolute; padding-bottom:66px;}
+.subway_history_wrapper .section_content ul li:after{content:''; position:absolute; bottom:2px; width:15px; height:15px; border:5px solid #ffce32; border-radius:20px;}
+.subway_history_wrapper .section_content ul li:before{content:''; position:absolute; bottom:22px; width:50px; height:126px; background:url(../images/subway/img_pin_s.png) 0 0 no-repeat;}
+.subway_history_wrapper .section_content ul li.big:after{bottom:0}
+.subway_history_wrapper .section_content ul li.big:before{width:80px; height:200px; bottom:19px;  background:url(../images/subway/img_pin_b.png) 0 0 no-repeat;}
+
+.subway_history_wrapper .section_content ul li .year{color:#ffce32; font-size:28px; font-weight:bold; font-family:font_sw;}
+.subway_history_wrapper .section_content ul li p{color:#ffffff; font-size:28px; font-weight:bold; line-height:40px; white-space: nowrap; margin-top:9px; letter-spacing:-0.04em}
+
+.subway_history_wrapper .section_content ul li.left{text-align:left}
+.subway_history_wrapper .section_content ul li.left:after{left:-70px}
+.subway_history_wrapper .section_content ul li.left:before{left:-80px}
+.subway_history_wrapper .section_content ul li.big.left:after{left:-85px}
+.subway_history_wrapper .section_content ul li.big.left:before{left:-110px;}
+
+.subway_history_wrapper .section_content ul li.right{text-align:right}
+.subway_history_wrapper .section_content ul li.right:after{right:-63px}
+.subway_history_wrapper .section_content ul li.right:before{right:-78px}
+.subway_history_wrapper .section_content ul li.big.right:after{right:-79px}
+.subway_history_wrapper .section_content ul li.big.right:before{right:-110px;}
+
+.subway_history_wrapper .scene01{background:#4d006a; height:1200px;}
+.subway_history_wrapper .scene01 li:after{background-color:#4d006a}
+.subway_history_wrapper .scene01 .line{bottom:0; height:1147px; background:url(../images/subway/bg_history_line01.png) 50% 100% no-repeat;}
+.subway_history_wrapper .scene01 .tit{top:242px;}
+.subway_history_wrapper .scene01 .img01{left:50%; top:150px; margin-left:-889px; position:absolute;}
+.subway_history_wrapper .scene01 .img02{left:50%; bottom:313px; margin-left:252px; position:absolute}
+.subway_history_wrapper .scene01 .y1968 .logo{position:absolute; left:80px; top:5px}
+
+.subway_history_wrapper .scene02{background-color:#14a8e6; height:1400px;}
+.subway_history_wrapper .scene02 li:after{background-color:#14a8e6}
+.subway_history_wrapper .scene02 .line{top:0; bottom:0; background:url(../images/subway/bg_history_line02.png) 50% 0 no-repeat; z-index:2;}
+.subway_history_wrapper .scene02 .img01{left:50%; top:-141px; margin-left:-711px; position:absolute; z-index:3;}
+.subway_history_wrapper .scene02 .img02{left:50%; top:330px; margin-left:424px; position:absolute; z-index:3;}
+.subway_history_wrapper .scene02 .img03{left:50%; bottom:203px; margin-left:-620px; position:absolute; z-index:1}
+.subway_history_wrapper .scene02 .img04{right:50%; bottom:-1px; margin-right:-960px; position:absolute; z-index:1}
+
+.subway_history_wrapper .scene03{background-color:#e85a1c; height:1200px;}
+.subway_history_wrapper .scene03 li:after{background-color:#e85a1c}
+.subway_history_wrapper .scene03 .line{top:0; bottom:0; background:url(../images/subway/bg_history_line03.png) 50% 0 no-repeat;}
+.subway_history_wrapper .scene03 .img01{left:50%; top:347px; margin-left:-960px; position:absolute; z-index:3;}
+.subway_history_wrapper .scene03 .img02{right:50%; top:79px; margin-right:-960px; position:absolute; z-index:3;}
+
+
+.subway_history_wrapper .scene04{background-color:#009223; height:2142px;}
+.subway_history_wrapper .scene04 li:after{background-color:#009223}
+.subway_history_wrapper .scene04 .tit{top:224px;}
+.subway_history_wrapper .scene04 .line{top:0; bottom:0; background:url(../images/subway/bg_history_line04.png) 50% 0 no-repeat; z-index:2;}
+.subway_history_wrapper .scene04 .img01{left:50%; top:22px; margin-left:400px; position:absolute; z-index:3;}
+.subway_history_wrapper .scene04 .img02{left:50%; top:881px; margin-left:-778px; position:absolute; z-index:3;}
+.subway_history_wrapper .scene04 .img03{left:50%; bottom:142px; margin-left:-960px; position:absolute; z-index:1}
+.subway_history_wrapper .scene04 .y2017 .logo2{position:absolute; right:80px; top:-16px}
+
+.subway_history_wrapper [data-aos=fade-right]{transform: translate(-50px);}
+.subway_history_wrapper [data-aos=fade-left]{transform: translate(50px);}
+.subway_history_wrapper [data-aos=zoom-in]{transform: scale(.8);}
+
+/* 써브웨이 ::: 써브웨이 약속 */
+.subwray_promise_wrapper{padding-top:127px;}
+.subwray_promise_wrapper .hd{text-align:center; margin-bottom:81px}
+.subwray_promise_wrapper .hd h2{color:#009223; font-weight:bold; font-family:font_sw; font-size:36px;}
+.subwray_promise_wrapper .hd h2 em{color:#62ce08;}
+.subwray_promise_wrapper .hd h2 span{font-size:28px; display:inline-block; vertical-align:top;}
+.subwray_promise_wrapper .hd p{color:#292929; font-size:18px; margin-top:18px;}
+.subwray_promise_wrapper .subwray_promise_content li{padding-bottom:70px; position:relative;}
+.subwray_promise_wrapper .subwray_promise_content li:after{content:''; position:absolute; left:0; width:100%; bottom:0; height:130px;}
+.subwray_promise_wrapper .subwray_promise_content li .wrap{width:1170px; margin:0 auto; padding:60px 0 0; position:relative; overflow:hidden; z-index:3;}
+.subwray_promise_wrapper .subwray_promise_content li .info{position:absolute; top:141px}
+.subwray_promise_wrapper .subwray_promise_content li .info .tit .num{color:#fff; font-family:font_sw; font-weight:bold; font-size:18px; display:block; width:50px; height:50px; padding-top:20px; box-sizing:border-box; position:absolute; left:0; top:-21px; background-color:#009223; text-align:center;}
+.subwray_promise_wrapper .subwray_promise_content li .info .tit .num:after{content:''; width:22px; height:3px; position:absolute; left:50%; margin-left:-11px; top:12px; background-color:#ffce32}
+.subwray_promise_wrapper .subwray_promise_content li .info .tit strong{color:#292929; font-size:28px; font-weight:bold; letter-spacing:-0.04em; text-align:left; display: block; padding-left:69px;}
+.subwray_promise_wrapper .subwray_promise_content li .info p{color:#292929; font-size:16px; line-height:26px; letter-spacing:-0.04em; margin-top:28px;}
+.subwray_promise_wrapper .subwray_promise_content li .eng{color:#fff; font-size:80px; font-family:font_sw; font-weight:bold; position:absolute; bottom:52px; letter-spacing:-0.035em}
+
+.subwray_promise_wrapper .subwray_promise_content li:nth-child(odd){background-color:#f6f6f6}
+.subwray_promise_wrapper .subwray_promise_content li:nth-child(odd) .info{left:670px;}
+.subwray_promise_wrapper .subwray_promise_content li:nth-child(odd) .eng{color:#fff; left:600px;}
+.subwray_promise_wrapper .subwray_promise_content li:nth-child(odd):after{background-color:#fff;}
+
+.subwray_promise_wrapper .subwray_promise_content li:nth-child(even){background-color:#fff;}
+.subwray_promise_wrapper .subwray_promise_content li:nth-child(even) .img{float:right;}
+.subwray_promise_wrapper .subwray_promise_content li:nth-child(even) .info{left:0px;}
+.subwray_promise_wrapper .subwray_promise_content li:nth-child(even) .eng{color:#f6f6f6; text-align:right; right:600px;}
+.subwray_promise_wrapper .subwray_promise_content li:nth-child(even):after{background-color:#f6f6f6;}
+
+
+/* 써브웨이 ::: 샌드위치 아티스트지원  */
+.sandwich_artist_wrapper{padding-top:126px;}
+.sandwich_artist_wrapper .hd{text-align:center}
+.sandwich_artist_wrapper .hd h2{font-size:36px; font-family:font_sw; font-weight:bold; line-height:46px; color:#009223; letter-spacing:-0.005em}
+.sandwich_artist_wrapper .hd h2 span{color:#62ce08}
+.sandwich_artist_wrapper .hd p{color:#000000; font-size:18px; line-height:26px; letter-spacing:-0.04em; margin-top:10px;}
+
+.sandwich_artist_wrapper .slider_content{margin-top:60px; height:700px; overflow:hidden; position:relative;}
+.sandwich_artist_wrapper .slider_content .bx-pager{position:absolute; left:0; width:100%; bottom:97px; text-align:center;}
+.sandwich_artist_wrapper .slider_content .bx-pager .bx-pager-item{display:inline-block; margin:0 5px;}
+.sandwich_artist_wrapper .slider_content .bx-pager a{display:block; width:10px; height:10px; background-color:#dddddd; font-size:0; line-height:0; text-indent:-9999px; overflow:hidden; border-radius:30px; transition-duration:0.3s}
+.sandwich_artist_wrapper .slider_content .bx-pager a.active{background-color:#ffc300; width:30px;}
+.sandwich_artist_wrapper .slider_content .bx-wrapper{width:100%; overflow:hidden;}
+.sandwich_artist_wrapper .slider_content .bx-wrapper .bx-viewport{position:absolute !important; left:50% !important; width:2478px !important; margin-left:-378px !important; overflow:initial !important;}
+
+.sandwich_artist_wrapper .slider_content .bx-controls-direction  a{width:50px; height:50px; background:url(../images/common/icon_slider_arr.png) no-repeat; position:absolute; top:170px; overflow:hidden; font-size:0; line-height:0px; text-indent:-9999px;}
+.sandwich_artist_wrapper .slider_content .bx-controls-direction .bx-prev{background-position:0 0; left:50%; margin-left:-467px;}
+.sandwich_artist_wrapper .slider_content .bx-controls-direction .bx-prev:hover{background-position:0 100%}
+.sandwich_artist_wrapper .slider_content .bx-controls-direction .bx-next{background-position:100% 0; right:50%; margin-right:-482px;}
+.sandwich_artist_wrapper .slider_content .bx-controls-direction .bx-next:hover{background-position:100% 100%}
+
+.sandwich_artist_wrapper .slider_content ul li .img{opacity:0.5;}
+.sandwich_artist_wrapper .slider_content ul li .info{text-align:center; padding-top:30px; position:relative; margin-top:40px; opacity:0; top:30px;}
+.sandwich_artist_wrapper .slider_content ul li .info:after{content:''; position:absolute; left:50%; top:0; height:4px; width:50px; margin-left:-25px; background-color:#ffc300}
+.sandwich_artist_wrapper .slider_content ul li .info strong{display:block; font-size:22px; color:#292929; font-family:font_sw; font-weight:bold; letter-spacing:0em}
+.sandwich_artist_wrapper .slider_content ul li .info p{display:block; font-size:16px; color:#666666; line-height:26px; margin-top:15px; letter-spacing:-0.05em}
+.sandwich_artist_wrapper .slider_content ul li.view .img{opacity:1; transition-delay:0.3s;  transition-duration:0.45s}
+.sandwich_artist_wrapper .slider_content ul li.view .info{opacity:1; transition-delay:0.3s;  transition-duration:0.45s; top:0}
+
+.sandwich_artist_wrapper .sw_point{height:490px; background:url(../images/subway/img_sw_artist_point.jpg) 50% 0 no-repeat; margin:0 auto; text-align: center; padding-top:103px; box-sizing:border-box;}
+.sandwich_artist_wrapper .sw_point h3{color:#fff; font-size:28px; font-weight:bold; margin-bottom:68px; letter-spacing:-0.03em}
+.sandwich_artist_wrapper .sw_point h3 span{font-family:font_sw}
+.sandwich_artist_wrapper .sw_point ul{overflow:hidden; display:inline-block;}
+.sandwich_artist_wrapper .sw_point ul li{float:left; width:140px; margin:0 45px;}
+.sandwich_artist_wrapper .sw_point ul li span{display:block; color:#fff; font-family:font_sw; font-size:18px; margin-top:25px; letter-spacing:-0.025em}
+
+.sandwich_artist_wrapper .career_path{width:1033px; margin:90px auto 0}
+.sandwich_artist_wrapper .career_path h3{color:#292929; font-size:28px; font-weight:bold; font-family:font_sw; text-align:center; letter-spacing:-0.03em; margin-bottom:57px;}
+.sandwich_artist_wrapper .career_path ol{background:url(../images/subway/bg_career_path_line.png) 0 7px no-repeat; height:456px; position:relative;}
+.sandwich_artist_wrapper .career_path ol li{position:absolute; text-align:center; padding-top:44px; height:103px; width:260px;}
+.sandwich_artist_wrapper .career_path ol li:after{content:''; position:absolute; left:50%; top:0; margin-left:-11px; background:url(../images/subway/bul_dot.png) 0 0 no-repeat; width:22px; height:22px;}
+.sandwich_artist_wrapper .career_path ol li .num{display:block; font-family:font_sw; font-weight:bold; color:#292929; font-size:18px;}
+.sandwich_artist_wrapper .career_path ol li strong{display:block; font-family:font_sw; font-weight:bold; color:#009223; font-size:22px; line-height:25px; letter-spacing:-0.02em; margin-top:1px;}
+.sandwich_artist_wrapper .career_path ol li .view{color:#999999; font-size:13px; position:absolute; left:0; width:100%; bottom:0; letter-spacing:-0.025em;}
+.sandwich_artist_wrapper .career_path ol li .view p{display:inline-block; cursor:pointer; }
+.sandwich_artist_wrapper .career_path ol li .layer_view{ position:absolute; left:0; top:56px; width:260px; background-color:#009223; padding:15px 0 16px 0; display:table; display:none;}
+.sandwich_artist_wrapper .career_path ol li .layer_view:after{content:''; width:6px; height:4px; background:url(../images/common/icon_arr_t.png) 50% 0 no-repeat; position:absolute; left:50%; margin-left:-3px; top:-4px}
+.sandwich_artist_wrapper .career_path ol li .layer_view p{text-align:center; color:#fff; font-size:13px; line-height:21px; letter-spacing:-0.04em;  height:83px; display:table-cell; vertical-align:middle; text-align:center;}
+.sandwich_artist_wrapper .career_path ol li:nth-child(1){left:85px;}
+.sandwich_artist_wrapper .career_path ol li:nth-child(2){left:385px;}
+.sandwich_artist_wrapper .career_path ol li:nth-child(3){left:685px;}
+.sandwich_artist_wrapper .career_path ol li:nth-child(4){left:685px; top:208px}
+.sandwich_artist_wrapper .career_path ol li:nth-child(5){left:385px; top:208px}
+.sandwich_artist_wrapper .career_path ol li:nth-child(6){left:85px; top:208px}
+
+.sandwich_artist_wrapper .recruit{background-color:#f2f2f2; padding:95px 0 127px; letter-spacing:-0.03em}
+.sandwich_artist_wrapper .recruit .hd h3{text-align:center; color:#292929; font-size:28px; font-weight:bold;}
+.sandwich_artist_wrapper .recruit .hd p{text-align:center; color:#666666; font-size:16px; padding-top:2px;}
+.sandwich_artist_wrapper .recruit .recruit_link{text-align:center; margin-top:35px;}
+.sandwich_artist_wrapper .recruit .recruit_link .cont{overflow:hidden; display:inline-block;}
+.sandwich_artist_wrapper .recruit .recruit_link .box{float:left; width:320px; height:240px; background-color:#fff; box-sizing:border-box; margin-left:35px; position:relative;}
+.sandwich_artist_wrapper .recruit .recruit_link .box a{position:absolute; left:0; top:0; right:0; bottom:0; box-sizing:border-box; display:block; padding-top:40px;}
+.sandwich_artist_wrapper .recruit .recruit_link .box a:after{content:''; position:absolute; left:0; top:0; right:0; bottom:0; box-sizing:border-box; border:0px solid #009223;}
+.sandwich_artist_wrapper .recruit .recruit_link .box:first-child{margin-left:0}
+.sandwich_artist_wrapper .recruit .recruit_link .box .logo{background:url(../images/subway/img_recruit_logo.jpg) no-repeat; width:90px; height:90px; margin:0 auto;}
+.sandwich_artist_wrapper .recruit .recruit_link .box strong{display:block; font-weight:300; color:#292929; font-size:18px; margin:18px 0 15px 0; letter-spacing:-0.03em}
+.sandwich_artist_wrapper .recruit .recruit_link .box span{color:#999; font-size:13px; display:inline-block;}
+.sandwich_artist_wrapper .recruit .recruit_link .box a:hover:after{border-width:10px;  transition-duration:0.3s}
+.sandwich_artist_wrapper .recruit .recruit_link .box a:hover span{color:#009223; text-decoration:underline}
+.sandwich_artist_wrapper .recruit .recruit_link .box:nth-child(1) .logo{background-position:0 0}
+.sandwich_artist_wrapper .recruit .recruit_link .box:nth-child(2) .logo{background-position:-90px 0}
+.sandwich_artist_wrapper .recruit .recruit_link .box:nth-child(3) .logo{background-position:-180px 0}
+
+
+/* 써브웨이 ::: 샌드위치 아티스트지원 - 채용지원서  */
+.artist_recruit.inquiry_wrapper .pd_agree_wrapper .pd_agree{float:none; width:100%; margin:0}
+.artist_recruit.inquiry_wrapper .pd_agree_wrapper .scroll_wrapper{height:180px;}
+.artist_recruit.inquiry_wrapper .pd_agree_wrapper .scroll_wrapper .mCSB_container{line-height:21px !important;}
+.artist_recruit.inquiry_wrapper .btns_wrapper{border-top:0}

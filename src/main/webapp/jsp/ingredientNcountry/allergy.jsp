@@ -5,6 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>알레르기 정보</title>
+	<link href="" rel="shortcut icon" type="image/x-icon" />
+	<link href="../css/ui.common.css" rel="stylesheet" type="text/css" />
+	<link href="../css/jquery.mCustomScrollbar.min.css" rel="stylesheet" type="text/css" />
+	<link href="../css/ui.popup.css" rel="stylesheet" type="text/css" /><!-- 팝업 css -->
+	
+	<script src="../js/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="../js/jquery/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+	<script src="../js/jquery/TweenMax.min.js" type="text/javascript"></script>
 </head>
 <body>
 <div class="new_style" id="popup_wrap">

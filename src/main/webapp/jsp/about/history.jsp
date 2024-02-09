@@ -7,12 +7,12 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <link href="http://subway.co.kr/" rel="canonical" /><!-- 20180221 -->
     <meta content="신선하고 건강한 글로벌 NO.1 샌드위치 브랜드, 써브웨이" name="description" /><!-- 20181212 -->
-    <link rel="shortcut icon" type="image/x-icon" href="../images/common/subway_favicon.ico?v=2023051202" />
+    <link rel="shortcut icon" type="image/x-icon" href="./images/common/subway_favicon.ico?v=2023051202" />
         <!-- 20180131 -->
         <link rel="stylesheet" type="text/css" href="./css/ui.common.css?v=2023051202" />
         <link rel="stylesheet" type="text/css" href="./css/jquery.mCustomScrollbar.min.css?v=2023051202" />
 		<link rel="stylesheet" type="text/css" href="./css/ui.subway.css?v=2023051202" />
-		<link rel="stylesheet" href="../css/aos.css?v=2023051202" />
+		<link rel="stylesheet" href="./css/aos.css?v=2023051202" />
 
         <script type="text/javascript" src="./js/jquery/jquery-1.12.4.min.js?v=2023051202"></script>
         <script type="text/javascript" src="./js/jquery/jquery-ui-1.12.0.min.js?v=2023051202"></script>
@@ -31,7 +31,7 @@
         <script type="text/javascript" src="./js/jquery/jquery.tmpl.min.js?v=2023051202"></script>
         <script type="text/javascript" src="./js/waffle/waffle.utils.js?v=2023051202"></script>
 
-		<script src="../js/jquery/aos.js?v=2023051202"></script>
+		<script src="./js/jquery/aos.js?v=2023051202"></script>
 		<script>
 		$(document).ready(function(){
 			AOS.init({
@@ -77,7 +77,7 @@
 							</li>
 							<li class="y1968 left" data-aos="fade-in" style="left:228px; top:772px;">
 								<div class="year" data-aos="fade-left" data-aos-delay="80">1968</div>
-								<div class="logo" data-aos="fade-left" data-aos-delay="80"><img src="../images/subway/img_history_logo.png" /></div>
+								<div class="logo" data-aos="fade-left" data-aos-delay="80"><img src="./images/subway/img_history_logo.png" /></div>
 								<p data-aos="fade-left" data-aos-delay="150">
 									공식 명칭 ‘써브웨이’ 사용 시작
 								</p>
@@ -90,8 +90,8 @@
 							</li>
 						</ul>
 						<div class="line"></div>
-						<div class="img01" data-aos="zoom-in"><img src="../images/subway/img_history01_1.png" /></div>
-						<div class="img02" data-aos="zoom-in"><img src="../images/subway/img_history01_2.png" /></div>
+						<div class="img01" data-aos="zoom-in"><img src="./images/subway/img_history01_1.png" /></div>
+						<div class="img02" data-aos="zoom-in"><img src="./images/subway/img_history01_2.png" /></div>
 					</div>
 					<div class="section_content scene02">
 						<ul>
@@ -133,10 +133,10 @@
 							</li>
 						</ul>
 						<div class="line"></div>
-						<div class="img01" data-aos="zoom-in"><img src="../images/subway/img_history02_1.png" /></div>
-						<div class="img02" data-aos="zoom-in"><img src="../images/subway/img_history02_2.png" /></div>
-						<div class="img03" data-aos="zoom-in"><img src="../images/subway/img_history02_3.png" /></div>
-						<div class="img04" data-aos="fade-left"><img src="../images/subway/img_history02_4.png" /></div>
+						<div class="img01" data-aos="zoom-in"><img src="./images/subway/img_history02_1.png" /></div>
+						<div class="img02" data-aos="zoom-in"><img src="./images/subway/img_history02_2.png" /></div>
+						<div class="img03" data-aos="zoom-in"><img src="./images/subway/img_history02_3.png" /></div>
+						<div class="img04" data-aos="fade-left"><img src="./images/subway/img_history02_4.png" /></div>
 					</div>
 					<div class="section_content scene03">
 						<ul>
@@ -166,8 +166,8 @@
 							</li>
 						</ul>
 						<div class="line"></div>
-						<div class="img01" data-aos="fade-right"><img src="../images/subway/img_history03_1.png" /></div>
-						<div class="img02" data-aos="fade-left"><img src="../images/subway/img_history03_2.png" /></div>
+						<div class="img01" data-aos="fade-right"><img src="./images/subway/img_history03_1.png" /></div>
+						<div class="img02" data-aos="fade-left"><img src="./images/subway/img_history03_2.png" /></div>
 					</div>
 					<div class="section_content scene04">
 						<strong class="tit">KOREA</strong>
@@ -210,7 +210,7 @@
 							</li>
 							<li class="y2017 right big" data-aos="fade-in" style="right:198px; top:1626px">
 								<div class="year" data-aos="fade-right" data-aos-delay="80">2017</div>
-								<div class="logo2" data-aos="fade-right" data-aos-delay="80"><img src="../images/subway/img_history_logo02.png" /></div>
+								<div class="logo2" data-aos="fade-right" data-aos-delay="80"><img src="./images/subway/img_history_logo02.png" /></div>
 								<p data-aos="fade-right" data-aos-delay="150">
 									아시아 최초 ‘Fresh Forward’<br />매장 국내 오픈
 								</p>
@@ -229,9 +229,9 @@
 							</li>
 						</ul>
 						<div class="line"></div>
-						<div class="img01" data-aos="zoom-in"><img src="../images/subway/img_history04_1.png" /></div>
-						<div class="img02" data-aos="zoom-in"><img src="../images/subway/img_history04_2.png" /></div>
-						<div class="img03" data-aos="fade-right" data-aos-anchor-placement="top-bottom"><img src="../images/subway/img_history04_3.png" /></div><!-- 20180314 -->
+						<div class="img01" data-aos="zoom-in"><img src="./images/subway/img_history04_1.png" /></div>
+						<div class="img02" data-aos="zoom-in"><img src="./images/subway/img_history04_2.png" /></div>
+						<div class="img03" data-aos="fade-right" data-aos-anchor-placement="top-bottom"><img src="./images/subway/img_history04_3.png" /></div><!-- 20180314 -->
 					</div>
 				</div>
 			</div>
