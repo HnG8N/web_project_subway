@@ -32,6 +32,7 @@
 									<li><a href="newsList">공지사항</a></li>
 									<li><a href="board">이용후기</a></li>
 									<li><a href="faq.do">FAQ</a></li>
+									<li><a href="qna.do">1:1문의</a></li>
 								</ul>
 							</div></li>
 						<li><a href="#none" class="dp1">써브웨이</a>

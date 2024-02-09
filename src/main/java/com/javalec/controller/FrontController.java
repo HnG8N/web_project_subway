@@ -146,6 +146,11 @@ public class FrontController extends HttpServlet {
 //			command.execute(request, response);
 			viewPage = "/jsp/board/faq.jsp";
 			break;
+		case ("/qna.do"):	// 1:1 문의
+//			command = new UnitListCommand();
+//			command.execute(request, response);
+			viewPage = "/jsp/board/qna.jsp";
+		break;
 		case ("/cart.do"):	// FAQ
 //			command = new UnitListCommand();
 //			command.execute(request, response);
