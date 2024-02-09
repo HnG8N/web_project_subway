@@ -49,7 +49,7 @@
 <div id="container">
 	<div class="sub_header">
 		<div class="content">
-			<a class="logo" href="#none">HOME</a>
+			<a class="logo" href="home.do">HOME</a>
 			<!-- sub location -->
 			<div class="sub_loc">
 				<ul>
