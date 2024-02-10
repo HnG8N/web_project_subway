@@ -56,15 +56,15 @@ public class BoardDAO {
 		}
 		return -1;//데이터베이스 오류
 	}
-		public int write(String title, String bnid, String bcontent) {
+		public int write(String bmid, String btitle, String bcontent) {
 			String SQL = "INSERT INTO board VALUES (?, ?, ?, ?, ?, ?)";
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(SQL);
 				pstmt.setInt(1, getNext());
-				pstmt.setString(2, title);
-				pstmt.setString(3, bnid);
-				pstmt.setString(4, getDate());
-				pstmt.setString(5, bcontent);
+				pstmt.setString(2, bmid);
+				pstmt.setString(3, btitle);
+				pstmt.setString(4, bcontent);
+				pstmt.setString(5, getDate());
 				pstmt.setInt(6, 1);							
 				return pstmt.executeUpdate();								
 		} catch(Exception e) {
@@ -75,7 +75,7 @@ public class BoardDAO {
 		
 		public ArrayList<BoardDTO> getList(int pageNumber){
 			
-			String SQL = "SELECT * FROM board WHERE bnid < ? AND bavailable = 1 ORDER BY bseq DESC LIMIT 10";
+			String SQL = "SELECT * FROM board WHERE bseq < ? AND bavailable = 1 ORDER BY bseq DESC LIMIT 10";
 			ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
 			
 			try {
@@ -85,8 +85,8 @@ public class BoardDAO {
 				while (rs.next()) {
 					BoardDTO bbs = new BoardDTO();					
 					bbs.setBseq(rs.getInt(1));
-					bbs.setBnid(rs.getString(2));
-					bbs.setTitle(rs.getString(3));
+					bbs.setBmid(rs.getString(2));
+					bbs.setBtitle(rs.getString(3));
 					bbs.setBcontent(rs.getString(4));
 					bbs.setBdate(rs.getString(5));
 					bbs.setBavailable(rs.getString(6));
@@ -122,8 +122,8 @@ public class BoardDAO {
 				if (rs.next())	{
 					BoardDTO bbs = new BoardDTO();
 					bbs.setBseq(rs.getInt(1));
-					bbs.setBnid(rs.getString(2));
-					bbs.setTitle(rs.getString(3));
+					bbs.setBmid(rs.getString(2));
+					bbs.setBtitle(rs.getString(3));
 					bbs.setBcontent(rs.getString(4));
 					bbs.setBdate(rs.getString(5));
 					bbs.setBavailable(rs.getString(6));
@@ -135,11 +135,11 @@ public class BoardDAO {
 		return null;	
 		}
 		
-		public int update(int bseq, String title, String bcontent) {
-			String SQL = "UPDATE board SET title = ?, bcontent = ? WHERE bseq = ?";
+		public int update(int bseq, String btitle, String bcontent) {
+			String SQL = "UPDATE board SET btitle = ?, bcontent = ? WHERE bseq = ?";
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(SQL);
-				pstmt.setString(1, title);			
+				pstmt.setString(1, btitle);			
 				pstmt.setString(2, bcontent);
 				pstmt.setInt(3, bseq);							
 				return pstmt.executeUpdate();								
@@ -183,18 +183,18 @@ public class BoardDAO {
 	    	    
 	   
 	    // 제목 검색 기능 AJAX 이용
-	    public ArrayList<BoardDTO> search(String title){
-			String SQL = "SELECT * FROM board WHERE title LIKE ?";			
+	    public ArrayList<BoardDTO> search(String btitle){
+			String SQL = "SELECT * FROM board WHERE btitle LIKE ?";			
 			ArrayList<BoardDTO> titleList = new ArrayList<BoardDTO>();			
 			try {				
 				pstmt = conn.prepareStatement(SQL);
-				pstmt.setString(1, "%" + title + "%");			
+				pstmt.setString(1, "%" + btitle + "%");			
 				rs = pstmt.executeQuery();				
 				while (rs.next()) {
 					BoardDTO newBbs = new BoardDTO();
 					newBbs.setBseq(rs.getInt(1));
-					newBbs.setBnid(rs.getString(2));
-					newBbs.setTitle(rs.getString(3));
+					newBbs.setBmid(rs.getString(2));
+					newBbs.setBtitle(rs.getString(3));
 					newBbs.setBcontent(rs.getString(4));
 					newBbs.setBdate(rs.getString(5));
 					newBbs.setBavailable(rs.getString(6));				
@@ -207,4 +207,4 @@ public class BoardDAO {
 	}  
 	    			
 
-}
+}// End
