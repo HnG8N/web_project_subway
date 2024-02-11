@@ -34,7 +34,7 @@
 
 
 	<script type="text/javascript" src="./js/jquery/jquery.tmpl.min.js?v=2023051202"></script>
-	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=wukou9fhmn&amp;submodules=geocoder"></script>
+	<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=bva5oks3qe&amp;submodules=geocoder"></script>
 	<script type="text/javascript" src="./js/subway.map.js?v=2023051202"></script>
 	<script type="text/javascript" src="./js/subway.pagination.js?v=2023051202"></script>
 	<script type="text/javascript" src="./js/subway/storeSearch.js?v=2023051202"></script>
