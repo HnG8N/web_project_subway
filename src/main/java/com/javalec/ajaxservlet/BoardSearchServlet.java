@@ -24,26 +24,24 @@ public class BoardSearchServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		String title = request.getParameter("title");
+		String btitle = request.getParameter("btitle");
 		  
 		System.out.println("서블릿전송");
-		response.getWriter().write(getJSON(title));
+		response.getWriter().write(getJSON(btitle));
 		
 	}
 
-	public String getJSON(String title) {
-		if(title == null) title ="";	
+	public String getJSON(String btitle) {
+		if(btitle == null) btitle ="";	
 		StringBuffer result = new StringBuffer("");
 		result.append("{\"result\":[");
 		BoardDAO bbsDAO = new BoardDAO();
-			ArrayList<BoardDTO> titleList = bbsDAO.search(title);
+			ArrayList<BoardDTO> titleList = bbsDAO.search(btitle);
 			for(int i = 0; i< titleList.size(); i++) {
 				result.append("[{\"value\":\"" + titleList.get(i).getBseq() + "\"},");
-				result.append("{\"value\":\"" + titleList.get(i).getBnid() + "\"},");
-				result.append("{\"value\":\"" + titleList.get(i).getTitle() + "\"},");
-				result.append("{\"value\":\"" + titleList.get(i).getBcontent() + "\"},");
-				result.append("{\"value\":\"" + titleList.get(i).getBdate() + "\"},");
-				result.append("{\"value\":\""+ titleList.get(i).getBavailable() + "\"}],");			
+				result.append("{\"value\":\"" + titleList.get(i).getBmid() + "\"},");
+				result.append("{\"value\":\"" + titleList.get(i).getBtitle() + "\"},");			
+				result.append("{\"value\":\"" + titleList.get(i).getBdate() + "\"}],");
 				
 	        }
 			result.append("]}");

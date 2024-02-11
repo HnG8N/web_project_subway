@@ -3,8 +3,8 @@ package com.javalec.dto;
 public class BoardDTO {
 	
 	int bseq;
-	String bnid;
-	String title;
+	String bmid;
+	String btitle;
 	String bcontent;
 	String bdate;
 	String bavailable;
@@ -15,17 +15,17 @@ public class BoardDTO {
 	public void setBseq(int bseq) {
 		this.bseq = bseq;
 	}
-	public String getBnid() {
-		return bnid;
+	public String getBmid() {
+		return bmid;
 	}
-	public void setBnid(String bnid) {
-		this.bnid = bnid;
+	public void setBmid(String bmid) {
+		this.bmid = bmid;
 	}
-	public String getTitle() {
-		return title;
+	public String getBtitle() {
+		return btitle;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setBtitle(String btitle) {
+		this.btitle = btitle;
 	}
 	public String getBcontent() {
 		return bcontent;
