@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+/* faq */
+.faq_wrapper{background-color:#f2f2f2; margin-top:33px}
+.faq_wrapper .tab_menu{height:100px; width:1230px; margin:0 auto; background:url(../images/customer/bg_tab.png) 0 0 no-repeat; position:relative; top:-40px; z-index:3; text-align:center;}
+.faq_wrapper .tab_menu ul{overflow:hidden; display:inline-block;}
+.faq_wrapper .tab_menu li{float:left; position:relative;}
+.faq_wrapper .tab_menu li:after{content:''; position:absolute; left:0; top:33px; width:1px; height:15px; background-color:#dddddd;}
+.faq_wrapper .tab_menu li:first-child:after{display:none;}
+.faq_wrapper .tab_menu li.active a{color:#009223;}
+.faq_wrapper .tab_menu a{font-weight:300; font-size:16px; color:#666666; display:block; text-align:center; height:80px; line-height:80px; padding:0 24px;}
+.faq_wrapper .tab_menu a.eng{font-family:font_sw; font-weight:bold;}
+.faq_contet{width:1170px; margin:0 auto;}

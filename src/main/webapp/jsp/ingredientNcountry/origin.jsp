@@ -5,6 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>원산지 정보</title>
+	<link href="" rel="shortcut icon" type="image/x-icon" />
+	<link href="./css/ui.common.css" rel="stylesheet" type="text/css" />
+	<link href="./css/jquery.mCustomScrollbar.min.css" rel="stylesheet" type="text/css" />
+	
+	<script src="./js/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="./js/jquery/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+	<script src="./js/jquery/TweenMax.min.js" type="text/javascript"></script>
+	<link href="./css/ui.popup.css" rel="stylesheet" type="text/css" /><!-- 팝업 css -->
 </head>
 <body>
 	<div id="popup_wrap">
@@ -15,7 +23,7 @@
 					<ul>
 						<li>
 							<div class="icon">
-								<img alt="쇠고기" src="../images/menu/icon_country_origin01.png" />
+								<img alt="쇠고기" src="./images/menu/icon_country_origin01.png" />
 								<span>쇠고기</span>
 							</div>
 							<div class="info">
@@ -29,7 +37,7 @@
 						</li>
 						<li>
 							<div class="icon">
-								<img alt="돼지고기" src="../images/menu/icon_country_origin02.png" />
+								<img alt="돼지고기" src="./images/menu/icon_country_origin02.png" />
 								<span>돼지고기</span>
 							</div>
 							<div class="info">
@@ -45,7 +53,7 @@
 						</li>
 						<li>
 							<div class="icon">
-								<img alt="닭고기" src="../images/menu/icon_country_origin03.png" />
+								<img alt="닭고기" src="./images/menu/icon_country_origin03.png" />
 								<span>닭고기</span>
 							</div>
 							<div class="info">
@@ -63,7 +71,7 @@
 						</li>
 						<li>
 							<div class="icon">
-								<img alt="참치" src="../images/menu/icon_country_origin06.png" />
+								<img alt="참치" src="./images/menu/icon_country_origin06.png" />
 								<span>참치</span>
 							</div>
 							<div class="info">

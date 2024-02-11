@@ -7,7 +7,7 @@
 <title>Subway</title>
     <link href="http://subway.co.kr/" rel="canonical" /><!-- 20180221 -->
     <meta content="신선하고 건강한 글로벌 NO.1 샌드위치 브랜드, 써브웨이" name="description" /><!-- 20181212 -->
-    <link rel="shortcut icon" type="image/x-icon" href="../images/common/subway_favicon.ico?v=2023051202" />
+    <link rel="shortcut icon" type="image/x-icon" href="./images/common/subway_favicon.ico?v=2023051202" />
         <!-- 20180131 -->
         <link rel="stylesheet" type="text/css" href="./css/ui.common.css?v=2023051202" />
         <link rel="stylesheet" type="text/css" href="./css/jquery.mCustomScrollbar.min.css?v=2023051202" />

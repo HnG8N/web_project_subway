@@ -8,12 +8,12 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
 	<meta content="" name="description" />
 	<link href="" rel="shortcut icon" type="image/x-icon" />
-    <link href="../css/ui.common.css" rel="stylesheet" type="text/css" />
-	<link href="../css/jquery.mCustomScrollbar.min.css" rel="stylesheet" type="text/css" />
-	<script src="../js/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
-    <script src="../js/jquery/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
-    <script src="../js/jquery/TweenMax.min.js" type="text/javascript"></script>
-	<link href="../css/ui.popup.css" rel="stylesheet" type="text/css" /><!-- 팝업 css -->
+    <link href="./css/ui.common.css" rel="stylesheet" type="text/css" />
+	<link href="./css/jquery.mCustomScrollbar.min.css" rel="stylesheet" type="text/css" />
+	<script src="./js/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="./js/jquery/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+    <script src="./js/jquery/TweenMax.min.js" type="text/javascript"></script>
+	<link href="./css/ui.popup.css" rel="stylesheet" type="text/css" /><!-- 팝업 css -->
 </head>
 <body>
 <!--신선한 재료 영양성분표-->
