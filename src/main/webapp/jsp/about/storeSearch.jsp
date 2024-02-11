@@ -296,7 +296,7 @@
 												
 											
 
-											<td><a target="_blank" href="/storeDetail?franchiseNo=632"><img alt="자세히보기" src="/images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
+											<td><a target="_blank" href="/storeDetail?franchiseNo=632"><img alt="자세히보기" src="./images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
 
 										</tr>
 										<tr>
@@ -321,7 +321,7 @@
 												
 											
 
-											<td><a target="_blank" href="/storeDetail?franchiseNo=631"><img alt="자세히보기" src="/images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
+											<td><a target="_blank" href="/storeDetail?franchiseNo=631"><img alt="자세히보기" src="./images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
 
 										</tr>
 										<tr>
@@ -346,7 +346,7 @@
 												
 											
 
-											<td><a target="_blank" href="/storeDetail?franchiseNo=630"><img alt="자세히보기" src="/images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
+											<td><a target="_blank" href="/storeDetail?franchiseNo=630"><img alt="자세히보기" src="./images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
 
 										</tr>
 										<tr>
@@ -372,7 +372,7 @@
 												
 											
 
-											<td><a target="_blank" href="/storeDetail?franchiseNo=629"><img alt="자세히보기" src="/images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
+											<td><a target="_blank" href="/storeDetail?franchiseNo=629"><img alt="자세히보기" src="./images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
 
 										</tr>
 										<tr>
@@ -398,7 +398,7 @@
 												
 											
 
-											<td><a target="_blank" href="/storeDetail?franchiseNo=628"><img alt="자세히보기" src="/images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
+											<td><a target="_blank" href="/storeDetail?franchiseNo=628"><img alt="자세히보기" src="./images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
 
 										</tr>
 										<tr>
@@ -424,7 +424,7 @@
 												
 											
 
-											<td><a target="_blank" href="/storeDetail?franchiseNo=627"><img alt="자세히보기" src="/images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
+											<td><a target="_blank" href="/storeDetail?franchiseNo=627"><img alt="자세히보기" src="./images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
 
 										</tr>
 										<tr>
@@ -450,7 +450,7 @@
 												
 											
 
-											<td><a target="_blank" href="/storeDetail?franchiseNo=626"><img alt="자세히보기" src="/images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
+											<td><a target="_blank" href="/storeDetail?franchiseNo=626"><img alt="자세히보기" src="./images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
 
 										</tr>
 										<tr>
@@ -476,7 +476,7 @@
 												
 											
 
-											<td><a target="_blank" href="/storeDetail?franchiseNo=625"><img alt="자세히보기" src="/images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
+											<td><a target="_blank" href="/storeDetail?franchiseNo=625"><img alt="자세히보기" src="./images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
 
 										</tr>
 										<tr>
@@ -502,7 +502,7 @@
 												
 											
 
-											<td><a target="_blank" href="/storeDetail?franchiseNo=624"><img alt="자세히보기" src="/images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
+											<td><a target="_blank" href="/storeDetail?franchiseNo=624"><img alt="자세히보기" src="./images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
 
 										</tr>
 										<tr>
@@ -528,7 +528,7 @@
 												
 											
 
-											<td><a target="_blank" href="/storeDetail?franchiseNo=623"><img alt="자세히보기" src="/images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
+											<td><a target="_blank" href="/storeDetail?franchiseNo=623"><img alt="자세히보기" src="./images/common/icon_detail_view.png" /></a></td><!-- 20180307 -->
 
 										</tr>
 									</tbody>
