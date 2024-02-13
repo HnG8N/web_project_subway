@@ -4,11 +4,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Subway</title>
-<link rel="stylesheet" type="text/css" href="./css/ui.common.css?v=2023051202" />
-<link rel="stylesheet" type="text/css" href="./css/ui.main.css?v=2023051202" />
-<link rel="stylesheet" type="text/css" href="./css/ui.menu.css?v=2023051202" />
-<link rel="stylesheet" type="text/css" href="./css/ui.order.css?v=2023051202" />
-<link rel="stylesheet" type="text/css" href="./css/jquery.mCustomScrollbar.min.css?v=2023051202" />
+    <link href="http://subway.co.kr/" rel="canonical" /><!-- 20180221 -->
+    <meta content="신선하고 건강한 글로벌 NO.1 샌드위치 브랜드, 써브웨이" name="description" /><!-- 20181212 -->
+    <link rel="shortcut icon" type="image/x-icon" href="./images/common/subway_favicon.ico?v=2023051202" />
+    <!-- 20180131 -->
+    <link rel="stylesheet" type="text/css" href="./css/ui.common.css?v=2023051202" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery.mCustomScrollbar.min.css?v=2023051202" />
+        
+	<link rel="stylesheet" type="text/css" href="./css/ui.common.css?v=2023051202" />
+	<link rel="stylesheet" type="text/css" href="./css/ui.main.css?v=2023051202" />
+	<link rel="stylesheet" type="text/css" href="./css/ui.menu.css?v=2023051202" />
+	<link rel="stylesheet" type="text/css" href="./css/ui.order.css?v=2023051202" />
+	<link rel="stylesheet" type="text/css" href="./css/jquery.mCustomScrollbar.min.css?v=2023051202" />
 
     <script type="text/javascript" src="./js/jquery/jquery-1.12.4.min.js?v=2023051202"></script>
     <script type="text/javascript" src="./js/jquery/jquery-ui-1.12.0.min.js?v=2023051202"></script>
