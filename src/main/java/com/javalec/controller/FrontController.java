@@ -115,7 +115,7 @@ public class FrontController extends HttpServlet {
 //			command.execute(request, response);
 			viewPage = "/jsp/about/history.jsp";
 		break;
-		case ("/privacy.do"):	// 서브웨이 역사
+		case ("/privacy.do"):	// 개인정보처리방침
 //			command = new UnitListCommand();
 //			command.execute(request, response);
 			viewPage = "/jsp/about/privacy.jsp";
@@ -151,7 +151,7 @@ public class FrontController extends HttpServlet {
 //			command.execute(request, response);
 			viewPage = "/jsp/board/qna.jsp";
 		break;
-		case ("/cart.do"):	// FAQ
+		case ("/cart.do"):	// 장바구니.
 //			command = new UnitListCommand();
 //			command.execute(request, response);
 			viewPage = "/jsp/cart/fastsub.jsp";
