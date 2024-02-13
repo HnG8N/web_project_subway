@@ -37,7 +37,6 @@ public class CheckPw extends HttpServlet {
 
 		Login_Dao dao = new Login_Dao();
 		String pw = dao.checkPw(mid);
-		System.out.println(pw);
 		response.setContentType("text/html;charset=UTF-8");
 
 		// 회원 아이디 중복 여부를 JSON으로 변환하여 응답
