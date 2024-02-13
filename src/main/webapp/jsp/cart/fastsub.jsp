@@ -49,8 +49,7 @@
 			<h2 class="subTitle_02">장바구니</h2>
 			<div class="tab02">
 				<ul>
-					<li class="swiper-slide active"><a href="/cart/fastsub">FAST-SUB</a></li>
-					<li class="swiper-slide "><a href="/cart/homesub">HOME-SUB</a></li>
+					<li class="swiper-slide active"><a href="store.do">FAST-SUB</a></li>
 				</ul>
 			</div>
 			<!-- 장바구니 목록 있을때 -->
@@ -63,7 +62,7 @@
 					<dd>
 						<strong>강남우성점 (서울특별시 강남구 강남대로66길 6)</strong> <a
 							href="javascript:void(0);" id="changeStore"
-							data-url="/order/view/fast/near/store" data-stor="64444"> 변경
+							data-url="store.do" data-stor="64444"> 변경
 						</a>
 					</dd>
 				</dl>
@@ -130,10 +129,14 @@
 
 
 							</p>
-							<strong> <em>6,600</em> <span>원</span>
-							</strong>
+							<br>
+							<dd>
+								<strong> 
+									<em>6,600</em> <span>원</span>
+								</strong>
+							</dd>
 						</div>
-						<img onError="this.src='/images/common/noneImage.jpg'" alt="비엘티"
+						<img onError="this.src='./images/common/noneImage.jpg'" alt="비엘티"
 							src="" />
 					</div> <!-- 일회용컵선택 -->
 
