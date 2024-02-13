@@ -3,28 +3,30 @@ package com.javalec.dto;
 public class Signup_Dto {
 	
 	String mid;
-	int dupmid;
+	int count;
 	String mpw;
 	String mname;
 	String maddress;
 	String mtel;
 	String mbirth;
+	String memail;
 	
 	public Signup_Dto() {
 		
 	}
 	
-	public Signup_Dto(int dupmid) {
-		this.dupmid = dupmid;
+	public Signup_Dto(int count) {
+		this.count = count;
 	}
 	
-	public Signup_Dto(String mid, String mpw, String mname, String maddress, String mtel, String mbirth) {
+	public Signup_Dto(String mid, String mpw, String mname, String maddress, String mtel, String mbirth,String memail) {
 		this.mid = mid;
 		this.mpw = mpw;
 		this.mname = mname;
 		this.maddress = maddress;
 		this.mtel = mtel;
 		this.mbirth = mbirth;
+		this.memail = memail;
 	}
 
 	public String getMid() {
@@ -75,12 +77,22 @@ public class Signup_Dto {
 		this.mbirth = mbirth;
 	}
 
-	public int getDupmid() {
-		return dupmid;
+	public int getCount() {
+		return count;
 	}
 
-	public void setDupmid(int dupmid) {
-		this.dupmid = dupmid;
+	public void setCount(int count) {
+		this.count = count;
 	}
+
+	public String getMemail() {
+		return memail;
+	}
+
+	public void setMemail(String memail) {
+		this.memail = memail;
+	}
+	
+	
 
 }
