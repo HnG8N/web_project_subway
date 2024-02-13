@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.javalec.command.Command;
+import com.javalec.command.LoginCommand;
 import com.javalec.command.SaladListCommand;
 import com.javalec.command.SandwichListCommand;
 import com.javalec.command.SignupCommand;
@@ -54,6 +56,7 @@ public class FrontController extends HttpServlet {
 		
 		Command command = null;
 		String viewPage = null;
+		HttpSession session = request.getSession();
 		
 		String url = request.getRequestURI();
 		System.out.println(url); 	   	//  /MVCBoard/list.do 라고 뜸
@@ -65,6 +68,20 @@ public class FrontController extends HttpServlet {
 		switch (com) {
 		case("/login_view.do"):
 			viewPage = "/jsp/signup/login.jsp";
+			break;
+		case("/login.do"):
+			command = new LoginCommand();
+			command.execute(request, response);
+			
+			
+			String userid = (String)session.getAttribute("userId");
+			
+			if(userid == "admin") {
+				//viewPage="signup_view.do";
+			}
+			else {
+				viewPage="home.do";
+			}
 			break;
 		case ("/signup_view.do"):
 			viewPage = "/jsp/signup/signup.jsp";
@@ -84,6 +101,7 @@ public class FrontController extends HttpServlet {
 		break;
 		case("/logout.do"):	// 로그아웃.
 			viewPage = "/index.jsp";
+			session.invalidate();
 		break;
 		case ("/agreement.do"):	// 이용약관
 //			command = new SandwichListCommand();
