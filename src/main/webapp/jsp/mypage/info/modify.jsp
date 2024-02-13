@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,24 +71,28 @@
 								<div class="input_set style01">
 									<dl class="info_dl">
 										<dt>이메일 아이디</dt>
-										<dd>ssujjy@gmail.com</dd>
+										<dd>${dto.email}</dd>
 									</dl>
 								</div>
 								<div class="input_set style01">
 									<dl class="info_dl">
 										<dt>이름</dt>
-										<dd id="mbrNm">김수진</dd>
+										<dd id="mbrNm">${dto.name}</dd>
+									</dl>
+									<dl class="info_dl">
+										<dt>주소</dt>
+										<dd id="mbrNm">${dto.address}</dd>
 									</dl>
 									<dl class="info_dl">
 										<dt>생년월일</dt>
-										<dd id="mbrBirth">1982-09-09</dd>
+										<dd id="mbrBirth">${dto.birth}</dd>
 									</dl>
 									<dl class="info_dl">
 										<dt>휴대전화</dt>
 										<dd>
 											<div class="phone_num_wrap">
 												<span class="form_text"> <input id="cpNo" name="cpNo"
-													readonly="" type="tel" value="01088487702" />
+													readonly="" type="tel" value="${dto.tel}" />
 												</span>
 												<div class="btn_input_in">
 													<button class="in_form_btn cpNoChange" id="checkAuthBtn"

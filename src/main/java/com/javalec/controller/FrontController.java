@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.javalec.command.Command;
 import com.javalec.command.LoginCommand;
+import com.javalec.command.MyPageCommand;
 import com.javalec.command.SaladListCommand;
 import com.javalec.command.SandwichListCommand;
 import com.javalec.command.SignupCommand;
@@ -92,8 +93,8 @@ public class FrontController extends HttpServlet {
 			viewPage = "login_view.do";
 			break;
 		case ("/mypage.do"):	// 마이페이지.
-//			command = new SandwichListCommand();
-//			command.execute(request, response);
+			command = new MyPageCommand();
+			command.execute(request, response);
 			viewPage = "/jsp/mypage/mypage.jsp";
 			break;
 		case("/home.do"):	// 홈으로~
@@ -181,6 +182,8 @@ public class FrontController extends HttpServlet {
 		   viewPage = "/jsp/signup/findPw.jsp";
 		   break;
 		case("/infoModify.do"):
+			command = new MyPageCommand();
+			command.execute(request, response);
 			viewPage = "/jsp/mypage/info/modify.jsp";
 		break;
 		case("/modifyPW.do"):
