@@ -156,6 +156,12 @@ public class FrontController extends HttpServlet {
 //			command.execute(request, response);
 			viewPage = "/jsp/cart/fastsub.jsp";
 		break;
+		case("/findId_view.do"):
+		   viewPage = "/jsp/signup/findId.jsp";
+		   break;
+		case("/findPw_view.do"):
+		   viewPage = "/jsp/signup/findPw.jsp";
+		   break;
 		default:
 			break;
 		}
