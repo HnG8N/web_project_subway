@@ -46,7 +46,7 @@
                                 <dt>현재 비밀번호<span class="ess"></span></dt>
                                 <dd>
                                     <span class="form_text">
-                                    	<input id="cpNo" type="hidden" value="01088487702" />
+                                    	<input id="cpNo" type="hidden"/>
                                         <input id="pw" name="pw" placeholder="현재 비밀번호" type="password" />
                                     </span>
                                     <span class="pw_check miss" id="wrong-msg-pw"></span>
@@ -61,13 +61,9 @@
                                     <span class="form_text">
                                         <input class="input_pw" id="newPw" name="newPw" placeholder="비밀번호 변경" type="password" />
                                     </span>
-                                    <span class="pw_check miss" id="wrong-msg-newPw"></span>
-                                    <!--issues/397#note_26607 문구노출-->
-                                    <i class="icon_true_v"></i><!-- 입력값 정상 확인 아이콘 -->
                                 </dd>
                             </dl>
                         </div>
-                        <p class="p_notice on worng-msg-pw">영문(대문자)+영문(소문자)+숫자+특수문자 조합 8자 이상 입력해주세요.<br /> 반드시 현재의 비밀번호와 다르게 입력해 주세요.</p>
                         <div class="input_set input_pw_div">
                             <dl>
                                 <dt>새 비밀번호 확인<span class="ess"></span></dt>
