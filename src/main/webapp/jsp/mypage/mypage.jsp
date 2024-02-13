@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,7 +87,7 @@
 							<div class="name_gender">
 								<i class="character female"></i>
 								<p class="name">
-									<strong><em class="multiple_line">김수진</em>님</strong>
+									<strong><em class="multiple_line">${dto.name}</em>님</strong>
 								</p>
 							</div>
 							<a class="btn go_view" href="infoModify.do"> <span>회원
