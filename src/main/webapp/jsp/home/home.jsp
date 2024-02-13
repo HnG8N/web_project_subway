@@ -4,11 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Subway</title>
-<link rel="stylesheet" type="text/css" href="./css/ui.common.css?v=2023051202" />
-<link rel="stylesheet" type="text/css" href="./css/ui.main.css?v=2023051202" />
-<link rel="stylesheet" type="text/css" href="./css/ui.menu.css?v=2023051202" />
-<link rel="stylesheet" type="text/css" href="./css/ui.order.css?v=2023051202" />
-<link rel="stylesheet" type="text/css" href="./css/jquery.mCustomScrollbar.min.css?v=2023051202" />
+	<link rel="stylesheet" type="text/css" href="./css/ui.common.css?v=2023051202" />
+	<link rel="stylesheet" type="text/css" href="./css/ui.main.css?v=2023051202" />
+	<link rel="stylesheet" type="text/css" href="./css/ui.menu.css?v=2023051202" />
+	<link rel="stylesheet" type="text/css" href="./css/ui.order.css?v=2023051202" />
+	<link rel="stylesheet" type="text/css" href="./css/jquery.mCustomScrollbar.min.css?v=2023051202" />
 
     <script type="text/javascript" src="./js/jquery/jquery-1.12.4.min.js?v=2023051202"></script>
     <script type="text/javascript" src="./js/jquery/jquery-ui-1.12.0.min.js?v=2023051202"></script>
@@ -104,7 +104,7 @@
 					</a>
 				</div>
 				<div class="franchise">
-					<a href="/franchiseInquiry"><strong>가맹신청ㆍ문의</strong></a>
+					<a href="#"><strong>가맹신청ㆍ문의</strong></a>
 				</div>
 			</div>
 		</div>

@@ -1,3 +1,6 @@
+/*	자주찾는 매장. 
+ *
+ */
 var favor  = {
 		
 		favorite : function(frm) {
