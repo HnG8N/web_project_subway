@@ -162,6 +162,12 @@ public class FrontController extends HttpServlet {
 		case("/findPw_view.do"):
 		   viewPage = "/jsp/signup/findPw.jsp";
 		   break;
+		case("/infoModify.do"):
+			viewPage = "/jsp/mypage/info/modify.jsp";
+		break;
+		case("/modifyPW.do"):
+			viewPage = "/jsp/mypage/info/pw.jsp";
+		break;
 		default:
 			break;
 		}
