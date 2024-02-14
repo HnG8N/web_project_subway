@@ -45,7 +45,7 @@
 					<li><a class="dp1" href="javascript:void(0);">온라인 주문</a>
 						<div class="dp2">
 							<ul>
-								<li><a href="store.do">FAST-SUB</a></li>
+								<li><a href="step2.do">FAST-SUB</a></li>
 							</ul>
 						</div></li>
 				</ul>

@@ -50,6 +50,15 @@ var view = {
 }
 
 $(document).ready(function (){
-	// e-Gift 선물여부 검사
-	view.checkEgiftPresent();
+	
 });
+
+function pwCheck() {
+	if ($('#newpw').val() == $('#subpw').val()) {
+		$('#result').text('비밀번호 일치').css('color', 'green')
+		pwValidated = "true";
+	} else {
+		$('#result').text('비밀번호 불일치').css('color', 'red')
+		pwValidated = "false";
+	}
+}

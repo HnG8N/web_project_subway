@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import com.javalec.command.Command;
 import com.javalec.command.LoginCommand;
+import com.javalec.command.MenuDetailCommand;
+import com.javalec.command.MenuListCommand;
 import com.javalec.command.MyPageCommand;
 import com.javalec.command.SaladListCommand;
 import com.javalec.command.SandwichListCommand;
@@ -143,6 +145,22 @@ public class FrontController extends HttpServlet {
 //			command = new SandwichListCommand();
 //			command.execute(request, response);
 			viewPage = "/jsp/order/view/fast/near/store.jsp";
+			break;
+		case ("/step2.do"):	// FAST_SUB step2
+			command = new MenuListCommand();
+			command.execute(request, response);
+			viewPage = "/jsp/order/progress/step2.jsp";
+			break;
+		case ("/menuView.do"):	// FAST_SUB salad view
+			command = new MenuDetailCommand();
+			command.execute(request, response);
+			viewPage = "/jsp/order/progress/view.jsp";
+			break;
+		case ("/allergy.do"):	// 알레르기 정보
+			viewPage = "/jsp/ingredientNcountry/allergy.jsp";
+			break;
+		case ("/origin.do"):	// 원산지 정보
+			viewPage = "/jsp/ingredientNcountry/origin.jsp";
 			break;
 		case ("/sandwich.do"):	// 샌드위치 메뉴소개
 			command = new SandwichListCommand();
