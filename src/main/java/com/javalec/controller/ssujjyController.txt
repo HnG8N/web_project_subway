@@ -1,0 +1,16 @@
+		case ("/step2.do"):	// FAST_SUB step2
+			command = new MenuListCommand();
+			command.execute(request, response);
+			viewPage = "/jsp/order/progress/step2.jsp";
+			break;
+		case ("/menuView.do"):	// FAST_SUB salad view
+			command = new MenuDetailCommand();
+			command.execute(request, response);
+			viewPage = "/jsp/order/progress/view.jsp";
+			break;
+		case ("/allergy.do"):	// 알레르기 정보
+			viewPage = "/jsp/ingredientNcountry/allergy.jsp";
+			break;
+		case ("/origin.do"):	// 원산지 정보
+			viewPage = "/jsp/ingredientNcountry/origin.jsp";
+			break;
