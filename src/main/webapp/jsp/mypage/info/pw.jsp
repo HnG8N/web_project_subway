@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="js/mypage/manage/modify_pw.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
     <link href="http://subway.co.kr/" rel="canonical" /><!-- 20180221 -->
@@ -15,13 +17,7 @@
     
     <script crossorigin="anonymous" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
     <script crossorigin="anonymous" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="./js/jquery/jquery.easing.1.3.min.js?v=2023021301"></script>
-    <script type="text/javascript" src="./js/jquery/jquery.bxslider.min.js?v=2023021301"></script>
-    <script type="text/javascript" src="./js/jquery/jquery.mCustomScrollbar.concat.min.js?v=2023021301"></script>
-    <script type="text/javascript" src="./js/jquery/TweenMax.min.js?v=2023021301"></script>
-    <script type="text/javascript" src="./js/ui.common.js?v=2023021301"></script>
-    
-    <script type="text/javascript" src="./js/mypage/manage/modify_pw.js?v=2023021301"></script>
+
 	<link rel="stylesheet" type="text/css" href="./css/ui.mypage.css?v=2023021301" />
 	<script>
 		/*<![CDATA[*/
@@ -46,7 +42,7 @@
                                 <dt>현재 비밀번호<span class="ess"></span></dt>
                                 <dd>
                                     <span class="form_text">
-                                    	<input id="cpNo" type="hidden"/>
+                                    	<input id="id" type="hidden" value="<%=session.getAttribute("userId") %>" />
                                         <input id="pw" name="pw" placeholder="현재 비밀번호" type="password" />
                                     </span>
                                     <span class="pw_check miss" id="wrong-msg-pw"></span>
@@ -61,6 +57,9 @@
                                     <span class="form_text">
                                         <input class="input_pw" id="newPw" name="newPw" placeholder="비밀번호 변경" type="password" />
                                     </span>
+                                    <span class="pw_check miss" id="wrong-msg-newPw"></span>
+                                    <!--issues/397#note_26607 문구노출-->
+                                    <i class="icon_true_v"></i><!-- 입력값 정상 확인 아이콘 -->
                                 </dd>
                             </dl>
                         </div>
@@ -69,9 +68,8 @@
                                 <dt>새 비밀번호 확인<span class="ess"></span></dt>
                                 <dd>
                                     <span class="form_text">
-                                         <input class="input_pw" id="subPw" name="subPw" placeholder="비밀번호 변경" type="password" readonly="readonly" />
+                                         <input class="input_pw" id="subPw" name="subPw" placeholder="비밀번호 변경" type="password" />
                                     </span>
-                                    <span class="pw_check miss" id="wrong-msg-subPw">새 비밀번호와 일치 하지 않습니다.</span>
                                     <!--issues/397#note_26607 문구노출-->
                                     <i class="icon_true_v"></i><!-- 입력값 정상 확인 아이콘 -->
                                 </dd>
@@ -81,8 +79,8 @@
                     </div>
                 </section>
                 <div class="btn_area">
-                    <a class="btn bgc_white btn_close" href="javascript:parent.closeIFrame();" style="width:130px;"><span>취소</span></a>
-                    <a class="btn bgc_point i_reg" href="javascript:view.modify();" id="pwInfo" style="width:136px;"><span>변경하기</span></a>
+                    <a class="btn bgc_white btn_close" style="width:130px;"><span>취소</span></a>
+                    <button class="btn bgc_point i_reg" id="pwInfo" style="width:136px;"><span>변경하기</span></button>
                 </div>
 			</div>
 		</div>
