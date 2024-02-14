@@ -44,16 +44,16 @@
 	<!-- container s -->
 	<div id="container">
 		<form method="post" name="moveForm">
-			<input name="changeYn" type="hidden" value="Y" /> 
-			<input name="ordType" type="hidden" value="ORD_TYPE.FAST_SUB" /> 
-			<input name="storCd" type="hidden" value="64444" /> 
-			<input name="cateCd" type="hidden" value="ITEM_SALAD" /> 
-			<input name="paveFg" type="hidden" value="Y" />
+			<input name="changeYn" type="hidden" value="" /> 
+			<input name="ordType" type="hidden" value="" /> 
+			<input name="storCd" type="hidden" value="" /> 
+			<input name="cateCd" type="hidden" value="" /> 
+			<input name="paveFg" type="hidden" value="" />
 		</form>
 		<form id="orderForm" name="orderForm">
-			<input name="itemIdx" type="hidden" value="234" /> 
+			<input name="itemIdx" type="hidden" value="" /> 
 			<input id="ordType" name="ordItemsVO.ordType" type="hidden" value="" /> 
-			<input name="paveFg" type="hidden" value="Y" />
+			<input name="paveFg" type="hidden" value="" />
 		</form>
 
 		<input id="subpickYnCheck" type="hidden" value="N" />
@@ -122,7 +122,7 @@
 								</p>
 
 								<button class="btn bgc_point i_reg" id="itemConbiPopBtn"
-									style="width: 183px;" type="button" data-item-gubun="salad"
+									style="width: 183px;" type="button" data-item-gubun="${dto.mnctg}"
 									data-store-cd="64444" data-combination-idx="78"
 									data-item-code="01902" data-subpick="N">
 									<span>추천 꿀 조합</span>
@@ -212,7 +212,192 @@
 								</ul>
 							</div>
 						</div>
+						<!-- 옵션 선택시 나오는 부분 s -->
+						<ol class="menu_select">
+							<li class="step01">
+								<dl>
+									<dt>
+										<strong>STEP 01</strong>
+										필수 선택 *
+									</dt>
+									<dd>
+										<ul>
+											
+												
+													<li class="on">
+														<span><a data-combination="N" id="breadType">길이 선택</a></span>
+														
+														<!--<a th:attr="data-combination=${isCombination ? 'Y' : 'N'}" th:id="${isCombination ? '' : 'breadType'}">길이 선택</a>-->
+													</li>
+													
+														<li name="bread" class="on">
+															<a data-combination="N" id="bread">빵 선택</a>
+														</li>
+													
+												
+											
+											
+												<!-- #210818 페퍼로니 피자썹: 빵,데우기만 선택 가능 -->
+												
+													
+														<li name="cheese" class="on">
+															<a data-combination="N" id="cheese">치즈 선택</a>
+														</li>
+													
 
+													<!-- #210818 썹도그: 빵,데우기, 치즈만 선택 가능 -->
+													
+														
+															<li name="vegetable" class="on">
+																<a data-combination="N" id="vegetable">야채 선택</a>
+															</li>
+														
+
+														
+															<li name="sauce" class="on">
+																<a style="width: 140px;" data-combination="N" id="sauce">소스/시즈닝 선택</a>
+															</li>
+														
+
+													
+												
+											
+										</ul>
+										<!-- <span>미선택 시 추천조합으로 자동 선택됩니다.</span> -->
+										<p>
+											<!-- 빵길이 -->
+											<th:object>15cm</th:object>
+
+											<!-- 빵종류 -->
+											<th:object>, 허니오트</th:object>
+
+											<!-- 토스팅 여부 -->
+											<th:object>(토스팅)</th:object>
+
+											<!-- 치즈 -->
+											<th:object>, 슈레드치즈</th:object>
+
+											<!-- 야채 -->
+											
+												
+													<th:object>, 양상추</th:object>
+												
+												
+													<th:object>, 오이</th:object>
+												
+											
+
+
+											<!-- 소스 -->
+											
+												
+													<th:object>, 머스타드</th:object>
+												
+											
+
+										</p>
+									</dd>
+								</dl>
+							</li>
+
+							
+								<li class="step02">
+									<dl>
+										<dt>
+											<strong>STEP 02</strong>
+											추가 선택
+										</dt>
+										<dd>
+											<div>
+												<ul>
+													<!-- #210818 썹도그, 페퍼로니 피자썹: 미트추가, 토핑추가 불가 -->
+													<li>
+														<!--<a th:id="${'Y' == ordItemsVO.promotionYn && 'N' == ordItemsVO.selectToppingYn ?'' : 'extra'}">추가 선택</a>-->
+														<a id="extra">추가 선택</a>
+													</li>
+													<li>
+														<a id="doubleUp">미트 추가</a>
+													</li>
+												</ul>
+												<div>
+													
+													
+													
+												</div>
+											</div>
+										</dd>
+									</dl>
+								</li>
+								<li class="step03">
+									
+										<dl>
+											<dt>
+												<strong>STEP 03</strong>
+												상품 선택
+											</dt>
+											<dd>
+												<div>
+													<ul>
+														
+															<li>
+																<a href="javascript:void(0);">단품</a>
+															</li>
+															<li class="on">
+																<a id="set">세트</a>
+																
+															</li>
+															
+														
+														
+													</ul>
+													<div>
+														<p>
+															
+																
+																	[ 쿠키 세트  + 2,600원]
+																	
+																	
+																	<!--<th:block th:case="'NACHOS'" th:text="'[ 나초 세트  + '+ ${#numbers.formatInteger(set.sale, 0, 'COMMA')} +'원]'"></th:block>-->
+																
+																<th:object>초코칩 쿠키</th:object>
+																<th:object>, </th:object>
+															
+															
+																
+																<th:object>스프라이트(355ml)</th:object>
+																<th:object></th:object>
+															
+														</p>
+													</div>
+												</div>
+											</dd>
+										</dl>
+									
+								</li>
+							
+						</ol>
+						<div class="menu_total">
+							<input name="eachPrice" type="hidden" value="10500" />
+							<dl class="count">
+								<dt>수량</dt>
+								<dd>
+									<a class="minus" href="javascript:;" id="qtySub">수량 빼기</a>
+									<input id="ordQty" onfocus="this.blur();" type="text" value="1" />
+									<a class="plus" href="javascript:;" id="qtyAdd">수량 더하기</a>
+								</dd>
+							</dl>
+							<dl class="total_won">
+								<dt>총 주문 금액</dt>
+								<dd>
+									<strong id="finalAmt">10,500</strong>
+									<span>원</span>
+								</dd>
+							</dl>
+							
+						</div>
+						
+						<!-- 옵션 선택시 나오는 부분 e -->
+						
 						<div class="btn_area">
 
 							<button class="btn i_reg btn_order bgc_point" id="orderBtn"
