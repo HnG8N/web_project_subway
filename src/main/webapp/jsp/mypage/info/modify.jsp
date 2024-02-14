@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="js/mypage/manage/modify_info.js"></script>
 <title>회원정보 수정</title>
     <link href="http://subway.co.kr/" rel="canonical" /><!-- 20180221 -->
     <meta content="신선하고 건강한 글로벌 NO.1 샌드위치 브랜드, 써브웨이" name="description" /><!-- 20181212 -->
@@ -13,8 +15,6 @@
     <link rel="stylesheet" type="text/css" href="./css/ui.common.css?v=2023051202" />
     <link rel="stylesheet" type="text/css" href="./css/jquery.mCustomScrollbar.min.css?v=2023051202" />
     
-    
-
     <script type="text/javascript" src="./js/jquery/jquery-1.12.4.min.js?v=2023051202"></script>
     <script type="text/javascript" src="./js/jquery/jquery-ui-1.12.0.min.js?v=2023051202"></script>
     <script type="text/javascript" src="./js/jquery/jquery.easing.1.3.min.js?v=2023051202"></script>
@@ -33,12 +33,12 @@
     <script type="text/javascript" src="./js/waffle/waffle.utils.js?v=2023051202"></script>
     
     <script type="text/javascript" src="./js/auth/auth.js?v=2023051202"></script>
-	<script type="text/javascript" src="./js/mypage/manage/modify_info.js?v=2023051202"></script>
+
 	<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 	<link rel="stylesheet" type="text/css" href="./css/ui.mypage.css?v=2023051202" />
 	
 	<script type="text/javascript" src="./js/auth/auth.js?v=2023051202"></script>
-	<script type="text/javascript" src="./js/mypage/manage/modify_info.js?v=2023051202"></script>
+
 	<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 	<link rel="stylesheet" type="text/css" href="./css/ui.mypage.css?v=2023051202" />
 </head>
@@ -56,11 +56,6 @@
 					<section class="form_box">
 						<div class="write_info_wrap">
 							<!-- 2019-11-15 비밀번호변경 버튼 추가 -->
-							<a class="btn bgc_gray_02 h_35 squre go_pw"
-								href="javascript:void(0);" id="pop"
-								onclick="view.changePw(); return false;" style="width: 132px;">
-								<span>비밀번호 변경</span>
-							</a>
 							<!--// 2019-11-15 비밀번호변경 버튼 추가 -->
 							<div class="write_info_wrap">
 								<h2>회원 정보</h2>
@@ -94,12 +89,6 @@
 												<span class="form_text"> <input id="cpNo" name="cpNo"
 													readonly="" type="tel" value="${dto.tel}" />
 												</span>
-												<div class="btn_input_in">
-													<button class="in_form_btn cpNoChange" id="checkAuthBtn"
-														type="button">
-														<span>정보변경</span>
-													</button>
-												</div>
 											</div>
 										</dd>
 									</dl>
@@ -113,10 +102,10 @@
 					</section>
 					<input id="modifyChk" type="hidden" />
 					<div class="btn_area">
-						<a class="btn bgc_white" href="javascript:void(0);"
-							id="withdrawal" style="width: 126px;"><span>회원탈퇴</span></a> <a
-							class="btn bgc_point " href="javascript:void(0);" id="modInfo"
-							style="width: 197px;"><span>회원정보 변경</span></a>
+						<form action="deleteInfo.do">
+							<button class="btn bgc_white" id="deleteInfo" style="width: 126px;"><span>회원탈퇴</span></button> 
+						</form>
+						<button class="btn bgc_point" id="updateInfo" style="width: 197px;"><span>회원정보 변경</span></button>
 					</div>
 				</div>
 			</div>
