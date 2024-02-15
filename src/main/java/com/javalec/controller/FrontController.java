@@ -18,9 +18,12 @@ import com.javalec.command.MenuListCommand;
 import com.javalec.command.MyPageCommand;
 import com.javalec.command.OrderCommand;
 import com.javalec.command.SaladListCommand;
+import com.javalec.command.SaladViewCommand;
 import com.javalec.command.SandwichListCommand;
+import com.javalec.command.SandwichViewCommand;
 import com.javalec.command.SignupCommand;
 import com.javalec.command.UnitListCommand;
+import com.javalec.command.UnitViewCommand;
 
 /**
  * Servlet implementation class FrontController
@@ -210,7 +213,21 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "/jsp/productlist/unit.jsp";
 			break;
-			//
+		case ("/sandwichView.do"):	// 샌드위치 메뉴상세
+			command = new SandwichViewCommand();
+			command.execute(request, response);
+			viewPage = "/jsp/menuView/sandwich.jsp";
+		break;
+		case ("/saladView.do"):	// 샐러드 메뉴상세
+			command = new SaladViewCommand();
+			command.execute(request, response);
+			viewPage = "/jsp/menuView/salad.jsp";
+		break;
+		case ("/unitView.do"):	// 랩, 기타 메뉴상세
+			command = new UnitViewCommand();
+			command.execute(request, response);
+			viewPage = "/jsp/menuView/wrap.jsp";
+		break;
 		case ("/faq.do"):	// FAQ
 //			command = new UnitListCommand();
 //			command.execute(request, response);

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>SUBWAY - 결제하기</title>
 </head>
 <body>
             <!-- container s -->

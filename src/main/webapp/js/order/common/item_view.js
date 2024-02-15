@@ -329,7 +329,7 @@ var item  = {
         if("Y" == selectCupYn) {
             ordForm.append('<input type="hidden" name="selectCupCd" value="'+cupItemCd+'">');
         }
-        ordForm.attr('action', '/order/progress/bill/order');
+        ordForm.attr('action', 'checkout.do');
         ordForm.attr('method', 'POST')
         ordForm.submit();
 	},
@@ -369,10 +369,10 @@ var item  = {
                                 if (data) {
                                     if (isSide) {
                                         alert("장바구니에 담겼습니다. 사이드 메뉴로 이동합니다.");
-                                        location.href = "/order/progress/step2?cateCd=ITEM_SIDEDRINK";
+                                        location.href = "step2.do?cateCd=ITEM_SIDEDRINK";
                                     } else if (confirm("장바구니에 담겼습니다. 장바구니로 이동하시겠습니까?")) {
                                         getType = getType.split(".").pop().replace("_", "").toLowerCase();
-                                        location.href = "/cart/" + getType;
+                                        location.href = "cart.do";
                                     } else {
                                         location.reload();
                                     }
