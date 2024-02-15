@@ -1,15 +1,27 @@
+function validation() {
+	var pw = document.getElementById("newpw").value;
+
+	if (pw.trim() == "") {
+		alert("비밀번호를 입력해주세요");
+		return false;
+	}
+
+	// PW 유효성 검사: 영어, 숫자, 특수문자 허용, 최대 15자
+	var pwRegex = /^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\-]{8,15}$/;
+	if (!pwRegex.test(pw)) {
+		alert("PW는 영어, 숫자, 특수문자만 사용 가능하며, 8자부터 15자까지 입력 가능합니다.");
+		return false; // 폼 제출을 막음
+	}
+
+	// 모든 조건을 통과하면 폼 제출
+	alert("회원정보가 수정되었습니다.");
+	return true; // 폼 제출을 허용
+}
+
 $(document).ready(function() {
 
 	$("#deleteInfo").click(function() {
 		alert("회원탈퇴가 완료되었습니다.");
-	});
-
-	$("#updateInfo").click(function() {
-		if (validation()==true) {
-			alert("회원 정보 수정이 완료되었습니다.");
-		}else{
-			
-		}
 	});
 
 	$("#check123").click(function() {
@@ -72,23 +84,5 @@ function execDaumPostcode() {
 			}
 		}
 	}).open();
-}
-
-function validation() {
-	var pw = document.getElementById("newpw").value;
-
-	if(pw.trim() == " "){
-		alert("비밀번호를 입력해주세요");
-	}
-	
-	// PW 유효성 검사: 영어, 숫자, 특수문자 허용, 최대 15자
-	var pwRegex = /^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\-]{8,15}$/;
-	if (!pwRegex.test(pw)) {
-		alert("PW는 영어, 숫자, 특수문자만 사용 가능하며, 8자부터 15자까지 입력 가능합니다.");
-		return false; // 폼 제출을 막음
-	}
-
-	// 모든 조건을 통과하면 폼 제출
-	return true; // 폼 제출을 허용
 }
 
