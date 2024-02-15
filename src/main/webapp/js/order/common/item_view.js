@@ -128,18 +128,6 @@ var item  = {
 			item.openPopup(target, url, 510);
 		});
 
-		// 원산지 정보 팝업(2021-02-09 메뉴관리와 동일처리 issues/492)
-		/*$('#originInfoBtn').on('click', function(e) {
-			e.preventDefault();
-			item.openPopup($(this), "/order/progress/origin/pop", 630);
-		});*/
-
-		// 알러지정보 팝업(2021-02-09 메뉴관리와 동일처리 issues/492)
-        /*$('#allergyInfoBtn').on('click', function(e) {
-            e.preventDefault();
-            item.openPopup($(this), "/order/progress/allergy/pop", 900);
-        });*/
-
 		// 빵길이 선택
 		$('#breadType').on('click', function(e) {
 			e.preventDefault();
