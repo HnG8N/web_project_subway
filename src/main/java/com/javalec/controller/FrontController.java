@@ -10,11 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.javalec.command.CartCommand;
 import com.javalec.command.Command;
 import com.javalec.command.LoginCommand;
 import com.javalec.command.MenuDetailCommand;
 import com.javalec.command.MenuListCommand;
 import com.javalec.command.MyPageCommand;
+import com.javalec.command.OrderCommand;
 import com.javalec.command.SaladListCommand;
 import com.javalec.command.SandwichListCommand;
 import com.javalec.command.SignupCommand;
@@ -156,6 +158,37 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "/jsp/order/progress/view.jsp";
 			break;
+		case ("/combination.do"):	// 추천꿀조합 pop
+			viewPage = "/jsp/order/progress/combination/pop.jsp";
+		break;
+		case ("/bread_length.do"):	// 빵길이 선택 pop
+			viewPage = "/jsp/order/progress/choice/bread_length.jsp";
+		break;
+		case ("/bread_type.do"):	// 빵 선택 pop
+			viewPage = "/jsp/order/progress/choice/bread_type.jsp";
+		break;
+		case ("/bread_warm.do"):	// 토스팅 여부 pop
+			viewPage = "/jsp/order/progress/choice/bread_warm.jsp";
+		break;
+		case ("/cheese.do"):	// 치즈 선택 pop
+			viewPage = "/jsp/order/progress/choice/cheese.jsp";
+		break;
+		case ("/souce.do"):	// 소스 선택 pop
+			viewPage = "/jsp/order/progress/choice/souce.jsp";
+		break;
+		case ("/vegetable.do"):	// 야채 선택 pop
+			viewPage = "/jsp/order/progress/choice/vegetable.jsp";
+		break;
+		case ("/cart.do"):	// 장바구니.
+			command = new CartCommand();
+			command.execute(request, response);
+			viewPage = "/jsp/cart/fastsub.jsp";
+		break;
+		case ("/checkout.do"):	// 주문하기.
+			command = new OrderCommand();
+			command.execute(request, response);
+			viewPage = "/jsp/order/progress/bill/checkout.jsp";
+		break;
 		case ("/allergy.do"):	// 알레르기 정보
 			viewPage = "/jsp/ingredientNcountry/allergy.jsp";
 			break;
@@ -187,11 +220,6 @@ public class FrontController extends HttpServlet {
 //			command = new UnitListCommand();
 //			command.execute(request, response);
 			viewPage = "/jsp/board/qna.jsp";
-		break;
-		case ("/cart.do"):	// 장바구니.
-//			command = new UnitListCommand();
-//			command.execute(request, response);
-			viewPage = "/jsp/cart/fastsub.jsp";
 		break;
 		case("/findId_view.do"):
 		   viewPage = "/jsp/signup/findId.jsp";

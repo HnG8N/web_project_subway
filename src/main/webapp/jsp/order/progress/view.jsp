@@ -56,8 +56,6 @@
 			<input name="paveFg" type="hidden" value="" />
 		</form>
 
-		<input id="subpickYnCheck" type="hidden" value="N" />
-
 		<!-- sub content s -->
 		<div class="order fast_sub" id="content">
 			<!-- index -->
@@ -126,7 +124,7 @@
 									data-store-cd="64444" data-combination-idx="78"
 									data-item-code="01902" data-subpick="N">
 									<span>추천 꿀 조합</span>
-
+ 
 								</button>
 							</div>
 						</div>
@@ -212,7 +210,7 @@
 								</ul>
 							</div>
 						</div>
-						<!-- 옵션 선택시 나오는 부분 s -->
+												<!-- 옵션 선택시 나오는 부분 s -->
 						<ol class="menu_select">
 							<li class="step01">
 								<dl>
@@ -310,9 +308,7 @@
 										<dd>
 											<div>
 												<ul>
-													<!-- #210818 썹도그, 페퍼로니 피자썹: 미트추가, 토핑추가 불가 -->
 													<li>
-														<!--<a th:id="${'Y' == ordItemsVO.promotionYn && 'N' == ordItemsVO.selectToppingYn ?'' : 'extra'}">추가 선택</a>-->
 														<a id="extra">추가 선택</a>
 													</li>
 													<li>
@@ -395,6 +391,7 @@
 							</dl>
 							
 						</div>
+						
 						
 						<!-- 옵션 선택시 나오는 부분 e -->
 						
