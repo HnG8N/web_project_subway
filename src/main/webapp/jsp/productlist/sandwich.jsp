@@ -158,7 +158,7 @@
 								<div class="summary">
 									<p>${dto.mninfo}</p>
 								</div> <a href="#" onclick="menuDetail(this); return false;"
-								data-category="sandwich" data-menuitemidx="${dto.mncode}"
+								data-category="${dto.mnctg}" data-menuitemidx="${dto.mncode}"
 								class="btn_view"></a>
 							</li>
 						</c:forEach>

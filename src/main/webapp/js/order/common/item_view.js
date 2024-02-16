@@ -84,7 +84,7 @@ var item  = {
 							$(".popup_iframe_wrapper .btn_close").click();
 						}
 
-						url = '/order/progress/choice/' + targetIngredient;
+						url = targetIngredient + '.do';
 					}
 				});
 			}
@@ -100,7 +100,7 @@ var item  = {
 		$('[name=itemMenu]').on('click', function(e) {
 			var moveForm = $("[name=moveForm]");
 			$("[name=cateCd]").val($(this).data("cate-cd"));
-			data.addStorInfo(moveForm.serialize(), "/order/progress/step2");
+			data.addStorInfo(moveForm.serialize(), "step2.do");
 		});
 
 		// 꿀조합 적용시 조합 변경 불가 멘트
@@ -119,7 +119,7 @@ var item  = {
 
 			var target = $(this);
 			//alert(target.data("subpick"));
-			var url = '/order/progress/combination/pop?itemCombinationIdx=' + target.data("combination-idx")
+			var url = 'combination.do?itemCombinationIdx=' + target.data("combination-idx")
 					+ "&storeCd=" + target.data("store-cd") + "&itemCode=" + target.data("item-code") + "&itemGubun=" + target.data("item-gubun") + "&subpickYn=" + target.data("subpick");
 
 			var evntDisplayType = target.data("evnt-display-type");
@@ -131,33 +131,33 @@ var item  = {
 		// 빵길이 선택
 		$('#breadType').on('click', function(e) {
 			e.preventDefault();
-			item.openPopup($(this), "/order/progress/bread/length/choice", 520);
+			item.openPopup($(this), "bread_length.do", 520);
 		});
 
 		// 빵 선택
 		$('#bread').on('click', function(e) {
 			e.preventDefault();
-			item.openPopup($(this), "/order/progress/choice/bread", 630);
+			item.openPopup($(this), "bread_type.do", 630);
 		});
 
 		// 치즈 선택
 		$('#cheese').on('click', function(e) {
 			e.preventDefault();
-			item.openPopup($(this), "/order/progress/choice/cheese", 630);
+			item.openPopup($(this), "cheese.do", 630);
 		});
 
 		// 야채 선택
 		$('#vegetable').on('click', function(e) {
 			e.preventDefault();
-			item.openPopup($(this), "/order/progress/choice/vegetable", 630);
+			item.openPopup($(this), "vegetable.do", 630);
 		});
 
 		// 소스 선택
 		$('#sauce').on('click', function(e) {
 			e.preventDefault();
-			item.openPopup($(this), "/order/progress/choice/sauce", 630);
+			item.openPopup($(this), "sauce.do", 630);
 		});
-
+/*
 		// 엑스트라토핑 선택
 		$('#extra').on('click', function(e) {
 		    var subpickYnCheck = $('#subpickYnCheck').val();
@@ -191,7 +191,7 @@ var item  = {
 			e.preventDefault();
 			item.openPopup($(this), "/order/progress/choice/cookie", 520, null, 690);
 		});
-
+*/
 		// 수량변경 이벤트
 		$("#qtySub,#qtyAdd").on("click", function() {
 			var qtyTarget = $("#ordQty");
@@ -261,17 +261,6 @@ var item  = {
 			}, null);
 		});
 
-		// 장바구니 담기
-		/*$("#cartBtn").on("click", function() {
-
-		});*/
-
-		// 사이드 추가 이벤트
-		/*$("#addSide").on("click", function() {
-			if(confirm("장바구니로 이동되며 옵션 변경이 불가합니다.\n\n진행 하시겠습니까?")) {
-				item.addCart(true);
-			}
-		});*/
 
 		$("#orderContinueBtn").on("click", function  () {
 			$(".step01 ul>li").each (function  () {
@@ -283,7 +272,7 @@ var item  = {
 			});
 		});
 	},
-
+/*
 	setOneCup: function(selectCup) {
 	    if(selectCup == "N") {// 개인컵 선택
 	        ordItemsVO.cupItemCd = "0000";
@@ -329,8 +318,9 @@ var item  = {
         } else {
             item.addCart(ordGubun == "S");
         }
-
 	},
+
+*/
 
 	goOrder: function(selectCupYn, cupItemCd) {
 	    var ordForm = $('[name=orderForm]');
@@ -339,7 +329,7 @@ var item  = {
         if("Y" == selectCupYn) {
             ordForm.append('<input type="hidden" name="selectCupCd" value="'+cupItemCd+'">');
         }
-        ordForm.attr('action', '/order/progress/bill/order');
+        ordForm.attr('action', 'checkout.do');
         ordForm.attr('method', 'POST')
         ordForm.submit();
 	},
@@ -379,10 +369,10 @@ var item  = {
                                 if (data) {
                                     if (isSide) {
                                         alert("장바구니에 담겼습니다. 사이드 메뉴로 이동합니다.");
-                                        location.href = "/order/progress/step2?cateCd=ITEM_SIDEDRINK";
+                                        location.href = "step2.do?cateCd=ITEM_SIDEDRINK";
                                     } else if (confirm("장바구니에 담겼습니다. 장바구니로 이동하시겠습니까?")) {
                                         getType = getType.split(".").pop().replace("_", "").toLowerCase();
-                                        location.href = "/cart/" + getType;
+                                        location.href = "cart.do";
                                     } else {
                                         location.reload();
                                     }

@@ -67,7 +67,7 @@
 		$.showMask = function(msg){
 			$.blockUI({
 				//message : "<div id='lottie'></div>",
-				message : "<image src='/images/common/lottie_animation.gif' class='lottie_ani'>",
+				message : "<image src='./images/common/lottie_animation.gif' class='lottie_ani'>",
 				css: {
 					width: "160px",
 					height:"160px",
