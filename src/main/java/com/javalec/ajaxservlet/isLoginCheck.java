@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.javalec.dao.FindId_Dao;
@@ -32,16 +33,12 @@ public class isLoginCheck extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+		
+		String userId = (String)session.getAttribute("userId");
 
-		String name = request.getParameter("name");
-		String date = request.getParameter("date");
-		String email = request.getParameter("email");
-
-		FindId_Dao dao = new FindId_Dao();
-		int count = dao.checkInfo(name, date, email);
-
-		// 회원 아이디 중복 여부를 JSON으로 변환하여 응답
-		String json = new Gson().toJson(count);
+		// 로그인 아이디가 있으면 JSON으로 변환하여 응답
+		String json = new Gson().toJson(userId);
 		PrintWriter out = response.getWriter();
 		out.print(json);
 
