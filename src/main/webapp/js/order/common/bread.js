@@ -20,12 +20,12 @@ var pop = {
 	// 옵션 변경
 	changeOption : function() {
 		//pop.setInfo(null, null);
-		pop.setInfo("/order/progress/choice/warm", 640);
+		pop.setInfo("bread_warm.do", 640);
 	},
 	
 	// 다음스텝
 	goNext : function() {
-		pop.setInfo("/order/progress/choice/warm", 640);
+		pop.setInfo("bread_warm.do", 640);
 	},
 	
 	// 아이템 정보 세팅

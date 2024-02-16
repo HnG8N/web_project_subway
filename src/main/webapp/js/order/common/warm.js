@@ -26,7 +26,7 @@ var pop = {
         if ($(this).data('pizzasubyn') == 'Y' ) {
             pop.setInfo("/order/progress/choice/set", 520);
         }else{
-            pop.setInfo("/order/progress/choice/cheese", 640);
+            pop.setInfo("cheese.do", 640);
         }
     },
 	

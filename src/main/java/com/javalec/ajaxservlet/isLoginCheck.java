@@ -37,7 +37,7 @@ public class isLoginCheck extends HttpServlet {
 		
 		String userId = (String)session.getAttribute("userId");
 
-		// 로그인 아이디가 있으면 JSON으로 변환하여 응답
+		// 로그인 아이디가 있으면 JSON 형태로 js에 전송.
 		String json = new Gson().toJson(userId);
 		PrintWriter out = response.getWriter();
 		out.print(json);
