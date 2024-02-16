@@ -59,7 +59,7 @@
 							<div class="write_info_wrap">
 								<div class="input_set">
 									<dl>
-										<dt>이메일 아이디</dt>
+										<dt>아이디</dt>
 										<dd>
 											<span class="form_text">
 												<input class="required-value" id="id" name="id" placeholder="아이디 입력" type="text" value="" />
@@ -74,10 +74,6 @@
 									</dl>
 								</div>
 							</div>
-							<label class="form_checkbox">
-								<input id="rememberId" name="rememberId" type="checkbox" />
-								<span class="icon"></span>아이디 저장
-							</label>
 						</div>
 					</div>
 					<div class="signin_btn">
