@@ -32,7 +32,6 @@
 	
 	<link rel="stylesheet" type="text/css" href="./css/ui.order.css?v=2023051202" />
 	<script type="text/javascript" src="./js/order/common/item_view.js?v=2023051202"></script>
-	<script type="text/javascript" src="./js/order/common/selectMenu.js"></script>
 	<script type="text/javascript" src="./js/favorite/favoriteMenu.js?v=2023051202"></script>
 	<script>
 		/*<![CDATA[*/
@@ -44,6 +43,22 @@
 	<%@ include file="/jsp/include/header.jsp"%>
 	<!-- container s -->
 	<div id="container">
+		<form method="post" name="moveForm">
+			<input name="changeYn" type="hidden" value="Y" />
+			<input name="ordType" type="hidden" value="ORD_TYPE.FAST_SUB" />
+			<input name="storCd" type="hidden" value="64444" />
+			<input name="cateCd" type="hidden" value="${dto.mnctg}" />
+			<input name="paveFg" type="hidden" value="Y" />
+			
+		</form>
+		<form id="orderForm" name="orderForm">
+			<input name="itemIdx" type="hidden" value="${dto.mncode}" />
+			<input id="ordType" name="ordItemsVO.ordType" type="hidden" value="" />
+			<input name="paveFg" type="hidden" value="Y" />
+		</form>
+	
+		<input id="subpickYnCheck" type="hidden" value="N" />
+		
 		<form method="post" name="viewForm">
 			<input name="omid" type="hidden" value="${sessionScope.userId}" /> 
 			<input name="omncode" type="hidden" value="${dto.mncode}" /> 
@@ -122,9 +137,8 @@
 								<button class="btn bgc_point i_reg" id="itemConbiPopBtn"
 									style="width: 183px;" type="button" data-item-gubun="${dto.mnctg}"
 									data-store-cd="64444" data-combination-idx="78"
-									data-item-code="01902" data-subpick="N">
+									data-item-code="${dto.mnctg}" data-subpick="N" href="bread_length.do">
 									<span>추천 꿀 조합</span>
- 
 								</button>
 							</div>
 						</div>
@@ -212,8 +226,12 @@
 						</div>
 						
 						<div class="btn_area">
-
-							<button class="btn i_reg btn_order bgc_point" id="orderBtn"
+<!-- 						
+							<a class="btn i_reg btn_order bgc_point" href="bread_length.do" link-type="popup" onclick="popup_open(this,900,750); return false;"> 
+								<span>알레르기 정보</span>
+							</a>
+ -->
+ 							<button class="btn i_reg btn_order bgc_point" id="orderBtn"
 								type="button" data-promotionYn="N" data-itemType="ITEM_SANDWICH"
 								data-morningYn="N">
 								<span>주문 시작하기</span>
