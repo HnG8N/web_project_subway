@@ -58,7 +58,7 @@ var pop = {
 	
 	// 다음스텝
 	goNext : function() {
-		pop.setInfo("/order/progress/choice/sauce", 640);
+		pop.setInfo("sauce.do", 640);
 	},
 	
 	// 최근야채 불러오기

@@ -8,8 +8,8 @@ var item  = {
 		target.attr('href', url);
 		var id = target.attr("id");
 		var h;
-		$.post("/isLoginCheck", "POST",null, function(result) {
-			if(result) 	{
+//		$.post("isLoginCheck", "POST",null, function(result) {
+//			if(true) 	{
 				switch (id) {
 					case "orderBtn" :
 					case "breadType" :
@@ -37,8 +37,8 @@ var item  = {
 						break;
 				}
 				subwayCommon.popupValidation(target, width, h);
-			}
-		});
+//			}
+//		});
 	},
 
 	// 팝업 변경
@@ -78,8 +78,6 @@ var item  = {
 
 			var target = $(this);
 			var url = 'combination.do' 
-			alert("1.target : " + target);
-			alert("2.url : " + url);
 
 			item.openPopup(target, url, 510);
 		});
@@ -150,13 +148,13 @@ var item  = {
 
 			// (2020.09.14) 샌드위치/찹샐러드/랩 제품 포함, 진행중인 주문 건 있는지 확인
 			var data = {'ordItemsVO': JSON.stringify(ordItemsVO)};
-			$.post("/order/progress/checkCountOrderIng", "POST", JSON.stringify(data), function(result) {
-				if (!result) {
-					alert("현재 진행 중인 주문 건이 픽업/배달 완료 된 후 주문이 가능합니다.");
-				} else {
-					if("Y" == morningYn) {
-						url = "bread_type.do"
-					} else {
+//			$.post("/order/progress/checkCountOrderIng", "POST", JSON.stringify(data), function(result) {
+//				if (!result) {
+//					alert("현재 진행 중인 주문 건이 픽업/배달 완료 된 후 주문이 가능합니다.");
+//				} else {
+//					if("Y" == morningYn) {
+//						url = "bread_type.do"
+//					} else {
 						switch (itemType) {
 							case "ITEM_SANDWICH":
 								url = "Y" == promotionYn ? "bread_type.do" : "bread_length.do";
@@ -173,11 +171,11 @@ var item  = {
 								}
 								break;
 						}
-					}
+//					}
 
 					item.openPopup($(this), url, width);
-				}
-			}, null);
+//				}
+//			}, null);
 		});
 
 

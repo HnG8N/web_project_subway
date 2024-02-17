@@ -26,7 +26,7 @@
 								<li><a href="freshInfo.do">신선한 재료 소개</a></li>
 							</ul>
 						</div></li>
-					<li><a href="#none" class="dp1">새소식</a>
+					<li><a href="#none" class="dp1">게시판</a>
 						<div class="dp2">
 							<ul>
 								<li><a href="newsList">공지사항</a></li>

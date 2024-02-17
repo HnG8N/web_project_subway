@@ -32,7 +32,7 @@ var pop = {
 		if(ckBreadType.attr('soldout') == 'Y'){
 			alert(ckBreadType.attr('id') + ' 품절입니다.');
 		}else {
-			pop.setInfo("/order/progress/choice/bread", 640);
+			pop.setInfo("bread_type.do", 640);
 		}
 	},
 

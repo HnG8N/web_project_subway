@@ -63,17 +63,17 @@ var pop = {
 
 	// 다음스텝
 	goNext : function() {
-		var gubun = "vegetable";
+		var gubun = "vegetable.do";
 		var width = 670;
 
 		if ("Y" == $('[name=morningYn]').val()) {
-            gubun = "sauce";
+            gubun = "sauce.do";
         } else if ("Y" == $('[name=flatPizzaYn]').val() || 'Y' == $('[name=subDogYn]').val()) {		// 20.09.23 플랫피자 & 21.09.06 썹도그 출시
             gubun = "set";
             width = 520;
         }
 
-		pop.setInfo("/order/progress/choice/"+gubun, width);
+		pop.setInfo(gubun, width);
 	},
 
 	// 아이템 정보 세팅
