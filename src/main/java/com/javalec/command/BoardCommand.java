@@ -12,14 +12,14 @@ public class BoardCommand implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
-		
-		String mid = (String) session.getAttribute("id");
-		String mpw = (String) session.getAttribute("pw");
 				
 			
-		session.setAttribute("id", mid);		
-		request.setAttribute("id", mid);
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("userId");
+		String boardID = (String) session.getAttribute("boardID");
+		
+		request.setAttribute("userId", userId);
+		request.setAttribute("boardID", boardID);
 	
 
 	}

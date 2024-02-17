@@ -9,4 +9,15 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <servlet-name>boardReplyServlet</servlet-name>
+    <servlet-class>com.javalec.ajaxservlet.BoardReplyServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>boardReplyServlet</servlet-name>
+    <url-pattern>/boardBreply</url-pattern>
+</servlet-mapping>
+  
+   
 </web-app>
