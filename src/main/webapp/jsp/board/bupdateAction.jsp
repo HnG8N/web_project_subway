@@ -15,45 +15,45 @@
 </head>
 <body>
 	<%	
-		String bmid = null;
-		if(session.getAttribute("id") != null){
-			bmid =(String)session.getAttribute("id");
+		String userId = null;
+		if(session.getAttribute("userId") != null){
+			userId =(String)session.getAttribute("userId");
 		}
-		if(bmid == null){
+		if(userId == null){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('로그인을 하세요.')");
 		script.println("location.href = 'login_view.do'");
 		script.println("</script>");
 		} 
-		int bseq = 0;
-		if(request.getParameter("bseq")!= null){
-			bseq = Integer.parseInt(request.getParameter("bseq"));
+		int boardID = 0;
+		if(request.getParameter("boardID")!= null){
+			boardID = Integer.parseInt(request.getParameter("boardID"));
 		}
-		if (bseq == 0) {
+		if (boardID == 0) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('유효하지 않은 글입니다.')");
 			script.println("location.href = 'board.do'");
 			script.println("</script>");
 		}
-		BoardDTO bbs = new BoardDAO().getBbs(bseq);
-		if(!bmid.equals(bbs.getBmid())){
+		BoardDTO boardDTO = new BoardDAO().getBbs(boardID);
+		if(!userId.equals(boardDTO.getBmID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('권한이 없습니다.')");
 			script.println("location.href = 'board.do'");
 			script.println("</script>");
 		} else{
-			if (request.getParameter("btitle") == null || request.getParameter("bcontent") == null ||request.getParameter("btitle").equals("") || request.getParameter("bcontent").equals("")){
+			if (request.getParameter("boTitle") == null || request.getParameter("boContent") == null ||request.getParameter("boTitle").equals("") || request.getParameter("boContent").equals("")){
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('입력이 안된 사항이 있습니다.')");
 				script.println("history.back()");
 				script.println("</script>");
 			} else {
-				BoardDAO bbsDAO = new BoardDAO();
-				int result = bbsDAO.update(bseq, request.getParameter("btitle"), request.getParameter("bcontent"));
+				BoardDAO boardDAO = new BoardDAO();
+				int result = boardDAO.update(boardID, request.getParameter("boTitle"), request.getParameter("boContent"));
 				if (result == -1) {
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
