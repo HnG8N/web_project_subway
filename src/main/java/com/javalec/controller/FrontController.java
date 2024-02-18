@@ -133,8 +133,9 @@ public class FrontController extends HttpServlet {
 			session.invalidate();
 			break;
 
-		
-		// 	[홈]
+//================= sujin START ==================//
+
+		// 	[홈] 
 		// 	main page.
 		case ("/home.do"): 
 			viewPage = "/index.jsp";
@@ -155,7 +156,6 @@ public class FrontController extends HttpServlet {
 			break;
 
 		
-		
 		// 	[서브웨이] 
 		// 	서브웨이 역사 페이지.
 		case ("/history.do"): 
@@ -167,8 +167,8 @@ public class FrontController extends HttpServlet {
 		case ("/storeSearch.do"): 
 			viewPage = "/jsp/about/storeSearch.jsp";
 			break;
-
 			
+
 			
 		// 	[이용방법] 
 		// 	서브웨이 이용방법 페이지.
@@ -212,7 +212,6 @@ public class FrontController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "/jsp/productlist/unit.jsp";
 			break;
-			
 			
 
 		// 	[온라인 주문]
@@ -349,6 +348,8 @@ public class FrontController extends HttpServlet {
 		case ("/vegetable.do"):	
 			viewPage = "/jsp/order/progress/choice/vegetable.jsp";
 			break;
+
+			
 		// 	[온라인 주문]
 		// 	[FAST_SUB-STEP3] 
 		//	[주문하기]
@@ -370,18 +371,16 @@ public class FrontController extends HttpServlet {
 		//	[게시판]
 		// 	FAQ
 		case ("/faq.do"): 
-//			command = new UnitListCommand();
-//			command.execute(request, response);
 			viewPage = "/jsp/board/faq.jsp";
 			break;
 			
 		//	[게시판]
 		// 	1:1 문의
 		case ("/qna.do"): 
-//			command = new UnitListCommand();
-//			command.execute(request, response);
 			viewPage = "/jsp/board/qna.jsp";
 			break;
+		
+//================= sujin END ==================//
 		
 		default:
 			break;
