@@ -359,22 +359,20 @@ public class FrontController extends HttpServlet {
 			viewPage = "/jsp/order/progress/choice/vegetable.jsp";
 			break;
 
+		// 	[장바구니]	
+		case ("/cart.do"):	
+			command = new CartCommand();
+			command.execute(request, response);
+			viewPage = "/jsp/cart/fastsub.jsp";
+			break;
 			
 		// 	[온라인 주문]
 		// 	[FAST_SUB-STEP3] 
 		//	[주문하기]
 		case ("/checkout.do"):	
 			command = new OrderCommand();
-		command.execute(request, response);
-		viewPage = "/jsp/order/progress/bill/checkout.jsp";
-		break;
-		
-
-		// 	[장바구니]	
-		case ("/cart.do"):	
-			command = new CartCommand();
 			command.execute(request, response);
-			viewPage = "/jsp/cart/fastsub.jsp";
+			viewPage = "/jsp/order/progress/bill/checkout.jsp";
 			break;
 		
 		
