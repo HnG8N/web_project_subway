@@ -14,30 +14,35 @@
 </head>
 <body>
 	<%
-		String bmid = null;
-		if(session.getAttribute("id") != null){
-			bmid = (String)session.getAttribute("id");
+		String userId = null;
+		if(session.getAttribute("userId") != null){
+			userId = (String)session.getAttribute("userId");
 		}		
-		int bseq = 0;
-		if(request.getParameter("bseq")!= null){
-			bseq = Integer.parseInt(request.getParameter("bseq"));
+		int boardID = 0;
+		if(request.getParameter("boardID")!= null){
+			boardID = Integer.parseInt(request.getParameter("boardID"));
 		}
-		if (bseq == 0) {
+		if (boardID == 0) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('유효하지 않은 글입니다.')");
 			script.println("location.href = 'board.do'");
 			script.println("</script>");
 		}
-		BoardDTO boardDTO = new BoardDAO().getBbs(bseq);
-		
-		if (boardDTO == null) {
-		    PrintWriter script = response.getWriter();
-		    script.println("<script>");
-		    script.println("alert('해당 게시물을 찾을 수 없습니다.')");
-		    script.println("location.href = 'board.do'");
-		    script.println("</script>");
-		}
+				
+		BoardDAO boardDAO = new BoardDAO();
+		BoardDTO board = boardDAO.getBbs(boardID);
+
+		// 조회수 증가
+	try {
+		  boardDAO.hit(Integer.toString(boardID)); // 게시물 증가
+	} catch (Exception e) {
+		 // 조회수 증가 중 오류가 발생한 경우
+		  // 오류 메시지 설정 등 예외 처리 로직 추가
+		  e.printStackTrace(); // 예외 정보를 콘솔에 출력
+		// 예외가 발생한 경우에 대한 사용자에게 알리는 등의 작업을 추가할 수 있음
+		  out.println("<p>조회수를 증가하는 도중 오류가 발생했습니다.</p>");
+	}
 						
 	%>
 	<nav class="navbar navbar-default">
@@ -52,11 +57,11 @@
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="../home/home.jsp">홈</a></li>
+				<li><a href="home.do">홈</a></li>
 				<li class="active"><a href="board.do">게시판</a></li>
 			</ul>
 			<%
-				if(bmid == null){
+				if(userId == null){
 			%>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
@@ -78,7 +83,7 @@
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">회원관리<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="logoutAction.jsp">로그아웃</a></li>						
+						<li><a href="logout.do">로그아웃</a></li>						
 					</ul>
 				</li>
 			</ul>
@@ -98,32 +103,41 @@
 				<tbody>
 					<tr>
 						<td style="width: 20%;">글 제목</td>
-						<td colspan="2"><%=boardDTO.getBtitle().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>")  %></td>
+						<td colspan="2"><%=board.getBoTitle().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>")  %></td>
 					</tr>
 					<tr>
 						<td>작성자</td>
-						<td colspan="2"><%=boardDTO.getBmid() %></td>
+						<td colspan="2"><%=board.getBmID() %></td>
 					</tr>
+										
 					<tr>
 						<td>작성일자</td>
-						<td colspan="2"><%=boardDTO.getBdate().substring(0,11) + boardDTO.getBdate().substring(11,13)+"시"+boardDTO.getBdate().substring(14,16) +"분" %></td>
+						<td colspan="2"><%=board.getBoDate().substring(0,11) + board.getBoDate().substring(11,13)+"시"+board.getBoDate().substring(14,16) +"분" %></td>
+					</tr>
+					<tr>										
+						<td>조회수</td>
+						<td colspan="2"><%=board.getBoardHit() %></td>
 					</tr>
 					<tr>
 						<td>내용</td>
-						<td colspan="2" style="min-height: 200px; text-align: left;"><%=boardDTO.getBcontent().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>") %></td>
+						<td colspan="2" style="min-height: 200px; text-align: left;"><%=board.getBoContent().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>") %></td>
 					</tr>						
 					</tbody>					
 				</table>
 				<a href="board.do" class="btn btn-primary">목록</a>
 				<%
-					if(bmid != null && bmid.equals(boardDTO.getBmid())){
+					if(userId != null && userId.equals(board.getBmID())){
 				%>
-						<a href="bupdate.do?bseq=<%=bseq %>" class="btn btn-primary">수정</a>
-						<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="bdeleteAction.do?bseq=<%=bseq %>" class="btn btn-primary">삭제</a>
+						<a href="bupdate.do?boardID=<%=boardID %>" class="btn btn-primary">수정</a>
+						<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="bdeleteAction.do?boardID=<%=boardID %>" class="btn btn-primary">삭제</a>
+								<%
+					}else{
+				%>
+					<a href="breply.do?boardID=<%=boardID %>" class="btn btn-primary">답변</a>				
 				<%		
 					}
 				%>
-				<input type="submit" class="btn btn-primary pull-right" value="글쓰기">			
+				<a href="bwrite.do" class="btn btn-primary pull-right">글쓰기</a>			
 		</div>
 	</div>	
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

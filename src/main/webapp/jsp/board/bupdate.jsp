@@ -14,34 +14,34 @@
 </head>
 <body>
 	<%
-		String bmid = null;
-		if(session.getAttribute("id") != null){
-			bmid = (String)session.getAttribute("id");
+		String userId = null;
+		if(session.getAttribute("userId") != null){
+			userId = (String)session.getAttribute("userId");
 		}
-		if (bmid == null){
+		if (userId == null){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('로그인을 하세요.')");
 			script.println("location.href = 'login.do'");
 			script.println("</script>");
 		}
-		int bseq = 0;
-		if(request.getParameter("bseq")!= null){
-			bseq = Integer.parseInt(request.getParameter("bseq"));
+		int boardID = 0;
+		if(request.getParameter("boardID")!= null){
+			boardID = Integer.parseInt(request.getParameter("boardID"));
 		}
-		if (bseq == 0) {
+		if (boardID == 0) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('유효하지 않은 글입니다.')");
-			script.println("location.href = 'board.jsp'");
+			script.println("location.href = 'board.do'");
 			script.println("</script>");
 		}
-		BoardDTO bbsDTO = new BoardDAO().getBbs(bseq);
-		if(!bmid.equals(bbsDTO.getBmid())){
+		BoardDTO boardDTO = new BoardDAO().getBbs(boardID);
+		if(!userId.equals(boardDTO.getBmID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('권한이 없습니다.')");
-			script.println("location.href = 'board.jsp'");
+			script.println("location.href = 'board.do'");
 			script.println("</script>");
 		}
 	%>
@@ -58,7 +58,7 @@
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="home.jsp">홈</a></li>
+				<li><a href="home.do">홈</a></li>
 				<li class="active"><a href="board.do">게시판</a></li>
 			</ul>			
 			<ul class="nav navbar-nav navbar-right">
@@ -67,7 +67,7 @@
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">회원관리<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="logoutAction.jsp">로그아웃</a></li>						
+						<li><a href="logoutAction.do">로그아웃</a></li>						
 					</ul>
 				</li>
 			</ul>			
@@ -75,19 +75,19 @@
 	</nav>
 	<div class="container">
 		<div class="row">
-		<form method="post" action="bupdateAction.do?bseq=<%=bseq %>">
+		<form method="post" action="bupdateAction.do?boardID=<%=boardID %>">
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 				<thead>
 					<tr>
-						<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글 수정</th>									
+						<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시글 수정</th>									
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td><input type="text" class="form-control" placeholder="글 제목" name="btitle" maxlength="50" value="<%=bbsDTO.getBtitle()%>"></td>
+						<td><input type="text" class="form-control" placeholder="글 제목" name="boTitle" maxlength="50" value="<%=boardDTO.getBoTitle()%>"></td>
 					</tr>
 					<tr>	
-						<td><textarea class="form-control" placeholder="글 내용" name="bcontent" maxlength="2048" style="height: 350px;"><%=bbsDTO.getBcontent()%></textarea></td>
+						<td><textarea class="form-control" placeholder="글 내용" name="boContent" maxlength="2048" style="height: 350px;"><%=boardDTO.getBoContent()%></textarea></td>
 					</tr>
 					</tbody>					
 				</table>

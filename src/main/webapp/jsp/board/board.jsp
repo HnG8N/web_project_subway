@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter" %>
 <%@ page import="com.javalec.dao.BoardDAO" %>
 <%@ page import="com.javalec.dto.BoardDTO" %>
 <%@ page import="java.util.ArrayList" %>     
@@ -11,19 +12,19 @@
 <link rel="stylesheet" href="jsp/board/css/bootstrap.css">
 <link rel="stylesheet" href="jsp/board/css/custom.css">
 <title>사용자 게시판</title>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <style type="text/css">
 	a, a:hover{
 		color: #000000;
 		text-decoration: none;
 	}
 </style>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
 		<%
-		String bmid = null;
-		if(session.getAttribute("id") != null){
-			bmid = (String)session.getAttribute("id");
+		String userId = null;
+		if(session.getAttribute("userId") != null){
+			userId = (String)session.getAttribute("userId");
 		}
 		int pageNumber = 1;
 		if(request.getParameter("pageNumber") != null){
@@ -42,11 +43,11 @@
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="http://localhost:8080/web_project_subway/">홈</a></li>
+				<li><a href="home.do">홈</a></li>
 				<li class="active"><a href="board.do">게시판</a></li>
 			</ul>
 			<%
-				if(bmid == null){
+				if(userId == null){
 			%>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
@@ -76,17 +77,15 @@
 				}
 			%>
 		</div>
-	</nav>
-	
-</head>
-<body>
+	</nav>	
+
 	<div class="container">
 		<div class="form-group row pull-right">
 			<div class="col-xs-8">
-				<input class="form-control" id="btitle" onkeyup="searchFunction()" type="text" size="20">
+				<input class="form-control" id="boTitle" onkeyup="searchFunction()" type="text" size="20">
 			</div>
 			<div class="col-xs-2">
-				<button class="btn btn-primary" onclick="searchFunction();" type="button">검색</button>
+				<button class="btn btn-primary" onclick="searchFunction();" type="button">제목 검색</button>
 			</div>
 		</div>
 		
@@ -95,46 +94,40 @@
 				<thead>
 					<tr>
 						<th style="background-color: #00A600; text-align: center;">번호</th>
-						<th style="background-color: #00A600; text-align: center;">작성자</th>
 						<th style="background-color: #00A600; text-align: center;">제목</th>
-						<th style="background-color: #00A600; text-align: center;">작성일</th>					
+						<th style="background-color: #00A600; text-align: center;">작성자</th>				
+						<th style="background-color: #00A600; text-align: center;">작성일</th>
+						<th style="background-color: #00A600; text-align: center;">조회수</th>  					
 					</tr>
 				</thead>
 				<tbody id="ajaxTable">				
-				</tbody>
-				<tbody>
 				<%
 					BoardDAO boardDAO = new BoardDAO();
 					ArrayList<BoardDTO> list = boardDAO.getList(pageNumber);
 					for(int i = 0; i < list.size(); i++){
 				%>
 				 <tr>
-					<td><%= list.get(i).getBseq()%></td>
-					<td><%= list.get(i).getBmid()%></td>
-					<td><a href="bview.do?bseq=<%= list.get(i).getBseq() %>"><%= list.get(i).getBtitle().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>")%></a></td>
-					<td><%= list.get(i).getBdate().substring(0,11) + list.get(i).getBdate().substring(11,13)+"시"+list.get(i).getBdate().substring(14,16) +"분"%></td>
-					</tr>
+					<td><%= list.get(i).getBoardID()%></td>
+					 <td><a href="javascript:viewBbc('<%= list.get(i).getBoardID() %>')">
+				<%
+					for(int j = 0; j < list.get(i).getBoardLevel(); j++){
+				%>
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color: red;"></span> 
+				<%
+					}
+				%><%= list.get(i).getBoTitle().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("\n","<br>")%></a></td>
+					<td><%= list.get(i).getBmID()%></td>
+					<td><%= list.get(i).getBoDate().substring(0,11) + list.get(i).getBoDate().substring(11,13)+"시"+list.get(i).getBoDate().substring(14,16) +"분"%></td>
+					<td><%= list.get(i).getBoardHit()%></td>
+				</tr>
 				<%
 					}				
-				%>
-					
+				%>					
 				</tbody>								
-			</table>
-			<%
-				if(pageNumber !=1){
-			%>
-				<a href ="board.do?pageNumber=<%=pageNumber -1 %>" class="btn btn-success btn-arraw-left">이전</a>
-			<% 		
-				} if(boardDAO.nextPage(pageNumber + 1)){
-			%>
-				<a href ="board.do?pageNumber=<%=pageNumber +1 %>" class="btn btn-success btn-arraw-left">다음</a>
-			<%
-				}
-			%>	
+			</table>			
 			<a href="bwrite.do" class="btn btn-primary pull-right">글쓰기</a>	 			
 		</div>
-	</div>		
-	
+	</div>	
 	
 <div class="container" style="text-align: center;">
     <div class="row">	
@@ -169,13 +162,17 @@
 	%>
 	</div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"><</script>
+<script>
+    function viewBbc(boardID) {
+        window.location.href = "bview.do?boardID=" + boardID;
+     //   alert("게시물 ID: " + boardID); // 함수가 호출되었는지 확인하기 위해 alert 창을 띄웁니다. 
+    }   
+</script>
 <script src="js/bootstrap.js"></script>
 <script type="text/javascript">
 	var request = new XMLHttpRequest();
 	function searchFunction() {
-		request.open("Post","./BoardSearchServlet?btitle=" + encodeURIComponent(document.getElementById("btitle").value),true);
+		request.open("Post","./BoardSearchServlet?boTitle=" + encodeURIComponent(document.getElementById("boTitle").value),true);
 		request.onreadystatechange = searchProcess;
 		request.send(null);
 	}
@@ -191,6 +188,11 @@
 					var cell = row.insertCell(j);
 					cell.innerHTML = result[i][j].value;
 				}
+                // 클릭 이벤트 추가
+                row.cells[1].onclick = function() {
+                    var boardID = this.parentNode.cells[0].innerHTML;
+                    viewBbc(boardID);
+                };
 			}
 		}
 	}
