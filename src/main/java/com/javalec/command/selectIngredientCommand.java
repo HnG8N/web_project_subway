@@ -19,12 +19,12 @@ public class selectIngredientCommand implements Command {
 		IngredientDto breadDto = dao.getIngredient("bread");
 		IngredientDto vegitableDto = dao.getIngredient("vegitable");
 		IngredientDto cheeseDto = dao.getIngredient("cheese");
-		IngredientDto souceDto = dao.getIngredient("souce");
+		IngredientDto sauceDto = dao.getIngredient("sauce");
 		
 		request.setAttribute("breadDto", breadDto);
 		request.setAttribute("vegitableDto", vegitableDto);
 		request.setAttribute("cheeseDto", cheeseDto);
-		request.setAttribute("souceDto", souceDto);
+		request.setAttribute("sauceDto", sauceDto);
 
 		HttpSession session = request.getSession();
 

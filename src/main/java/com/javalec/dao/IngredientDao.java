@@ -42,7 +42,7 @@ public class IngredientDao {
 					+ " WHERE ictg = '" + ctg + "'";			
 			preparedStatement = connection.prepareStatement(query);
 			resultset = preparedStatement.executeQuery();
-//				System.out.println(query);
+			System.out.println(query);
 			while (resultset.next()) {
 				
 				int icode = resultset.getInt("icode"); 

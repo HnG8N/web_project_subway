@@ -52,12 +52,7 @@
 			<tr>
 				<td>
 					<c:forEach items="${breadDto}" var="breadDto" varStatus="status">
-					<input name="bread" type="radio"  value="${breadDto.icode}"> 화이트
-					<input name="bread" type="radio"  value="b2"> 파마산 오레가노
-					<input name="bread" type="radio"  value="b3"> 위트
-					<input name="bread" type="radio"  value="b4"> 허니오트
-					<input name="bread" type="radio"  value="b5"> 하티
-					<input name="bread" type="radio"  value="b6"> 플랫 브래드
+						<input name="bread" type="radio"  value="${breadDto.icode}"> ${breadDto.iname}
 					</c:forEach>
 				</td>
 			</tr>
@@ -75,10 +70,9 @@
 			</tr>
 			<tr>
 				<td>
-					<input name="cheese" type="radio" checked="checked" value="c1"> 아메리칸치즈
-					<input name="cheese" type="radio" value="c2"> 슈레드치즈
-					<input name="cheese" type="radio" value="c3"> 모차렐라치즈
-					<input name="cheese" type="radio" value="c4"> 치즈제외
+					<c:forEach items="${cheeseDto}" var="cheeseDto" varStatus="status">
+						<input name="cheese" type="radio" value="${cheeseDto.icode}"> ${cheeseDto.iname}
+					</c:forEach>
 				</td>
 			</tr>
 			<tr>
@@ -86,20 +80,9 @@
 			</tr>
 			<tr>
 				<td>
-					<h2>생야채</h2>
-					<input name="vegetable1" type="checkbox" value="v1"> 양상추
-					<input name="vegetable2" type="checkbox" value="v2"> 토마토
-					<input name="vegetable3" type="checkbox" value="v3"> 오이
-					<input name="vegetable4" type="checkbox" value="v4"> 피망
-					<input name="vegetable5" type="checkbox" value="v5"> 양파
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<h2>절임류</h2>
-					<input name="vegetable6" type="checkbox" value="v6"> 피클
-					<input name="vegetable7" type="checkbox" value="v7"> 올리브
-					<input name="vegetable8" type="checkbox" value="v8"> 할라피뇨
+					<c:forEach items="${vegitableDto}" var="vegitableDto" varStatus="status">
+						<input name="vegetable" type="checkbox" value="${vegitableDto.icode}"> ${vegitableDto.iname}
+					</c:forEach>
 				</td>
 			</tr>
 			<tr>
@@ -107,21 +90,9 @@
 			</tr>
 			<tr>
 				<td>
-					<input name="sauce" type="radio" checked="checked" value="c1"> 크리미한 렌치
-					<input name="sauce" type="radio" value="c2"> 달콤한 스위트 어니언
-					<input name="sauce" type="radio" value="c3"> 고소한 마요네즈
-					<input name="sauce" type="radio" value="c4"> 매콤달콤한 스위트칠리
-					<input name="sauce" type="radio" value="c4"> 스모크 향 스모크 바베큐
-					<input name="sauce" type="radio" value="c4"> 화끈하게 매운 핫 칠리
-					<input name="sauce" type="radio" value="c4"> 새콤 달콤한 허니 머스타드
-					<input name="sauce" type="radio" value="c4"> 이국적으로 매콤한 사우스웨스트 치폴레
-					<input name="sauce" type="radio" value="c4"> 알싸한 홀스래디쉬
-					<input name="sauce" type="radio" value="c4"> 알싸한 머스타드
-					<input name="sauce" type="radio" value="c4"> 이태리 엑스트라버진 올리브 오일
-					<input name="sauce" type="radio" value="c4"> 과일향 레드 와인 식초
-					<input name="sauce" type="radio" value="c4"> 소금
-					<input name="sauce" type="radio" value="c4"> 후추
-					<input name="sauce" type="radio" value="c4"> 선택안함.
+					<c:forEach items="${sauceDto}" var="souceDto" varStatus="status">
+						<input name="sauce" type="radio" value="${sauceDto.icode}"> ${sauceDto.iname}
+					</c:forEach>
 				</td>
 			</tr>
 			
