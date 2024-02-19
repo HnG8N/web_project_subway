@@ -3,6 +3,7 @@ package com.javalec.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -26,9 +27,9 @@ public class IngredientDao {
 	
 	//Method
 	// 카테고리별 재료 가져오기
-	public IngredientDto getIngredient(String ctg) {
+	public ArrayList<IngredientDto> getIngredient(String ctg) {
 		
-		IngredientDto dto = null;
+		ArrayList<IngredientDto> dtos = new ArrayList<IngredientDto>();
 	
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -42,7 +43,7 @@ public class IngredientDao {
 					+ " WHERE ictg = '" + ctg + "'";			
 			preparedStatement = connection.prepareStatement(query);
 			resultset = preparedStatement.executeQuery();
-			System.out.println(query);
+//			System.out.println(query);
 			while (resultset.next()) {
 				
 				int icode = resultset.getInt("icode"); 
@@ -52,7 +53,9 @@ public class IngredientDao {
 				String iinfo = resultset.getString("iinfo");
 				String iimg = resultset.getString("iimg");
 				
-				dto = new IngredientDto(icode, ictg, iname, iengname, iinfo, iimg);
+				IngredientDto dto = new IngredientDto(icode, ictg, iname, iengname, iinfo, iimg);
+				
+				dtos.add(dto);
 
 			}	
                       
@@ -73,6 +76,6 @@ public class IngredientDao {
 
 			}
 		}
-		return dto;
+		return dtos;
 	}
 }

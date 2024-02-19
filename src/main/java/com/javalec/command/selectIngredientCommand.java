@@ -1,5 +1,7 @@
 package com.javalec.command;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -12,24 +14,22 @@ public class selectIngredientCommand implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
-		
+//		HttpSession session = request.getSession();
+//		
+//		session.setAttribute("mncode", request.getParameter("mncode"));
+//		session.setAttribute("price", request.getParameter("price"));
 		
 		IngredientDao dao = new IngredientDao();
-		IngredientDto breadDto = dao.getIngredient("bread");
-		IngredientDto vegitableDto = dao.getIngredient("vegitable");
-		IngredientDto cheeseDto = dao.getIngredient("cheese");
-		IngredientDto sauceDto = dao.getIngredient("sauce");
+		ArrayList<IngredientDto> breadDtos = dao.getIngredient("bread");
+		ArrayList<IngredientDto> vegitableDtos = dao.getIngredient("vegitable");
+		ArrayList<IngredientDto> cheeseDtos = dao.getIngredient("cheese");
+		ArrayList<IngredientDto> sauceDtos = dao.getIngredient("sauce");
 		
-		request.setAttribute("breadDto", breadDto);
-		request.setAttribute("vegitableDto", vegitableDto);
-		request.setAttribute("cheeseDto", cheeseDto);
-		request.setAttribute("sauceDto", sauceDto);
+		request.setAttribute("breadDtos", breadDtos);
+		request.setAttribute("vegitableDtos", vegitableDtos);
+		request.setAttribute("cheeseDtos", cheeseDtos);
+		request.setAttribute("sauceDtos", sauceDtos);
 
-		HttpSession session = request.getSession();
-
-		session.setAttribute("mncode", request.getParameter("mncode"));
-		session.setAttribute("price", request.getParameter("price"));
 	}
 
 }
