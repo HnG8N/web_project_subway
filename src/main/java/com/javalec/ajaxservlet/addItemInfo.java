@@ -1,29 +1,25 @@
 package com.javalec.ajaxservlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.google.gson.Gson;
-import com.javalec.dao.FindId_Dao;
+import com.javalec.dto.OrderDto;
 
 /**
- * Servlet implementation class isLoginCheck
+ * Servlet implementation class addItemInfo
  */
-@WebServlet("/isLoginCheck")
-public class isLoginCheck extends HttpServlet {
+@WebServlet("/addItemInfo")
+public class addItemInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public isLoginCheck() {
+    public addItemInfo() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,22 +29,11 @@ public class isLoginCheck extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
+		String data = request.getParameter("data");
+		//chooseIngredientList
+		//emptyIngredientList
+		//baseIngredientList
 		
-		String userId = (String)session.getAttribute("userId");
-		String result = "";
-
-		if (userId==null || userId.equals("")) {
-			result = "false";
-		} else {
-			result = "true";
-		}
-		// 로그인 아이디가 있으면 JSON 형태로 js에 전송.
-		String json = new Gson().toJson(result);
-		PrintWriter out = response.getWriter();
-		out.print(json);
-
-		out.flush();
 	}
 
 }

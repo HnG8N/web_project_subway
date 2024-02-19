@@ -91,7 +91,7 @@ var item  = {
 		// 빵 선택
 		$('#bread').on('click', function(e) {
 			e.preventDefault();
-			item.openPopup($(this), "bread_type.do", 630);
+			item.openPopup($(this), "bread.do", 630);
 		});
 
 		// 치즈 선택
@@ -157,7 +157,7 @@ var item  = {
 //					} else {
 						switch (itemType) {
 							case "ITEM_SANDWICH":
-								url = "Y" == promotionYn ? "bread_type.do" : "bread_length.do";
+								url = "Y" == promotionYn ? "bread.do" : "bread_length.do";
 								width = "Y" == promotionYn ?width : 520;
 								break;
 							case "ITEM_SALAD":
@@ -225,12 +225,12 @@ var data = {
 	addItemInfo : function(data, url, width) {
 		$.ajax({
 	        type: "POST",
-	        url: "/order/progress/addItemInfo",
+	        url: "addItemInfo",
 	        data: data,
 	        async: false,
 	        success: function (data) {
-	        	ordItemsVO.chooseIngredientList = data.chooseIngredientList;
-				ordItemsVO.emptyIngredientList = data.emptyIngredientList;
+//	        	ordItemsVO.chooseIngredientList = data.chooseIngredientList;
+//				ordItemsVO.emptyIngredientList = data.emptyIngredientList;
 				ordItemsVO.baseIngredientList = data.baseIngredientList;
 
 	        	if(url == null) {

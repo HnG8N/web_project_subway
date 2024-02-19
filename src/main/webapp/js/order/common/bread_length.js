@@ -27,21 +27,25 @@ var pop = {
 
 	// 다음스텝
 	goNext : function() {
-		var ckBreadType = $('input:radio[name=breadType]:checked');
+//		var ckBreadType = $('input:radio[name=breadType]:checked');
 
-		if(ckBreadType.attr('soldout') == 'Y'){
-			alert(ckBreadType.attr('id') + ' 품절입니다.');
-		}else {
-			pop.setInfo("bread_type.do", 640);
-		}
+//		alert("goNext: "+ckBreadType);
+//		if(ckBreadType.attr('soldout') == 'Y'){
+//			alert(ckBreadType.attr('id') + ' 품절입니다.');
+//		}else {
+			pop.setInfo("bread.do", 640);
+//		}
 	},
 
 	// 아이템 정보 세팅
 	setInfo : function(url, width) {
+
 		var target = $("[name=breadType]:checked");
 		var metaLength = $("#breadLengthMeta").val();
 		var flag = (metaLength == "" || metaLength == target.val()) ? "N" : "Y";
-		var selectedItemCode = target.attr('itemcode');
+//		var selectedItemCode = target.attr('itemcode');
+//		alert("selectedItemCode : "+ selectedItemCode);
+
 
 		if("Y" == flag) {
 			if(!confirm("빵길이 변경시 추가옵션이 초기화됩니다. 변경하시겠습니까?")) {

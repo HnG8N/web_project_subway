@@ -48,7 +48,7 @@
 			<!-- sub content s -->
 			<div id="content">
 				<!-- 로그인 -->
-					<form action="login.do" method="post" name="loginForm">
+				<form action="login.do" method="post" name="loginForm">
 				<div class="signin_wrapper">
 					<div class="signin_tit">
 						<h2>LOGIN</h2>
