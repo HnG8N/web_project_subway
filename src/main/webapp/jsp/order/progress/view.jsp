@@ -33,6 +33,7 @@
 	<link rel="stylesheet" type="text/css" href="./css/ui.order.css?v=2023051202" />
 	<script type="text/javascript" src="./js/order/common/item_view.js?v=2023051202"></script>
 	<script type="text/javascript" src="./js/favorite/favoriteMenu.js?v=2023051202"></script>
+	
 	<script>
 		/*<![CDATA[*/
 		var ordItemsVO = {'addedSelectIngredientList':null,'availableSetYn':null,'baseIngredientList':null,'baseItemAmt':null,'baseItemIdx':8412,'bread':null,'breadAmt':6800,'breadType':null,'cartIdx':null,'cartStoreMatch':false,'category':null,'cheese':null,'chooseIngredientList':null,'cpnAmt':null,'cupIncldYn':null,'cupItemCd':null,'doubleCheese':null,'doubleCheeseAmt':null,'doubleCheeseFg':null,'doubleCheeseMeta':null,'doubleCheeseOpt':null,'doubleUpFg':null,'doubleup':null,'doubleupInfo':null,'emptyIngredientList':null,'evntDisplayType':null,'flatPizzaYn':null,'groupCd':'81','hasMappingItemYn':null,'historyVegeYn':'N','hotFg':null,'immutableYn':'N','itemCode':'01900','itemCombinationIdx':null,'itemExtraDesc':'','itemGubun':'sandwich','itemIdx':232,'itemName':'\uC2A4\uD30C\uC774\uC2DC \uC26C\uB9BC\uD504','itemShortName':null,'itemType':'ITEM_SANDWICH','lsmItemImg':null,'lsmItemName':null,'menuType':'ITEM_SANDWICH','modDt':null,'modKey':null,'morningYn':'N','ordAddoptFg':null,'ordAmt':7900,'ordDetailIdx':null,'ordIdx':null,'ordType':'ORD_TYPE.FAST_SUB','paveFg':'Y','promotionSelect':null,'promotionViewYn':'N','promotionYn':'N','qty':null,'receiverAddr':null,'receiverAddrDtl':null,'receiverHp':null,'receiverZipcd':null,'regDt':null,'regKey':null,'sauceList':null,'selectChoiceYn':'N','selectToppingYn':null,'setFg':null,'setOptionInfoList':[],'setOptionList':null,'setOptionType':null,'sideYn':'N','storCd':'64444','subDogYn':null,'surveyPrizeYn':null,'toppingInfoList':null,'toppingList':null,'totalDoubleupAmt':0,'totalSetOptionAmt':0,'totalSideAmt':null,'totalToppingAmt':0,'ultraCheeseYn':null,'useFg':null,'vegetableList':null,'warming':null}
@@ -59,18 +60,6 @@
 	
 		<input id="subpickYnCheck" type="hidden" value="N" />
 		
-		<form method="post" name="viewForm">
-			<input name="omid" type="hidden" value="${sessionScope.userId}" /> 
-			<input name="omncode" type="hidden" value="${dto.mncode}" /> 
-			<input name="breadLength" type="hidden" value="" /> 
-			<input name="breadType" type="hidden" value="" /> 
-			<input name="breadWarm" type="hidden" value="" /> 
-			<input name="cheese" type="hidden" value="" /> 
-			<input name="vegetable" type="hidden" value="" />
-			<input name="souce" type="hidden" value="" />
-			<input name="totPrice" type="hidden" value="" />
-		</form>
-
 		<!-- sub content s -->
 		<div class="order fast_sub" id="content">
 			<!-- index -->
@@ -134,10 +123,10 @@
 									${dto.mninfo}<br />
 								</p>
 
-								<button class="btn bgc_point i_reg" id="itemConbiPopBtn"
+								<button class="btn i_reg btn_order bgc_poin" id="itemConbiPopBtn"
 									style="width: 183px;" type="button" data-item-gubun="${dto.mnctg}"
 									data-store-cd="64444" data-combination-idx="78"
-									data-item-code="${dto.mnctg}" data-subpick="N" href="bread_length.do">
+									data-item-code="${dto.mnctg}" data-subpick="N">
 									<span>추천 꿀 조합</span>
 								</button>
 							</div>
@@ -226,16 +215,13 @@
 						</div>
 						
 						<div class="btn_area">
-<!-- 						
-							<a class="btn i_reg btn_order bgc_point" href="bread_length.do" link-type="popup" onclick="popup_open(this,900,750); return false;"> 
-								<span>알레르기 정보</span>
-							</a>
- -->
- 							<button class="btn i_reg btn_order bgc_point" id="orderBtn"
-								type="button" data-promotionYn="N" data-itemType="ITEM_SANDWICH"
-								data-morningYn="N">
-								<span>주문 시작하기</span>
-							</button>
+ 							<ul>
+ 								<li>
+	 								<a class="btn bgc_point i_reg" href="selectIngredient.do">
+										<span>주문 시작하기</span>
+									</a>
+								</li>
+							</ul>
 
 						</div>
 					</div>
@@ -245,7 +231,7 @@
 			<!--// sub content e -->
 		</div>
 		<!--// container -->
-		<%@ include file="/jsp/include/footer.jsp"%>
 	</div>
+	<%@ include file="/jsp/include/footer.jsp"%>
 </body>
 </html>

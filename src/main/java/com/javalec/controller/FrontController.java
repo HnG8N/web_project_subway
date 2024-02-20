@@ -26,6 +26,7 @@ import com.javalec.command.SignupCommand;
 import com.javalec.command.UnitListCommand;
 import com.javalec.command.UnitViewCommand;
 import com.javalec.command.UpdateInfo;
+import com.javalec.command.selectIngredientCommand;
 
 /**
  * Servlet implementation class FrontController
@@ -241,49 +242,58 @@ public class FrontController extends HttpServlet {
 			
 		// 	[온라인 주문]
 		// 	[FAST_SUB-STEP2] 
-		//	샌드위치 메뉴상세
+		// 	메뉴 옵션 선택하기. 
+		case ("/selectIngredient.do"):	
+			command = new selectIngredientCommand();
+			command.execute(request, response);
+			viewPage = "/jsp/order/progress/selectIngredient.jsp";
+			break;
+		
+		// 	[온라인 주문]
+		// 	[FAST_SUB-STEP2] 
+		//	샌드위치 메뉴상세.
 		case ("/sandwichView.do"):
 			command = new SandwichViewCommand();
-		command.execute(request, response);
-		viewPage = "/jsp/menuView/sandwich.jsp";
-		break;
+			command.execute(request, response);
+			viewPage = "/jsp/menuView/sandwich.jsp";
+			break;
 		
 		// 	[온라인 주문]
 		// 	[FAST_SUB-STEP2] 
-		//	샐러드 메뉴상세
+		//	샐러드 메뉴상세.
 		case ("/saladView.do"):	
 			command = new SaladViewCommand();
-		command.execute(request, response);
-		viewPage = "/jsp/menuView/salad.jsp";
-		break;
+			command.execute(request, response);
+			viewPage = "/jsp/menuView/salad.jsp";
+			break;
 		
 		// 	[온라인 주문]
 		// 	[FAST_SUB-STEP2] 
 		// 	[팝업] 
-		//	랩, 기타 메뉴상세
+		//	랩, 기타 메뉴상세.
 		case ("/unitView.do"):
 			command = new UnitViewCommand();
-		command.execute(request, response);
-		viewPage = "/jsp/menuView/wrap.jsp";
-		break;
+			command.execute(request, response);
+			viewPage = "/jsp/menuView/wrap.jsp";
+			break;
 		
 		// 	[온라인 주문]
 		// 	[FAST_SUB-STEP2] 
 		//	[메뉴상세]
 		// 	[팝업] 
-		//	알레르기 정보
+		//	알레르기 정보.
 		case ("/allergy.do"):
 			viewPage = "/jsp/ingredientNcountry/allergy.jsp";
-		break;
+			break;
 		
 		// 	[온라인 주문]
 		// 	[FAST_SUB-STEP2] 
 		//	[메뉴상세]
 		// 	[팝업] 
-		// 	원산지 정보
+		// 	원산지 정보.
 		case ("/origin.do"):
 			viewPage = "/jsp/ingredientNcountry/origin.jsp";
-		break;
+			break;
 
 		// 	[온라인 주문]
 		// 	[FAST_SUB-STEP2] 
@@ -349,22 +359,20 @@ public class FrontController extends HttpServlet {
 			viewPage = "/jsp/order/progress/choice/vegetable.jsp";
 			break;
 
+		// 	[장바구니]	
+		case ("/cart.do"):	
+			command = new CartCommand();
+			command.execute(request, response);
+			viewPage = "/jsp/cart/fastsub.jsp";
+			break;
 			
 		// 	[온라인 주문]
 		// 	[FAST_SUB-STEP3] 
 		//	[주문하기]
 		case ("/checkout.do"):	
 			command = new OrderCommand();
-		command.execute(request, response);
-		viewPage = "/jsp/order/progress/bill/checkout.jsp";
-		break;
-		
-
-		// 	[장바구니]	
-		case ("/cart.do"):	
-			command = new CartCommand();
 			command.execute(request, response);
-			viewPage = "/jsp/cart/fastsub.jsp";
+			viewPage = "/jsp/order/progress/bill/checkout.jsp";
 			break;
 		
 		
