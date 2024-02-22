@@ -21,7 +21,7 @@ public class selectIngredientCommand implements Command {
 		
 		IngredientDao dao = new IngredientDao();
 		ArrayList<IngredientDto> breadDtos = dao.getIngredient("bread");
-		ArrayList<IngredientDto> vegitableDtos = dao.getIngredient("vegitable");
+		ArrayList<IngredientDto> vegitableDtos = dao.getIngredient("vegetable");
 		ArrayList<IngredientDto> cheeseDtos = dao.getIngredient("cheese");
 		ArrayList<IngredientDto> sauceDtos = dao.getIngredient("sauce");
 		
