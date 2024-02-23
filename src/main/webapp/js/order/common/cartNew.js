@@ -14,6 +14,8 @@ var cart = {
 		$("#addMenu").on("click", cart.addMenu);
 		// 지점변경
 		$("#changeStore").on("click", cart.changeStore);
+		// 주문하기
+		$("#setOrder").on("click", cart.getOrderData);
 	},
 	
 	// 총 주문금액 세팅
@@ -104,6 +106,47 @@ var cart = {
 			var target = $(this);
 			var url = target.data("url") + "?storCd=" + target.data("stor");
 			location.href = url;
+		}
+	},
+
+	// 주문하기
+	getOrderData : function() {
+		// 선택한 상품의 카트id Array
+		var selectTarget = $("[data-target=each]:checked");
+		var dataTarget = selectTarget.parents("[data-target=row]");
+		if(selectTarget.length < 1) {alert("주문할 상품을 선택해주세요."); return;}
+		if(selectTarget.length != dataTarget.length) {alert("품절상품은 주문할 수 없습니다."); return;}
+
+		var dataOrderableYn = selectTarget.parents("[data-orderableYn=N]");
+		if (dataOrderableYn.length > 0) {
+			alert("주문할 수 없는 상품이 포함되어 있습니다. 다시 선택해주세요.");
+			return;
+		}
+
+		if(confirm("선택한 상품을 주문하시겠습니까?")) {
+			var totalQty = 0;
+			var cartIdxArr = new Array();
+
+			dataTarget.each(function() {
+				var target = $(this);
+				if("Y" != target.data("side")) { totalQty += parseInt(target.find("[name=qty]").val()); }
+				cartIdxArr.push(target.data("cartidx"));
+			});
+
+			// validation
+			var maxQty = data.getMaximumQty();
+			if(totalQty > maxQty) {
+				alert("1회 주문시 최대 " + maxQty + "개까지 주문하실 수 있습니다.");
+				return;
+			}
+
+			// 주문 실행
+			data.cartUpdate("gotoOrder", {"cartIdxArr[]" : cartIdxArr, "cartType" : $(this).data("cart-type")}, function(data) {
+
+				if(data != null) {
+					location.href = "checkout.do" + data;
+				}
+			});
 		}
 	}
 }

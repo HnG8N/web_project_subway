@@ -160,7 +160,7 @@
 
 					</form>
 					<a class="btn bgc_white" href="javascript:void(0);" id="addMenu"><span>메뉴추가하기</span></a>
-					<a class="btn bgc_point i_reg" href="javascript:void(0);"
+					<a class="btn bgc_point i_reg" href="checkout.do"
 						id="setOrder" data-cart-type="CART_TYPE.FAST_SUB"><span>주문하기</span></a>
 				</div>
 			</div>

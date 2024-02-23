@@ -2,10 +2,14 @@ package com.javalec.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import com.javalec.dto.CartDto;
 
 public class OrderDao {
 	// Field
@@ -25,52 +29,8 @@ public class OrderDao {
 	
 
 	// Method
-	public void addCart(String omid, int omncode, int olength, String obread, String otoast,String ocheese, String ovegetables,String osauce, int oprice) {
-		
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-		
-		try {
-			// data 베이스 연결
-			connection = dataSource.getConnection();
-			// 쿼리 작성
-			String query = "INSERT INTO orderpurchase (omid, omncode, olength, obread, otoast, ocheese, ovegetables, osauce, oprice, odate) VALUES (?,?,?,?,?,?,?,?,?,now())";
-			
-			// 작성한 쿼리를 데이터 connection을 사용하여 실행
-			preparedStatement = connection.prepareStatement(query);
-			
-			// ?에 값 넣어주기
-			preparedStatement.setString(1, omid);
-			preparedStatement.setInt(2, omncode);
-			preparedStatement.setInt(3, olength);
-			preparedStatement.setString(4, obread);
-			preparedStatement.setString(5, otoast);
-			preparedStatement.setString(6, ocheese);
-			preparedStatement.setString(7, ovegetables);
-			preparedStatement.setString(8, osauce);
-			preparedStatement.setInt(9, oprice);
-			
-			// 실행
-			preparedStatement.executeUpdate();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally { // 데이터 정리하는 용도로 쓰임 (만든 순서 거꾸로 정리해야함)
-			try {
-				
-				if (preparedStatement != null) {
-					preparedStatement.close();
-				}
-				if (connection != null) {
-					connection.close();
-				}
-			} catch (Exception e) {
-				
-			}
-		}
-	}//addOrder
-	public void addOrder(String omid, int omncode, int olength, String obread, String otoast,String ocheese, String ovegetables,String osauce, int oprice) {
-
+	public int addOrder(int cseq, String cmid) {
+		int execnt = 0;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -78,24 +38,16 @@ public class OrderDao {
 			// data 베이스 연결
 			connection = dataSource.getConnection();
 			// 쿼리 작성
-			String query = "INSERT INTO orderpurchase (omid, omncode, olength, obread, otoast, ocheese, ovegetables, osauce, oprice, odate) VALUES (?,?,?,?,?,?,?,?,?,now())";
+			String query = "INSERT INTO orderpurchase (omid, omncode, olength, obread, otoast, ocheese, ovegetables, osauce, oprice, odate) "
+					+ " 						SELECT cmid, cmncode, clength, cbread, ctoast, ccheese, cbegetables, csauce, ctotprice, NOW() \n"
+					+ "							  FROM cart \n"
+					+ "							 WHERE cmid = '"+cmid+" AND cseq = " + cseq;
 
 			// 작성한 쿼리를 데이터 connection을 사용하여 실행
 			preparedStatement = connection.prepareStatement(query);
 
-			// ?에 값 넣어주기
-			preparedStatement.setString(1, omid);
-			preparedStatement.setInt(2, omncode);
-			preparedStatement.setInt(3, olength);
-			preparedStatement.setString(4, obread);
-			preparedStatement.setString(5, otoast);
-			preparedStatement.setString(6, ocheese);
-			preparedStatement.setString(7, ovegetables);
-			preparedStatement.setString(8, osauce);
-			preparedStatement.setInt(9, oprice);
-
 			// 실행
-			preparedStatement.executeUpdate();
+			execnt = preparedStatement.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -112,5 +64,92 @@ public class OrderDao {
 
 			}
 		}
+		return execnt;
 	}//addOrder
+	
+	//getOrderNumber()
+	public int getOrderNumber() {
+		int orderNo = 0;
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultset = null;
+		 
+			try {
+				
+				connection = dataSource.getConnection();	
+				String query ="SELECT MAX(oseq) AS maxNo "
+						+ "FROM orderpurchase ";
+
+				preparedStatement = connection.prepareStatement(query);
+				resultset = preparedStatement.executeQuery();
+//					System.out.println(query);
+				while (resultset.next()) {
+					
+					orderNo = resultset.getInt("maxNo"); 
+				}	
+	                      
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally { 
+				try {
+					if (resultset != null) {
+						resultset.close();
+					}
+					if (preparedStatement != null) {
+						preparedStatement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
+				} catch (Exception e) {
+
+				}
+			}
+			return orderNo;
+		
+	}//getMyCart
+		
+	// getMyOrder
+	public int getMyOrder(String mid) {
+		int orderNo = 0;
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultset = null;
+		 
+			try {
+				
+				connection = dataSource.getConnection();	
+				String query ="SELECT MAX(oseq) AS maxNo "
+						+ "FROM orderpurchase ";
+
+				preparedStatement = connection.prepareStatement(query);
+				resultset = preparedStatement.executeQuery();
+//					System.out.println(query);
+				while (resultset.next()) {
+					
+					orderNo = resultset.getInt("maxNo"); 
+				}	
+	                      
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally { 
+				try {
+					if (resultset != null) {
+						resultset.close();
+					}
+					if (preparedStatement != null) {
+						preparedStatement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
+				} catch (Exception e) {
+
+				}
+			}
+			return orderNo;
+		
+	}//getMyCart
 }
