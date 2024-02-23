@@ -41,8 +41,8 @@
 .cart .cart_list .total .count{float: left;}
 .cart .cart_list .total .count dt{float: left; padding: 3px 23px 0 0; font-size: 24px; font-weight: bold;}
 .cart .cart_list .total .count dd{float: left;}
-.cart .cart_list .total .count dd a{float: left; display: block; width: 37px; height: 37px; background: url('./images/order/fast_sub/btn_minus.png') no-repeat 0 0; font-size: 0;}
-.cart .cart_list .total .count dd a.plus{background-image: url('./images/order/fast_sub/btn_plus.png');}
+.cart .cart_list .total .count dd a{float: left; display: block; width: 37px; height: 37px; background: url('../images/order/fast_sub/btn_minus.png') no-repeat 0 0; font-size: 0;}
+.cart .cart_list .total .count dd a.plus{background-image: url('../images/order/fast_sub/btn_plus.png');}
 .cart .cart_list .total .count dd input{float: left; width: 40px; height: 37px; margin: -4px 13px 0 13px; border: 0; color: #292929; font-size: 32px; font-family: font_sw; font-weight: bold; text-align: center; vertical-align: top;}
 .cart .cart_list .total .total_sum{float: right;}
 .cart .cart_list .total .total_sum dt{float: left; margin: 4px 30px 0 0; color: #292929; font-size: 22px; font-weight: 300;}

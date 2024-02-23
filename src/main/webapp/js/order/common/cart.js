@@ -78,7 +78,7 @@ var cart = {
 			row.find(".amount em").text(qty);
 
 			// 수량 업데이트
-			data.cartUpdate("/cart/changeQty", {"cartIdx" : row.data("cartidx"), "qty" : qty}, function(data) {
+			data.cartUpdate("/chageQty", {"cartIdx" : row.data("cartidx"), "qty" : qty}, function(data) {
 				// 수량 변경시 금액, 총 주문금액 변경
 				if(data.result > 0)
 					row.find(".eachTotalPrice").text(subwayCommon.numberToCurrencyFormat(row.find("[name=eachPrice]").val() * qty));
@@ -113,7 +113,7 @@ var cart = {
 					cartIdxArr.push($(this).data("cartidx"));
 				});
 
-				data.cartUpdate("/cart/deleteCartItem", {"cartIdxArr[]" : cartIdxArr}, function() {
+				data.cartUpdate("/deleteCartItem", {"cartIdxArr[]" : cartIdxArr}, function() {
 					alert("선택한 " + cartIdxArr.length +"개의 상품이 삭제되었습니다.");
 					location.reload(); }
 				);
@@ -123,7 +123,7 @@ var cart = {
 		// 매뉴추가하기
 		addMenu : function() {
 			var orderForm = $("[name=orderForm]");
-			data.addStorInfo($("[name=orderForm]").serialize(), "/order/progress/step2");
+			data.addStorInfo($("[name=orderForm]").serialize(), "step2.do");
 		},
 
 		// 픽업매장 변경하기

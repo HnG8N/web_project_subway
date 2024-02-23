@@ -14,10 +14,10 @@ public class selectIngredientCommand implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-//		HttpSession session = request.getSession();
-//		
-//		session.setAttribute("mncode", request.getParameter("mncode"));
-//		session.setAttribute("price", request.getParameter("price"));
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("mncode", request.getParameter("mncode"));
+		session.setAttribute("mnprice", request.getParameter("mnprice"));
 		
 		IngredientDao dao = new IngredientDao();
 		ArrayList<IngredientDto> breadDtos = dao.getIngredient("bread");

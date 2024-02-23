@@ -123,7 +123,7 @@
 									${dto.mninfo}<br />
 								</p>
 
-								<button class="btn i_reg btn_order bgc_poin" id="itemConbiPopBtn"
+								<button class="btn bgc_point i_reg" id="itemConbiPopBtn"
 									style="width: 183px;" type="button" data-item-gubun="${dto.mnctg}"
 									data-store-cd="64444" data-combination-idx="78"
 									data-item-code="${dto.mnctg}" data-subpick="N">
@@ -217,7 +217,7 @@
 						<div class="btn_area">
  							<ul>
  								<li>
-	 								<a class="btn bgc_point i_reg" href="selectIngredient.do">
+	 								<a class="btn i_reg btn_order bgc_point" href="selectIngredient.do?mncode=${dto.mncode}&mnprice=${dto.mnprice}">
 										<span>주문 시작하기</span>
 									</a>
 								</li>

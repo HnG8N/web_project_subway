@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.javalec.command.AddCartCommand;
 import com.javalec.command.CartCommand;
 import com.javalec.command.Command;
 import com.javalec.command.DeleteInfoCommand;
@@ -366,6 +367,13 @@ public class FrontController extends HttpServlet {
 			viewPage = "/jsp/cart/fastsub.jsp";
 			break;
 			
+			// 	[장바구니]	
+		case ("/addcart.do"):	
+			command = new AddCartCommand();
+			command.execute(request, response);
+			response.sendRedirect("cart.do");
+		break;
+		
 		// 	[온라인 주문]
 		// 	[FAST_SUB-STEP3] 
 		//	[주문하기]

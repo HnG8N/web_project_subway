@@ -3,109 +3,196 @@ package com.javalec.dto;
  *  Description : MenuDto
  *  Date        : 2024.02.15(Thr) ver1.0 : 파일생성.
  *  Author      : sujin
+ *  c.cseq, c.cmid, c.cmncode, c.clength, c.cbread, c.ctoast, c.cvegetables, c.csauce, c.ctotprice, c.cqty, m.mnctg
+ *  select c.cseq, c.cmid, c.cmncode, c.clength, c.cbread, c.ctoast, c.cvegetables, c.csauce, c.ctotprice, c.cqty, 
+ *  	m.mnctg, m.mnname, m.mnimg, m.mnprice  
+from cart c, menu m
+where c.cmncode = m.mncode;
  * ---------------------------------------- */
 public class CartDto {
 	// Field
-	String omid; 
-	int omncode; 
-	int olength; 
-	String obread; 
-	String otoast; 
-	String ocheese; 
-	String ovegetables;
-	String osauce; 
-	int oprice;
+	int cseq;
+	String cmid; 
+	int cmncode; 
+	
+	String mnctg;
+	String mnname;
+	String mnimg;
+	int mnprice;
+	
+	int clength; 
+	String cbread; 
+	String ctoast; 
+	String ccheese; 
+	String cvegetables;
+	String csauce; 
+	int ctotprice;
+	int cqty;
 	
 	// Constructor
 	public CartDto() {
 		// TODO Auto-generated constructor stub
 	}
-
-	public CartDto(String omid, int omncode, int olength, String obread, String otoast, String ocheese,
-			String ovegetables, String osauce, int oprice) {
+	
+	// 데이터 입력을 위한 생성자.
+	public CartDto(String cmid, int cmncode, int clength, String cbread, String ctoast, String ccheese,
+			String cvegetables, String csauce, int ctotprice, int cqty) {
 		super();
-		this.omid = omid;
-		this.omncode = omncode;
-		this.olength = olength;
-		this.obread = obread;
-		this.otoast = otoast;
-		this.ocheese = ocheese;
-		this.ovegetables = ovegetables;
-		this.osauce = osauce;
-		this.oprice = oprice;
+		this.cmid = cmid;
+		this.cmncode = cmncode;
+		this.clength = clength;
+		this.cbread = cbread;
+		this.ctoast = ctoast;
+		this.ccheese = ccheese;
+		this.cvegetables = cvegetables;
+		this.csauce = csauce;
+		this.ctotprice = ctotprice;
+		this.cqty = cqty;
 	}
 
-	// Method
-	public String getOmid() {
-		return omid;
+	// 데이터를 가져오기 위한 생성자.
+	public CartDto(int cseq, String cmid, int cmncode, String mnctg, String mnname, String mnimg, int mnprice,
+			int clength, String cbread, String ctoast, String ccheese, String cvegetables, String csauce, int ctotprice,
+			int cqty) {
+		super();
+		this.cseq = cseq;
+		this.cmid = cmid;
+		this.cmncode = cmncode;
+		this.mnctg = mnctg;
+		this.mnname = mnname;
+		this.mnimg = mnimg;
+		this.mnprice = mnprice;
+		this.clength = clength;
+		this.cbread = cbread;
+		this.ctoast = ctoast;
+		this.ccheese = ccheese;
+		this.cvegetables = cvegetables;
+		this.csauce = csauce;
+		this.ctotprice = ctotprice;
+		this.cqty = cqty;
 	}
 
-	public void setOmid(String omid) {
-		this.omid = omid;
+	public int getCseq() {
+		return cseq;
 	}
 
-	public int getOmncode() {
-		return omncode;
+	public void setCseq(int cseq) {
+		this.cseq = cseq;
 	}
 
-	public void setOmncode(int omncode) {
-		this.omncode = omncode;
+	public String getCmid() {
+		return cmid;
 	}
 
-	public int getOlength() {
-		return olength;
+	public void setCmid(String cmid) {
+		this.cmid = cmid;
 	}
 
-	public void setOlength(int olength) {
-		this.olength = olength;
+	public int getCmncode() {
+		return cmncode;
 	}
 
-	public String getObread() {
-		return obread;
+	public void setCmncode(int cmncode) {
+		this.cmncode = cmncode;
 	}
 
-	public void setObread(String obread) {
-		this.obread = obread;
+	public String getMnctg() {
+		return mnctg;
 	}
 
-	public String getOtoast() {
-		return otoast;
+	public void setMnctg(String mnctg) {
+		this.mnctg = mnctg;
 	}
 
-	public void setOtoast(String otoast) {
-		this.otoast = otoast;
+	public String getMnname() {
+		return mnname;
 	}
 
-	public String getOcheese() {
-		return ocheese;
+	public void setMnname(String mnname) {
+		this.mnname = mnname;
 	}
 
-	public void setOcheese(String ocheese) {
-		this.ocheese = ocheese;
+	public String getMnimg() {
+		return mnimg;
 	}
 
-	public String getOvegetables() {
-		return ovegetables;
+	public void setMnimg(String mnimg) {
+		this.mnimg = mnimg;
 	}
 
-	public void setOvegetables(String ovegetables) {
-		this.ovegetables = ovegetables;
+	public int getMnprice() {
+		return mnprice;
 	}
 
-	public String getOsauce() {
-		return osauce;
+	public void setMnprice(int mnprice) {
+		this.mnprice = mnprice;
 	}
 
-	public void setOsauce(String osauce) {
-		this.osauce = osauce;
+	public int getClength() {
+		return clength;
 	}
 
-	public int getOprice() {
-		return oprice;
+	public void setClength(int clength) {
+		this.clength = clength;
 	}
 
-	public void setOprice(int oprice) {
-		this.oprice = oprice;
+	public String getCbread() {
+		return cbread;
 	}
+
+	public void setCbread(String cbread) {
+		this.cbread = cbread;
+	}
+
+	public String getCtoast() {
+		return ctoast;
+	}
+
+	public void setCtoast(String ctoast) {
+		this.ctoast = ctoast;
+	}
+
+	public String getCcheese() {
+		return ccheese;
+	}
+
+	public void setCcheese(String ccheese) {
+		this.ccheese = ccheese;
+	}
+
+	public String getCvegetables() {
+		return cvegetables;
+	}
+
+	public void setCvegetables(String cvegetables) {
+		this.cvegetables = cvegetables;
+	}
+
+	public String getCsauce() {
+		return csauce;
+	}
+
+	public void setCsauce(String csauce) {
+		this.csauce = csauce;
+	}
+
+	public int getCtotprice() {
+		return ctotprice;
+	}
+
+	public void setCtotprice(int ctotprice) {
+		this.ctotprice = ctotprice;
+	}
+
+	public int getCqty() {
+		return cqty;
+	}
+
+	public void setCqty(int cqty) {
+		this.cqty = cqty;
+	}
+	
+	
+
 	
 }

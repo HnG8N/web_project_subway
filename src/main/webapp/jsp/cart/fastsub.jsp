@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,7 @@
     <script type="text/javascript" src="./js/waffle/waffle.utils.js?v=2023051202"></script>
       
 	<link rel="stylesheet" type="text/css" href="./css/ui.cart.css?v=2023051202" />
-	<script type="text/javascript" src="./js/order/common/cart.js?v=2023051202"></script>
+	<script type="text/javascript" src="./js/order/common/cartNew.js"></script>
 	<script>
 	/*<![CDATA[*/
 	var cartGubun = 'fast';
@@ -66,7 +67,7 @@
 						</a>
 					</dd>
 				</dl>
-				<div class="txt_last_14day">최근 14일 이내 담은 상품만 확인 가능합니다.</div>
+				<div class="txt_last_14day">장바구니에 담은 상품만 확인 가능합니다.</div>
 				<div class="all_select">
 					<label class="form_checkbox"> <input data-target="all"
 						type="checkbox" /> <span class="icon"></span> 전체선택
@@ -74,88 +75,66 @@
 						id="cartItemDelete"><span>선택삭제</span></a>
 				</div>
 			</div>
+			
+			<c:forEach items="${listCartMenu}" var="dto" varStatus="status">
 			<ul class="cart_list">
-				<li class="wh_box" data-target="row" data-cartIdx="8010794"
+				<li class="wh_box" data-target="row" data-cartIdx="${dto.cseq}"
 					data-side="N">
-
 					<div class="order_info">
 						<div class="menu_info">
-							<label class="form_checkbox"> <input autocomplete="false"
-								data-target="each" type="checkbox" /> <span class="icon"></span>
-								<th:object>비엘티</th:object>
+							<label class="form_checkbox"> 
+							<input autocomplete="false"	data-target="each" type="checkbox" /> <span class="icon"></span>
+								<th:object>${dto.mnname}</th:object>
 							</label>
 							<p>
 
 								<!-- 빵길이 -->
-								<th:object>15cm</th:object>
+								<th:object>${dto.clength}cm</th:object>
 
 								<!-- 빵종류 -->
-								<th:object>, 플랫브레드(토스팅)</th:object>
+								<th:object>, ${dto.cbread}( ${dto.ctoast})</th:object>
 
 								<!-- 치즈 -->
 
-								<th:object>, 아메리칸치즈</th:object>
+								<th:object>, ${dto.ccheese}</th:object>
 
 
 								<!-- 야채 -->
 
-
-								<th:object>, 양상추</th:object>
-
-
-								<th:object>, 토마토</th:object>
-
-
-								<th:object>, 오이</th:object>
-
-
-								<th:object>, 피망</th:object>
-
-
-								<th:object>, 양파</th:object>
-
-
-
+								<th:object>, ${dto.cvegetables}</th:object>
 
 								<!-- 소스 -->
 
 
-								<th:object>, 마요네즈</th:object>
-
-
-								<th:object>, 사우스웨스트 치폴레</th:object>
-
-
-
+								<th:object>,  ${dto.csauce}</th:object>
 
 							</p>
 							<br>
 							<dd>
 								<strong> 
-									<em>6,600</em> <span>원</span>
+									<em>${dto.mnprice}</em> <span>원</span>
 								</strong>
 							</dd>
 						</div>
-						<img onError="this.src='./images/common/noneImage.jpg'" alt="비엘티"
-							src="" />
+						<img onError="this.src='./images/common/noneImage.jpg'" alt="${dto.mnname}"
+							src="./upload/menu/${dto.mnimg}" />
 					</div> <!-- 일회용컵선택 -->
-
 					<div class="total">
 						<dl class="count">
 							<dt>수량</dt>
 							<dd>
-								<input name="eachPrice" type="hidden" value="6600" /> <input
-									name="cupItemCd" type="hidden" value="" /> <a class="minus"
-									href="javascript:void(0);">수량 빼기</a> <input name="qty"
-									type="text" value="1" /> <a class="plus"
-									href="javascript:void(0);">수량 더하기</a>
+								<input name="eachPrice" type="hidden" value="${dto.mnprice}" /> 
+								<input name="cupItemCd" type="hidden" value="" /> 
+								<a class="minus" href="javascript:void(0);">수량 빼기</a> 
+								<input name="qty" type="text" value="${dto.cqty}" /> 
+								<a class="plus" href="javascript:void(0);">수량 더하기</a>
 							</dd>
 						</dl>
 
 						<dl class="total_sum">
 							<dt>총 주문금액</dt>
 							<dd>
-								<strong class="eachTotalPrice">6,600</strong> <span>원</span>
+								<strong class="eachTotalPrice">${dto.ctotprice * dto.cqty}</strong> <span>원</span>
 							</dd>
 						</dl>
 					</div>
@@ -163,38 +142,21 @@
 
 				</li>
 			</ul>
-
-			<div class="detail_info wh_box" id="cupDiv" style="display: none;">
-				<strong class="title">일회용컵 보증금</strong>
-				<dl class="detail_list">
-					<dt class="oneCup">
-						<em>추가</em> <span id="oneCup">일회용컵 2개</span>
-					</dt>
-					<dd class="oneCup">
-						<strong id="oneCupAmt">600</strong> <span>원</span>
-					</dd>
-					<dt class="reuseCup">
-						<em>추가</em> <span id="reuseCup">개인컵 1개</span>
-					</dt>
-					<dd class="reuseCup">
-						<strong>0</strong> <span>원</span>
-					</dd>
-				</dl>
-			</div>
-
+			</c:forEach>
 
 			<div class="final_payment wh_box">
 				<dl>
 					<dt>최종 결제 금액</dt>
 					<dd>
-						<strong id="totalPrice">0</strong> <span>원</span>
+						<strong id="totalPrice">
+						${dto.ctotprice * dto.cqty}</strong> <span>원</span>
 					</dd>
 				</dl>
 				<div class="btn_area">
 					<form method="post" name="orderForm">
 						<input name="ordType" type="hidden" value="ORD_TYPE.FAST_SUB" />
-						<input name="storCd" type="hidden" value="64444" /> <input
-							name="paveFg" type="hidden" value="Y" />
+						<input name="storCd" type="hidden" value="64444" /> 
+						<input name="paveFg" type="hidden" value="Y" />
 
 					</form>
 					<a class="btn bgc_white" href="javascript:void(0);" id="addMenu"><span>메뉴추가하기</span></a>

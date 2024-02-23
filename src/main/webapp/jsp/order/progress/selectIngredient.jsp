@@ -75,15 +75,16 @@
 					</ul>
 				</div>
 				<div class="order_con">
-				<form action="cart.do" method="post">
+				<form action="addcart.do" method="post">
 					<table>
 						<tr>
 							<td>빵 길이 선택</td>
 						</tr>
 						<tr>
-							<td><input name="breadLength" type="radio" checked="checked"
-								value="15"> 15cm <input name="breadLength" type="radio"
-								value="30"> 30cm</td>
+							<td>
+								<input name="breadLength" type="radio" checked="checked" value="15"> 15cm 
+								<input name="breadLength" type="radio" value="30"> 30cm
+							</td>
 						</tr>
 						<tr>
 							<td>빵 선택</td>
@@ -91,7 +92,7 @@
 						<tr>
 							<td><c:forEach items="${breadDtos}" var="breadDto"
 									varStatus="status">
-									<input name="bread" type="radio" value="${breadDto.icode}"> ${breadDto.iname}
+									<input name="bread" type="radio" value="${breadDto.iname}"> ${breadDto.iname}
 					</c:forEach></td>
 						</tr>
 						<tr>
@@ -99,8 +100,8 @@
 						</tr>
 						<tr>
 							<td><input name="warm" type="radio" checked="checked"
-								value="hit"> 토스트 <input name="warm" type="radio"
-								value="nothit"> 토스트 안함</td>
+								value="토스트"> 토스트 <input name="warm" type="radio"
+								value="토스트 안함"> 토스트 안함</td>
 						</tr>
 						<tr>
 							<td>치즈 선택</td>
@@ -108,7 +109,7 @@
 						<tr>
 							<td><c:forEach items="${cheeseDtos}" var="cheeseDto"
 									varStatus="status">
-									<input name="cheese" type="radio" value="${cheeseDto.icode}"> ${cheeseDto.iname}
+									<input name="cheese" type="radio" value="${cheeseDto.iname}"> ${cheeseDto.iname}
 					</c:forEach></td>
 						</tr>
 						<tr>
@@ -118,7 +119,7 @@
 							<td><c:forEach items="${vegitableDtos}" var="vegitableDto"
 									varStatus="status">
 									<input name="vegetable${status.count}" type="checkbox"
-										value="${vegitableDto.icode}"> ${vegitableDto.iname}
+										value="${vegitableDto.iname}"> ${vegitableDto.iname}
 					</c:forEach></td>
 						</tr>
 						<tr>
@@ -127,7 +128,7 @@
 						<tr>
 							<td><c:forEach items="${sauceDtos}" var="sauceDto"
 									varStatus="status">
-									<input name="sauce" type="radio" value="${sauceDto.icode}"> ${sauceDto.iname}
+									<input name="sauce" type="radio" value="${sauceDto.iname}"> ${sauceDto.iname}
 					</c:forEach></td>
 						</tr>
 						<tr>
