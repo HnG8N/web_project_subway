@@ -15,6 +15,7 @@ public class OrderDto {
 	String ovegetables;
 	String osauce; 
 	int oprice;
+	int oqty;
 	
 	// Constructor
 	public OrderDto() {
@@ -22,7 +23,7 @@ public class OrderDto {
 	}
 
 	public OrderDto(String omid, int omncode, int olength, String obread, String otoast, String ocheese,
-			String ovegetables, String osauce, int oprice) {
+			String ovegetables, String osauce, int oprice, int oqty) {
 		super();
 		this.omid = omid;
 		this.omncode = omncode;
@@ -33,6 +34,7 @@ public class OrderDto {
 		this.ovegetables = ovegetables;
 		this.osauce = osauce;
 		this.oprice = oprice;
+		this.oqty = oqty;
 	}
 
 	// Method
@@ -106,6 +108,14 @@ public class OrderDto {
 
 	public void setOprice(int oprice) {
 		this.oprice = oprice;
+	}
+
+	public int getOqty() {
+		return oqty;
+	}
+
+	public void setOqty(int oqty) {
+		this.oqty = oqty;
 	}
 	
 }

@@ -31,7 +31,7 @@ public class CartDao {
 
 	// Method
 	public void addCart(String cmid, int cmncode, int clength, String cbread, String ctoast, String ccheese,
-			String cvegetables, String csauce, int ctotprice, int cqty) {
+			String cvegetables, String csauce, int cprice, int cqty) {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -40,7 +40,7 @@ public class CartDao {
 			// data 베이스 연결
 			connection = dataSource.getConnection();
 			// 쿼리 작성
-			String query = "INSERT INTO cart (cmid, cmncode, clength, cbread, ctoast, ccheese, cvegetables, csauce, ctotprice, cqty) "
+			String query = "INSERT INTO cart (cmid, cmncode, clength, cbread, ctoast, ccheese, cvegetables, csauce, cprice, cqty) "
 					+ "			 VALUES (?,?,?,?,?,?,?,?,?,IFNULL(?,0))";
 			
 			// 작성한 쿼리를 데이터 connection을 사용하여 실행
@@ -55,7 +55,7 @@ public class CartDao {
 			preparedStatement.setString(6, ccheese);
 			preparedStatement.setString(7, cvegetables);
 			preparedStatement.setString(8, csauce);
-			preparedStatement.setInt(9, ctotprice);
+			preparedStatement.setInt(9, cprice);
 			preparedStatement.setInt(10, cqty);
 			
 			// 실행
@@ -89,13 +89,13 @@ public class CartDao {
 			try {
 				
 				connection = dataSource.getConnection();	
-				String query ="SELECT c.cseq, c.cmid, c.cmncode, m.mnctg, m.mnname, m.mnimg, m.mnprice, c.clength, c.cbread, c.ctoast, c.ccheese, c.cvegetables, c.csauce, c.ctotprice, c.cqty "
+				String query ="SELECT c.cseq, c.cmid, c.cmncode, m.mnctg, m.mnname, m.mnimg, m.mnprice, c.clength, c.cbread, c.ctoast, c.ccheese, c.cvegetables, c.csauce, c.cprice, c.cqty "
 						+ "FROM cart c, menu m "
 						+ "WHERE c.cmncode = m.mncode "
 						+ " AND c.cmid = '" + cmid + "'";	
 				preparedStatement = connection.prepareStatement(query);
 				resultset = preparedStatement.executeQuery();
-				System.out.println(query);
+//				System.out.println(query);
 				while (resultset.next()) {
 					
 					int cseq = resultset.getInt("cseq"); 
@@ -110,10 +110,10 @@ public class CartDao {
 					String cvegetables = resultset.getString("cvegetables");
 					String ccheese = resultset.getString("ccheese");
 					String csauce = resultset.getString("csauce");
-					int ctotprice = resultset.getInt("ctotprice");
+					int cprice = resultset.getInt("cprice");
 					int cqty = resultset.getInt("cqty");
 					
-					CartDto dto = new CartDto(cseq, cmid, cmncode, mnctg, mnname, mnimg, mnprice, clength, cbread, ctoast, ccheese, cvegetables, csauce, ctotprice, cqty);
+					CartDto dto = new CartDto(cseq, cmid, cmncode, mnctg, mnname, mnimg, mnprice, clength, cbread, ctoast, ccheese, cvegetables, csauce, cprice, cqty);
 					dtos.add(dto);
 				}	
 	                      
@@ -218,5 +218,49 @@ public class CartDao {
 			}
 		}
 		return execnt;
-	}//
+	}// end
+	// 로그인한 사용자의 전화번호 가져오기.
+	public String getTelNo(String mid) {
+		String telno = "";
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultset = null;
+		 
+		try {
+			
+			connection = dataSource.getConnection();
+			
+			String query ="SELECT mtel \n"
+					+ " FROM member \n"
+					+ " WHERE mid ='"+mid+"'";
+
+			preparedStatement = connection.prepareStatement(query);
+			resultset = preparedStatement.executeQuery();
+//						System.out.println(query);
+			while (resultset.next()) {
+				
+				telno = resultset.getString("mtel");
+				
+			}	
+                      
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally { 
+			try {
+				if (resultset != null) {
+					resultset.close();
+				}
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+
+			}
+		}
+		return telno;
+	}
 }
