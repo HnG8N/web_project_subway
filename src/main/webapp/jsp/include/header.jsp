@@ -70,8 +70,8 @@
 					}
 					%>
 					<li class="icon_menu cart on">
-						<!-- 장바구니담았을때 class="on"추가 --> <a href="cart.do"> <span
-							class="blind">장바구니</span> <strong>1</strong>
+						<!-- 장바구니담았을때 class="on"추가 --> <a href="cart.do"> 
+						<span class="blind">장바구니</span>
 					</a>
 					</li>
 					<li class="icon_menu global_subway"><a
