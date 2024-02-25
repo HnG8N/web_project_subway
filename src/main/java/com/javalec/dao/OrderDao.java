@@ -39,10 +39,11 @@ public class OrderDao {
 			// data 베이스 연결
 			connection = dataSource.getConnection();
 			// 쿼리 작성
-			String query = "INSERT INTO orderpurchase (omid, omncode, olength, obread, otoast, ocheese, ovegetables, osauce, oprice, odate) "
-					+ " 						SELECT cmid, cmncode, clength, cbread, ctoast, ccheese, cvegetables, csauce, cprice, NOW() \n"
-					+ "							  FROM cart \n"
-					+ "							 WHERE cmid = '"+cmid+"' AND cseq = " + cseq;
+			String query = "INSERT INTO orderpurchase (omid, omncode, omnname, olength, obread, otoast, ocheese, ovegetables, osauce, oprice, oqty, odate) \n"
+					+ " 						SELECT cmid, cmncode, mn.mnname, clength, cbread, ctoast, ccheese, cvegetables, csauce, cprice, cqty, NOW() \n"
+					+ "							  FROM cart c, menu mn \n"
+					+ "							 WHERE c.cmncode = mn.mncode \n"
+					+ "							   AND cmid = '"+cmid+"' AND cseq = " + cseq;
 
 			// 작성한 쿼리를 데이터 connection을 사용하여 실행
 			preparedStatement = connection.prepareStatement(query);
@@ -163,7 +164,7 @@ public class OrderDao {
 				
 				connection = dataSource.getConnection();
 				
-				String query ="SELECT oseq, omid, omncode, olength, obread, otoast, ocheese, ovegetables, osauce, oprice, oqty, odate \n"
+				String query ="SELECT oseq, omid, omncode, omnname, olength, obread, otoast, ocheese, ovegetables, osauce, oprice, oqty, odate \n"
 						+ "FROM orderpurchase \n"
 						+ " WHERE omid ='"+mid+"' AND odate>curdate()";
 
@@ -172,8 +173,10 @@ public class OrderDao {
 //					System.out.println(query);
 				while (resultset.next()) {
 					
+					int oseq = resultset.getInt("oseq"); 
 					String omid = resultset.getString("omid");
 					int omncode = resultset.getInt("omncode"); 
+					String omnname = resultset.getString("omnname"); 
 					int olength = resultset.getInt("olength"); 
 					String obread = resultset.getString("obread");
 					String otoast = resultset.getString("otoast");
@@ -181,9 +184,9 @@ public class OrderDao {
 					String ovegetables = resultset.getString("ovegetables");
 					String osauce = resultset.getString("osauce");
 					int oprice = resultset.getInt("oprice"); 
-					int oseq = resultset.getInt("oseq"); 
+					int oqty = resultset.getInt("oqty"); 
 					
-					OrderDto dto = new OrderDto(omid, omncode, olength, obread, otoast, ocheese, ovegetables, osauce, oprice, oseq);
+					OrderDto dto = new OrderDto(oseq, omid, omncode, omnname, olength, obread, otoast, ocheese, ovegetables, osauce, oprice, oqty);
 					
 					dtos.add(dto);
 				}	

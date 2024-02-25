@@ -142,9 +142,10 @@ var cart = {
 
 			// 주문 실행
 			data.cartUpdate("GetOrderNum", {"cartIdxArr[]" : cartIdxArr, "cartType" : $(this).data("cart-type")}, function(data) {
-			 	 //alert("return data : "+data);
+			 	//alert("return data : "+data);
 				if(data != null) {
-					location.href = "gotoOrder.do"
+					data = data.replace(/"/g, '');
+					location.href = "gotoOrder.do?ordNo="+data;
 				}
 			});
 		}

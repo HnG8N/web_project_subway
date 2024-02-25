@@ -107,11 +107,10 @@
 							</div>
 							<div class="input_set">
 								<dl class="">
-									<dt>주문시, 요청사항</dt>
+									<dt>주문 번호 </dt>
 									<dd>
-										<span class="form_text"> <input maxlength="50"
-											name="ordMemoContent" placeholder="주문시 요청사항을 입력하세요"
-											type="text" />
+										<span class="form_text"> 
+										<input maxlength="50" id="ordNo" name="ordNo" type="text" value="${ordNo}" />
 										</span>
 									</dd>
 									<!-- #220413 문구 추가건 홀딩

@@ -6,8 +6,10 @@ package com.javalec.dto;
  * ---------------------------------------- */
 public class OrderDto {
 	// Field
+	int oseq;
 	String omid; 
 	int omncode; 
+	String omnname;
 	int olength; 
 	String obread; 
 	String otoast; 
@@ -22,11 +24,13 @@ public class OrderDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrderDto(String omid, int omncode, int olength, String obread, String otoast, String ocheese,
+	public OrderDto(int oseq, String omid, int omncode, String omnname, int olength, String obread, String otoast, String ocheese,
 			String ovegetables, String osauce, int oprice, int oqty) {
 		super();
+		this.oseq = oseq;
 		this.omid = omid;
 		this.omncode = omncode;
+		this.omnname = omnname;
 		this.olength = olength;
 		this.obread = obread;
 		this.otoast = otoast;
@@ -35,6 +39,14 @@ public class OrderDto {
 		this.osauce = osauce;
 		this.oprice = oprice;
 		this.oqty = oqty;
+	}
+
+	public int getOseq() {
+		return oseq;
+	}
+
+	public void setOseq(int oseq) {
+		this.oseq = oseq;
 	}
 
 	// Method
@@ -52,6 +64,14 @@ public class OrderDto {
 
 	public void setOmncode(int omncode) {
 		this.omncode = omncode;
+	}
+
+	public String getOmnname() {
+		return omnname;
+	}
+
+	public void setOmnname(String omnname) {
+		this.omnname = omnname;
 	}
 
 	public int getOlength() {

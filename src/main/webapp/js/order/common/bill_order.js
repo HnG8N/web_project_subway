@@ -6,7 +6,8 @@ var bill  = {
 	
 	// 주문하기
 	startOrder : function() {
-		
+		var ordNo = document.getElementById("ordNo").value;
+		//alert(ordNo);
 		 // 결제수단 벨리데이션
         if (!bill.checkPayMethVal()) {
             // $('#payTrial').val("N");
@@ -37,7 +38,7 @@ var bill  = {
 			success: function (result) {
 				if(result>0){
 					alert("주문이 완료 되었습니다.");
-					location.href = "confirmOrder.do"// 마이페이지에서 주문내역을 볼 수 있으면 mypage.do로 변경하기.
+					location.href = "confirmOrder.do?ordNo="+ordNo// 마이페이지에서 주문내역을 볼 수 있으면 mypage.do로 변경하기.
 				}
 			},
 			error: function (xhr, ajaxOptions, thrownError) {
@@ -49,6 +50,7 @@ var bill  = {
 	
 	// 결제수단 벨리데이션 체크
 	checkPayMethVal : function() {
+		var flag = true;
 
 		// 약관 미동의시
 		if ($('#paymentAgree:checked').val() != 'Y') {
