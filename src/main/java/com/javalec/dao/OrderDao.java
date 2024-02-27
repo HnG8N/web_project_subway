@@ -122,7 +122,7 @@ public class OrderDao {
 						+ "		FROM ("
 						+ "			SELECT MAX(CAST(oseq AS SIGNED))+1 AS SEQ FROM orderpurchase "
 						+ "		) AA "
-						+ "		WHERE AA.SEQ LIKE CONCAT(DATE_FORMAT(NOW(), '%y%m%d'), '%'); ";
+						+ "		WHERE AA.SEQ LIKE CONCAT(DATE_FORMAT(NOW(), '%y%m%d'), '%') ";
 
 				preparedStatement = connection.prepareStatement(query);
 				resultset = preparedStatement.executeQuery();
