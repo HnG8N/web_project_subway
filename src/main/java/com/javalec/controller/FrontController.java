@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.javalec.command.AddCartCommand;
 import com.javalec.command.CartCommand;
 import com.javalec.command.Command;
+import com.javalec.command.ConfirmOrderCommand;
 import com.javalec.command.DeleteInfoCommand;
 import com.javalec.command.LoginCommand;
 import com.javalec.command.MenuDetailCommand;
@@ -367,7 +368,8 @@ public class FrontController extends HttpServlet {
 			viewPage = "/jsp/cart/fastsub.jsp";
 			break;
 			
-			// 	[장바구니]	
+		// 	[장바구니]	
+		// 	장바구니에 추가하기.
 		case ("/addcart.do"):	
 			command = new AddCartCommand();
 			command.execute(request, response);
@@ -377,12 +379,22 @@ public class FrontController extends HttpServlet {
 		// 	[온라인 주문]
 		// 	[FAST_SUB-STEP3] 
 		//	[주문하기]
-		case ("/checkout.do"):	
+		// 	주문에 필요한 정보 가져오기.
+		case ("/gotoOrder.do"):	
 			command = new OrderCommand();
 			command.execute(request, response);
 			viewPage = "/jsp/order/progress/bill/checkout.jsp";
 			break;
-		
+			
+		// 	[온라인 주문]
+		// 	[FAST_SUB-STEP3] 
+		//	[주문하기]
+		// 	주문완료 하면서 주문 DB에 저장하고 장바구니 삭제하고 로그인한 사용자의 구매내역 페이지로 이동하게 해야함.(현재는 주문완료 확인하는 페이지로 이동)
+		case ("/confirmOrder.do"):	
+			command = new ConfirmOrderCommand();
+			command.execute(request, response);
+			viewPage = "/jsp/order/progress/bill/confirmOrder.jsp";
+			break;		
 		
 		//	[게시판]
 		// 	FAQ

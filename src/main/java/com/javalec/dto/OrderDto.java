@@ -6,8 +6,10 @@ package com.javalec.dto;
  * ---------------------------------------- */
 public class OrderDto {
 	// Field
+	int oseq;
 	String omid; 
 	int omncode; 
+	String omnname;
 	int olength; 
 	String obread; 
 	String otoast; 
@@ -15,17 +17,20 @@ public class OrderDto {
 	String ovegetables;
 	String osauce; 
 	int oprice;
+	int oqty;
 	
 	// Constructor
 	public OrderDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrderDto(String omid, int omncode, int olength, String obread, String otoast, String ocheese,
-			String ovegetables, String osauce, int oprice) {
+	public OrderDto(int oseq, String omid, int omncode, String omnname, int olength, String obread, String otoast, String ocheese,
+			String ovegetables, String osauce, int oprice, int oqty) {
 		super();
+		this.oseq = oseq;
 		this.omid = omid;
 		this.omncode = omncode;
+		this.omnname = omnname;
 		this.olength = olength;
 		this.obread = obread;
 		this.otoast = otoast;
@@ -33,6 +38,15 @@ public class OrderDto {
 		this.ovegetables = ovegetables;
 		this.osauce = osauce;
 		this.oprice = oprice;
+		this.oqty = oqty;
+	}
+
+	public int getOseq() {
+		return oseq;
+	}
+
+	public void setOseq(int oseq) {
+		this.oseq = oseq;
 	}
 
 	// Method
@@ -50,6 +64,14 @@ public class OrderDto {
 
 	public void setOmncode(int omncode) {
 		this.omncode = omncode;
+	}
+
+	public String getOmnname() {
+		return omnname;
+	}
+
+	public void setOmnname(String omnname) {
+		this.omnname = omnname;
 	}
 
 	public int getOlength() {
@@ -106,6 +128,14 @@ public class OrderDto {
 
 	public void setOprice(int oprice) {
 		this.oprice = oprice;
+	}
+
+	public int getOqty() {
+		return oqty;
+	}
+
+	public void setOqty(int oqty) {
+		this.oqty = oqty;
 	}
 	
 }

@@ -37,16 +37,23 @@ public class Checkout extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		String cmid = ((String)session.getAttribute("userId")==null)? "james" : (String)session.getAttribute("userId");
-//		int cseq = Integer.parseInt(request.getParameter("cartIdx"));
-		String cartIdxArr[] = request.getParameterValues("cartIdxArr[]");
-//		System.out.println(cartIdxArr.length);
-		int execnt = 0;
-		for(int i=0; i<cartIdxArr.length; i++) {
-			OrderDao dao = new OrderDao();
-			execnt += dao.addOrder(Integer.parseInt(cartIdxArr[i]), cmid);
+
+		String itemIdxArr[] = request.getParameterValues("itemIndexArray[]");
+//		System.out.println("itemIdxArr : " + itemIdxArr.length);
+		int execnt = 0, exeDelCartCnt = 0;
+		OrderDao dao = new OrderDao();
+
+		for(int i=0; i<itemIdxArr.length; i++) {	 // 주문정보 orderpurchase DB에 입력. 
+//			System.out.println(itemIdxArr[i]);
+			execnt += dao.addOrder(Integer.parseInt(itemIdxArr[i]), cmid);
+		}
+		if(execnt>0) {	// 입력하고 나서 장바구니에 담은 내역 삭제. 
+			for(int i=0; i<itemIdxArr.length; i++) {
+				exeDelCartCnt += dao.deleteCartItem(Integer.parseInt(itemIdxArr[i]), cmid);
+			}
 		}
 		// 변경되었는지 확인하고 결과를 전송.
-		String json = new Gson().toJson(execnt);
+		String json = new Gson().toJson(exeDelCartCnt);
 		PrintWriter out = response.getWriter();
 		out.print(json);
 
