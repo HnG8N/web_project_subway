@@ -3,11 +3,6 @@ package com.javalec.dto;
  *  Description : MenuDto
  *  Date        : 2024.02.15(Thr) ver1.0 : 파일생성.
  *  Author      : sujin
- *  c.cseq, c.cmid, c.cmncode, c.clength, c.cbread, c.ctoast, c.cvegetables, c.csauce, c.ctotprice, c.cqty, m.mnctg
- *  select c.cseq, c.cmid, c.cmncode, c.clength, c.cbread, c.ctoast, c.cvegetables, c.csauce, c.ctotprice, c.cqty, 
- *  	m.mnctg, m.mnname, m.mnimg, m.mnprice  
-from cart c, menu m
-where c.cmncode = m.mncode;
  * ---------------------------------------- */
 public class CartDto {
 	// Field
@@ -26,7 +21,7 @@ public class CartDto {
 	String ccheese; 
 	String cvegetables;
 	String csauce; 
-	int ctotprice;
+	int cprice;
 	int cqty;
 	
 	// Constructor
@@ -36,7 +31,7 @@ public class CartDto {
 	
 	// 데이터 입력을 위한 생성자.
 	public CartDto(String cmid, int cmncode, int clength, String cbread, String ctoast, String ccheese,
-			String cvegetables, String csauce, int ctotprice, int cqty) {
+			String cvegetables, String csauce, int cprice, int cqty) {
 		super();
 		this.cmid = cmid;
 		this.cmncode = cmncode;
@@ -46,13 +41,13 @@ public class CartDto {
 		this.ccheese = ccheese;
 		this.cvegetables = cvegetables;
 		this.csauce = csauce;
-		this.ctotprice = ctotprice;
+		this.cprice = cprice;
 		this.cqty = cqty;
 	}
 
 	// 데이터를 가져오기 위한 생성자.
 	public CartDto(int cseq, String cmid, int cmncode, String mnctg, String mnname, String mnimg, int mnprice,
-			int clength, String cbread, String ctoast, String ccheese, String cvegetables, String csauce, int ctotprice,
+			int clength, String cbread, String ctoast, String ccheese, String cvegetables, String csauce, int cprice,
 			int cqty) {
 		super();
 		this.cseq = cseq;
@@ -68,7 +63,7 @@ public class CartDto {
 		this.ccheese = ccheese;
 		this.cvegetables = cvegetables;
 		this.csauce = csauce;
-		this.ctotprice = ctotprice;
+		this.cprice = cprice;
 		this.cqty = cqty;
 	}
 
@@ -175,13 +170,14 @@ public class CartDto {
 	public void setCsauce(String csauce) {
 		this.csauce = csauce;
 	}
+	
 
-	public int getCtotprice() {
-		return ctotprice;
+	public int getCprice() {
+		return cprice;
 	}
 
-	public void setCtotprice(int ctotprice) {
-		this.ctotprice = ctotprice;
+	public void setCprice(int cprice) {
+		this.cprice = cprice;
 	}
 
 	public int getCqty() {
